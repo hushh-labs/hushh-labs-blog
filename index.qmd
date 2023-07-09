@@ -4,6 +4,6 @@ title: "Hushh Labs"
 
 <!-- write some markdown saying that more content is coming soon. -->
 
-More content coming soon! Stay tuned.
+More content coming soon! Stay tuned...
 
 
