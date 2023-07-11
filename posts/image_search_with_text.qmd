@@ -5,9 +5,8 @@ author: "Justin Donaldson"
 date: "7/10/2023"
 
 categories:
-  - news
-  - code
-  - analysis
+  - search
+  - embeddings
 ---
 
 
