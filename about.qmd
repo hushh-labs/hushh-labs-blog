@@ -7,9 +7,15 @@ about:
     - icon: linkedin
       text: Linkedin
       href: https://www.linkedin.com/company/hushh-ai
-    - icon: gitlab
+    - icon: git
       text: Gitlab
       href: https://gitlab.com/hushh_labs
+    - icon: huggingface
+      text: HuggingFace
+      href: https://huggingface.co/spaces/jdonaldson/hushh
+    - icon: eye
+      text: ObservableHQ
+      href: https://observablehq.com/@hushh
 ---
 <!-- Write a markdown document about hushh labs.-->
 <!-- Hushh labs explores the potential in the intersection of AI and privacy. -->

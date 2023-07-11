@@ -3,10 +3,11 @@ project:
   output-dir: public
 
 website:
+  google-analytics: "G-WBK4GY6RXB"
   navbar:
     logo: "assets/logo.svg"
     logo-alt: "Hushh.ai"
-    logo-href: "https://www.hush.ai"
+    logo-href: "https://hush1one.com/"
     left:
       - href: index.qmd
         text: Home
