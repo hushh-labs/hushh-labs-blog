@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Harshvardhan, Justin Donaldson, Manish Sainani">
+<meta name="dcterms.date" content="2023-07-11">
+<meta name="description" content="Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?">
 
-<title>Hushh Labs</title>
+<title>A Survey on Language Models and Related Data Privacy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,35 +62,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WBK4GY6RXB"></script>
 
 <script type="text/javascript">
@@ -100,10 +72,8 @@ gtag('js', new Date());
 gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -114,7 +84,7 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a href="https://hush1one.com/" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/logo.svg" alt="Hushh.ai" class="navbar-logo">
+    <img src="../assets/logo.svg" alt="Hushh.ai" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -124,11 +94,11 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -143,21 +113,52 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="LLM">LLM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ML">ML <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Privacy">Privacy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="embeddings">embeddings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fashion">fashion <span class="quarto-category-count">(1)</span></div><div class="category" data-category="search">search <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vision">vision <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-survey-on-language-models-and-related-data-privacy" id="toc-a-survey-on-language-models-and-related-data-privacy" class="nav-link active" data-scroll-target="#a-survey-on-language-models-and-related-data-privacy">A Survey on Language Models and Related Data Privacy</a>
+  <ul class="collapse">
+  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#discussions-on-language-models" id="toc-discussions-on-language-models" class="nav-link" data-scroll-target="#discussions-on-language-models">Discussions on Language Models</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hushh Labs</h1>
-</div>
+<h1 class="title">A Survey on Language Models and Related Data Privacy</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">LLM</div>
+    <div class="quarto-category">Privacy</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harshvardhan, Justin Donaldson, Manish Sainani </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 11, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -165,136 +166,29 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 
 </header>
 
-<!-- write some markdown saying that more content is coming soon. -->
-<p>More content coming soon! Stay tuned…</p>
+<section id="a-survey-on-language-models-and-related-data-privacy" class="level1">
+<h1>A Survey on Language Models and Related Data Privacy</h1>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>This research survey paper delves into the current revolution of Language models, specifically Large Language models (LLMs) and Fine-tuned models(FTMs). It explores the accessibility of these models across various domains of work while emphasizing the importance of privacy concerns when interacting with on-cloud LLMs. The study examines the influence of pre-training data, training data, and test data on the performance and capabilities of language models. Furthermore, it provides a comprehensive analysis of the potential use cases and limitations of large language models in different natural language processing tasks. These tasks include knowledgeintensive tasks, traditional natural language understanding tasks, natural language generation tasks, emergent abilities, and specific task considerations. Given that training models often require extensive and representative datasets, which may contain sensitive information, it becomes crucial to protect user privacy. The paper discusses algorithmic techniques for learning and conducts refined analysis of privacy costs within the framework of differential privacy. It explores interrelated concepts associated with differential privacy, such as privacy loss, mechanisms of differential privacy, local and centralized differential privacy, and the applications of differential privacy in statistics, machine learning, and federated learning. By addressing the aforementioned aspects, this survey paper contributes to the understanding of language models’ revolution, their accessibility across domains, privacy concerns, and the incorporation of differential privacy to mitigate privacy risks.</p>
+</section>
+<section id="discussions-on-language-models" class="level2">
+<h2 class="anchored" data-anchor-id="discussions-on-language-models">Discussions on Language Models</h2>
+<p>Lets start from the very basics, Large Language model, which in recent times have been in treads have its roots in Natural Language processing.The subject of research known as “Natural Language Processing” (NLP) focuses on how computers can comprehend and interact with human language. It entails training computers to comprehend, decipher, and produce human language in a manner akin to how we humans speak. Language models like GPT are a significant NLP application. By analyzing a sizable amount of training data, LLMs are created to comprehend and produce writing that resembles that of humans. They develop an understanding of the structure, syntax, and meaning of words and phrases, which enables them to produce coherent and appropriately situated replies.\ To understand the abilities of large language models (LLMs), we compare them with fine-tuned models. LLMs are really big language models that are trained on lots of data without being specifically adjusted for particular tasks. On the other hand, fine-tuned models are usually smaller language models that are also trained and then further adjusted on a smaller dataset that focuses on a specific task. In simple terms, fine-tuned models are more specialized and optimized for specific tasks compared to LLMs.</p>
+<p>Now, let’s talk about some practical applications of language models. One important application is natural language understanding. LLMs are really good at understanding and making sense of human language, even when they encounter new or unfamiliar data. This makes them useful for tasks that involve understanding language in different contexts or with very little training data.</p>
+<p>Another application is natural language generation. LLMs have the ability to generate text that is coherent, relevant, and of high quality. This can be utilized in various applications where we need computers to create text, such as writing articles, generating chatbot responses, or even creating stories.</p>
+<p>Language models are also helpful in knowledge-intensive tasks. LLMs have been trained on vast amounts of data, so they store a lot of knowledge about different domains or general information about the world. This knowledge can be used to assist in tasks that require specific expertise or general understanding.</p>
+<p>Lastly, language models can improve reasoning abilities. LLMs are designed to understand patterns and relationships in language, which can be useful for decision-making and problem-solving in different situations. By utilizing the reasoning capabilities of LLMs, we can enhance our ability to make better decisions and solve complex problems.</p>
+<p>In the realm of large language models (LLMs), researchers employ different training strategies, model architectures, and use cases. To better understand them, these models can be classified into two main categories: encoder-only language models and decoder-only language models.</p>
+<p>Encoder-only language models, also known as Encoder-Decoder models or BERT-style language models, are utilized when there is readily available natural language data. These models are trained using a technique called the Masked Language Model, where the model predicts masked words in a sentence while considering the surrounding context. This training approach allows the model to develop a deeper understanding of the relationships between words and the context in which they are used. These models typically employ the Transformer architecture, a powerful deep learning model that excels at processing and comprehending natural language.</p>
+<p>On the other hand, decoder-only language models, such as GPT-style language models, are designed to understand and generate human-like text. These models analyze patterns from a large amount of training data and predict what comes next in a given sequence of words. Unlike encoder-only models, decoder-only models focus on generating text rather than understanding it in a conversational context. They can be employed for tasks like generating creative writing, answering questions, or assisting with language-related tasks. These models are trained as Autoregressive Language Models, where they generate the next word in a sequence based on the preceding words. This type of training, combined with the ability to learn from prompts and in-context information, demonstrates the superiority of autoregressive language models.</p>
+<p>Apdditionally, both encoder-only and decoder-only models benefit from few-shot and zero-shot learning. Few-shot learning enables the models to learn new things with just a few examples, while zero-shot learning allows them to learn completely new concepts without any examples at all. These approaches enable the models to perform well on tasks they haven’t been explicitly trained for, leveraging prior knowledge and transferring knowledge from related tasks.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="LLM,Privacy" data-listing-date-sort="1689058800000" data-listing-file-modified-sort="1689112511317" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
-<div class="thumbnail">
-<p><a href="./posts/survey_on_llm_privacy.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/survey_on_llm_privacy.html">
-<h3 class="no-anchor listing-title">
-A Survey on Language Models and Related Data Privacy
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLM'); return false;">
-LLM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Privacy'); return false;">
-Privacy
-</div>
-</div>
-<a href="./posts/survey_on_llm_privacy.html">
-<div class="listing-description">
-<p>Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/survey_on_llm_privacy.html">
-<div class="listing-date">
-Jul 11, 2023
-</div>
-<div class="listing-author">
-Harshvardhan, Justin Donaldson, Manish Sainani
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="fashion,ML,vision" data-listing-date-sort="1689058800000" data-listing-file-modified-sort="1689111190771" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/logo_analysis.html"> <p class="card-img-top"><img src="posts/images/logos.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/logo_analysis.html">
-<h3 class="no-anchor listing-title">
-Logo Analysis for Brand Affinity
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('fashion'); return false;">
-fashion
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ML'); return false;">
-ML
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('vision'); return false;">
-vision
-</div>
-</div>
-<a href="./posts/logo_analysis.html">
-<div class="listing-description">
-<p>Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/logo_analysis.html">
-<div class="listing-date">
-Jul 11, 2023
-</div>
-<div class="listing-author">
-Justin Donaldson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="search,embeddings" data-listing-date-sort="1688972400000" data-listing-file-modified-sort="1689111190767" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="thumbnail">
-<p><a href="./posts/image_search_with_text.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/image_search_with_text.html">
-<h3 class="no-anchor listing-title">
-Searching images using text
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('search'); return false;">
-search
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('embeddings'); return false;">
-embeddings
-</div>
-</div>
-<a href="./posts/image_search_with_text.html">
-<div class="listing-description">
-<p>Using text to search images related to fashion</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/image_search_with_text.html">
-<div class="listing-date">
-Jul 10, 2023
-</div>
-<div class="listing-author">
-Justin Donaldson
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
