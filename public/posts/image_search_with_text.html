@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Justin Donaldson">
+<meta name="dcterms.date" content="2023-07-10">
+<meta name="description" content="Using text to search images related to fashion">
 
-<title>Hushh Labs</title>
+<title>Searching images using text</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,35 +62,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WBK4GY6RXB"></script>
 
 <script type="text/javascript">
@@ -100,10 +72,8 @@ gtag('js', new Date());
 gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -114,7 +84,7 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a href="https://hush1one.com/" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/logo.svg" alt="Hushh.ai" class="navbar-logo">
+    <img src="../assets/logo.svg" alt="Hushh.ai" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -124,11 +94,11 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -143,21 +113,53 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#leveraging-llm-embeddings-for-image-search-in-luxury-fashion-a-breakthrough-beyond-tfidf" id="toc-leveraging-llm-embeddings-for-image-search-in-luxury-fashion-a-breakthrough-beyond-tfidf" class="nav-link active" data-scroll-target="#leveraging-llm-embeddings-for-image-search-in-luxury-fashion-a-breakthrough-beyond-tfidf">Leveraging LLM Embeddings for Image Search in Luxury Fashion: A Breakthrough Beyond TF/IDF</a>
+  <ul class="collapse">
+  <li><a href="#unleashing-the-potential-of-llm-embeddings" id="toc-unleashing-the-potential-of-llm-embeddings" class="nav-link" data-scroll-target="#unleashing-the-potential-of-llm-embeddings">Unleashing the Potential of LLM Embeddings</a></li>
+  <li><a href="#the-superiority-of-llm-embeddings-in-luxury-fashion-image-search" id="toc-the-superiority-of-llm-embeddings-in-luxury-fashion-image-search" class="nav-link" data-scroll-target="#the-superiority-of-llm-embeddings-in-luxury-fashion-image-search">The Superiority of LLM Embeddings in Luxury Fashion Image Search</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hushh Labs</h1>
-</div>
+<h1 class="title">Searching images using text</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">news</div>
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Using text to search images related to fashion
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Justin Donaldson </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 10, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -165,60 +167,29 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 
 </header>
 
-<!-- write some markdown saying that more content is coming soon. -->
-<p>More content coming soon! Stay tuned…</p>
+<section id="leveraging-llm-embeddings-for-image-search-in-luxury-fashion-a-breakthrough-beyond-tfidf" class="level1">
+<h1>Leveraging LLM Embeddings for Image Search in Luxury Fashion: A Breakthrough Beyond TF/IDF</h1>
+<p>In the realm of luxury fashion, image search plays a pivotal role in discovering visually stunning and high-end products. While traditional TF/IDF (Term Frequency-Inverse Document Frequency) search has been a go-to method, the recent emergence of text-generated Large Language Model (LLM) embeddings for image search has revolutionized the way we explore luxury fashion. This cutting-edge approach surpasses the limitations of TF/IDF search, empowering users to find the epitome of elegance and style effortlessly.</p>
+<section id="unleashing-the-potential-of-llm-embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="unleashing-the-potential-of-llm-embeddings">Unleashing the Potential of LLM Embeddings</h2>
+<p>Large Language Models, such as GPT-3.5, possess remarkable natural language processing capabilities. Trained on massive amounts of textual data, these models acquire a deep understanding of language nuances, syntax, and semantics. LLM embeddings are numerical representations derived from text, capturing the intricate contextual information inherent in sentences, paragraphs, or documents.</p>
+</section>
+<section id="the-superiority-of-llm-embeddings-in-luxury-fashion-image-search" class="level2">
+<h2 class="anchored" data-anchor-id="the-superiority-of-llm-embeddings-in-luxury-fashion-image-search">The Superiority of LLM Embeddings in Luxury Fashion Image Search</h2>
+<p>By harnessing the power of LLM embeddings, we unlock a myriad of advantages that transform the landscape of luxury fashion image search:</p>
+<ol type="1">
+<li><p>Enhanced Semantic Relevance LLM embeddings encapsulate a profound comprehension of language semantics, leading to remarkably accurate search results. In the context of luxury fashion, where precision and exquisite details matter, LLM embeddings grasp the subtle nuances and connotations associated with high-end fashion. This semantic awareness ensures that search results align with the desired level of opulence, refinement, and aesthetic appeal.</p></li>
+<li><p>Fashion-Specific Vocabulary and Concepts Luxury fashion is an industry replete with distinct terminologies and industry-specific jargon. Traditional TF/IDF search may struggle to capture the essence of these nuanced fashion terms, leading to suboptimal search outcomes. Conversely, LLM embeddings excel in comprehending fashion-specific vocabulary, recognizing brand names, fashion trends, and intricate design elements. This prowess enables users to delve into the world of luxury fashion with unparalleled accuracy.</p></li>
+<li><p>Context-Aware Search In the realm of luxury fashion, context plays a pivotal role in understanding the true essence of a product. LLM embeddings excel at capturing the contextual information present in textual descriptions or queries, leading to more refined and contextually appropriate image search results. Users can now effortlessly explore images that encapsulate the desired style, occasion, or fashion statement, ensuring a seamless and personalized luxury fashion journey.</p></li>
+<li><p>Uniting Text and Visuals The marriage of text and visuals is at the heart of luxury fashion image search. LLM embeddings act as a bridge, facilitating a seamless connection between the textual descriptions and the visual representation of fashion products. By leveraging LLM embeddings, users can effortlessly navigate the realm of luxury fashion, exploring visually captivating images that align with their refined tastes and preferences.</p></li>
+</ol>
+<p>In conclusion, the use of LLM embeddings for luxury fashion image search transcends the limitations of conventional TF/IDF search. By harnessing the semantic understanding, fashion-specific vocabulary, and contextual awareness ingrained in LLM embeddings, users can embark on a visually enchanting journey through the world of luxury fashion. Experience the epitome of elegance and style like never before, with LLM-powered image search in luxury fashion.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="news,code,analysis" data-listing-date-sort="1688972400000" data-listing-file-modified-sort="1689053344874" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="thumbnail">
-<p><a href="./posts/image_search_with_text.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/image_search_with_text.html">
-<h3 class="no-anchor listing-title">
-Searching images using text
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
-</div>
-</div>
-<a href="./posts/image_search_with_text.html">
-<div class="listing-description">
-<p>Using text to search images related to fashion</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/image_search_with_text.html">
-<div class="listing-date">
-Jul 10, 2023
-</div>
-<div class="listing-author">
-Justin Donaldson
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

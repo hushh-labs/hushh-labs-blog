@@ -3,6 +3,10 @@ title: "Hushh Labs"
 listing:
   # (additional metadata excluded for brevity)
   categories: true
+  contents: posts
+  sort : 'date desc'
+  type : default
+
 ---
 
 <!-- write some markdown saying that more content is coming soon. -->
