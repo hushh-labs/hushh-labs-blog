@@ -1,5 +1,8 @@
 ---
 title: "Hushh Labs"
+listing:
+  # (additional metadata excluded for brevity)
+  categories: true
 ---
 
 <!-- write some markdown saying that more content is coming soon. -->
