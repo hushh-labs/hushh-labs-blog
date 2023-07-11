@@ -8,7 +8,8 @@ categories:
   - LLM
   - Privacy
 ---
-# A Survey on Language Models and Related Data Privacy
+
+![AI Privacy](images/omgjjd_data_privacy_AI_home_secure_f87b681d-8207-46b6-adf4-4e2981b09f18.png)
 
 ## Abstract
 

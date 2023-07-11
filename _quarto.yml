@@ -3,7 +3,7 @@ project:
   output-dir: public
 
 website:
-  favicon: "https://hush1one.com/assets/images/fav-icon.ico"
+  favicon: "assets/fav-icon.ico"
   google-analytics: "G-WBK4GY6RXB"
   navbar:
     logo: "assets/logo.svg"
