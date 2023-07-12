@@ -6,11 +6,8 @@ listing:
   contents: posts
   sort : 'date desc'
   type : default
+  feed : true
 
 ---
-
-<!-- write some markdown saying that more content is coming soon. -->
-
-More content coming soon! Stay tuned...
 
 

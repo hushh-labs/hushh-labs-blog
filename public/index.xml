@@ -1,182 +1,27 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Harshvardhan, Justin Donaldson, Manish Sainani">
-<meta name="dcterms.date" content="2023-07-11">
-<meta name="description" content="Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?">
-
-<title>Hushh Labs - A Survey on Language Models and Related Data Privacy</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-</style>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Hushh Labs</title>
+<link>https://hushh_labs.gitlab.io/gitlab-profile/index.html</link>
+<atom:link href="https://hushh_labs.gitlab.io/gitlab-profile/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.3.433</generator>
+<lastBuildDate>Tue, 11 Jul 2023 07:00:00 GMT</lastBuildDate>
+<item>
+  <title>A Survey on Language Models and Related Data Privacy</title>
+  <dc:creator>Harshvardhan, Justin Donaldson, Manish Sainani</dc:creator>
+  <link>https://hushh_labs.gitlab.io/gitlab-profile/posts/survey_on_llm_privacy.html</link>
+  <description><![CDATA[ 
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../assets/fav-icon.ico" rel="icon">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WBK4GY6RXB"></script>
-
-<script type="text/javascript">
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
-</script>
-
-
-<link rel="stylesheet" href="../styles.css">
-</head>
-
-<body class="nav-fixed">
-
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a href="https://hush1one.com/" class="navbar-brand navbar-brand-logo">
-    <img src="../assets/logo.svg" alt="Hushh.ai" class="navbar-logo">
-    </a>
-    <a class="navbar-brand" href="https://hush1one.com/">
-    <span class="navbar-title">Hushh Labs</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="../index.xml" rel="" target=""><i class="bi bi-rss" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-</ul>
-            <div class="quarto-navbar-tools">
-</div>
-          </div> <!-- /navcollapse -->
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
-  <li><a href="#discussions-on-language-models" id="toc-discussions-on-language-models" class="nav-link" data-scroll-target="#discussions-on-language-models">Discussions on Language Models</a></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">A Survey on Language Models and Related Data Privacy</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">LLM</div>
-    <div class="quarto-category">Privacy</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?
-  </div>
-</div>
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Harshvardhan, Justin Donaldson, Manish Sainani </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 11, 2023</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-</header>
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/omgjjd_data_privacy_AI_home_secure_f87b681d-8207-46b6-adf4-4e2981b09f18.png" class="img-fluid figure-img"></p>
+<p><img src="https://hushh_labs.gitlab.io/gitlab-profile/posts/images/omgjjd_data_privacy_AI_home_secure_f87b681d-8207-46b6-adf4-4e2981b09f18.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">AI Privacy</figcaption>
 </figure>
 </div>
@@ -199,8 +44,50 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 
 </section>
 
+ ]]></description>
+  <category>LLM</category>
+  <category>Privacy</category>
+  <guid>https://hushh_labs.gitlab.io/gitlab-profile/posts/survey_on_llm_privacy.html</guid>
+  <pubDate>Tue, 11 Jul 2023 07:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Logo Analysis for Brand Affinity</title>
+  <dc:creator>Justin Donaldson</dc:creator>
+  <link>https://hushh_labs.gitlab.io/gitlab-profile/posts/logo_analysis.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="understanding-customer-preferences-with-hushhs-computer-vision-platform" class="level1">
+<h1>Understanding Customer Preferences with Hushh’s Computer Vision Platform</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hushh_labs.gitlab.io/gitlab-profile/posts/images/logos.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Logo Analysis</figcaption>
+</figure>
+</div>
+<p>In today’s digital age, retailers are constantly seeking innovative ways to better understand their customers and build brand affinity. One powerful tool that is revolutionizing the retail industry is Hushh, a customer wallet platform that utilizes machine learning to analyze personal images and identify brand logos. By leveraging the power of computer vision and deep learning algorithms, Hushh provides retailers with valuable insights into customer preferences and behavior.</p>
+<section id="how-does-hushh-logo-analysis-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-does-hushh-logo-analysis-work">How Does Hushh Logo Analysis Work?</h2>
+<p>Hushh’s computer vision platform uses a combination of deep learning and computer vision techniques to identify logos in personal images. Whether it’s a logo on clothing, accessories, or products, Hushh can detect and analyze it. Once the logo is identified, the platform then determines the brand associated with it.</p>
+</section>
+<section id="capturing-brand-preference-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="capturing-brand-preference-over-time">Capturing Brand Preference Over Time</h2>
+<p>One of the key features of Hushh is its ability to track customer preferences over time. By analyzing personal images and customer sentiment, the platform provides retailers with valuable insights into how customer preferences evolve. This information is crucial for retailers to tailor their marketing strategies and offerings accordingly.</p>
+<p>Brands are a powerful way for users to express their personal preferences publicly. By capturing brand preference over time, retailers can gain a deeper and more immediate insight into what a customer is interested in when they arrive at the store.</p>
+<p>Hushh is working on novel information displays to express customer brand preference. The following widget shows a force directed bubble plot of a customer’s favorite brands, sized according to how often that brand appears in their personal images. The widget below is fully interactive, enabling intuitive browsing of brands and brand categories.</p>
+<iframe width="780" h<iframe="" height="684" frameborder="0" src="https://observablehq.com/embed/b75d89ea5cb1eccb?cells=chart">
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title">Hushh Labs</span> <span class="hidden" data-render-id="quarto-int-navbar-title">Hushh Labs</span> <span class="hidden" data-render-id="quarto-int-navbar:Home">Home</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.html">/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:About">About</span> <span class="hidden" data-render-id="quarto-int-navbar:/about.html">/about.html</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.xml">/index.xml</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden" data-render-id="quarto-metatitle">Hushh Labs - Logo Analysis for Brand Affinity</span> <span class="hidden" data-render-id="quarto-twittercardtitle">Hushh Labs - Logo Analysis for Brand Affinity</span> <span class="hidden" data-render-id="quarto-ogcardtitle">Hushh Labs - Logo Analysis for Brand Affinity</span> <span class="hidden" data-render-id="quarto-metasitename">Hushh Labs</span> <span class="hidden" data-render-id="quarto-twittercarddesc">Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?</span> <span class="hidden" data-render-id="quarto-ogcardddesc">Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?</span></p>
+</div>
+</section>
+</section>
+
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -435,6 +322,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 
+</body>
+
+</html></iframe></section></section> ]]></description>
+  <category>fashion</category>
+  <category>ML</category>
+  <category>vision</category>
+  <guid>https://hushh_labs.gitlab.io/gitlab-profile/posts/logo_analysis.html</guid>
+  <pubDate>Tue, 11 Jul 2023 07:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Searching images using text</title>
+  <dc:creator>Justin Donaldson</dc:creator>
+  <link>https://hushh_labs.gitlab.io/gitlab-profile/posts/image_search_with_text.html</link>
+  <description><![CDATA[ 
 
 
-</body></html>
+
+<section id="leveraging-llm-embeddings-for-image-search-in-luxury-fashion-a-breakthrough-beyond-tfidf" class="level1">
+<h1>Leveraging LLM Embeddings for Image Search in Luxury Fashion: A Breakthrough Beyond TF/IDF!</h1>
+<p>In the realm of luxury fashion, image search plays a pivotal role in discovering visually stunning and high-end products. While traditional TF/IDF (Term Frequency-Inverse Document Frequency) search has been a go-to method, the recent emergence of text-generated Large Language Model (LLM) embeddings for image search has revolutionized the way we explore luxury fashion. This cutting-edge approach surpasses the limitations of TF/IDF search, empowering users to find the epitome of elegance and style effortlessly.</p>
+<section id="unleashing-the-potential-of-llm-embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="unleashing-the-potential-of-llm-embeddings">Unleashing the Potential of LLM Embeddings</h2>
+<p>Large Language Models, such as GPT-3.5, possess remarkable natural language processing capabilities. Trained on massive amounts of textual data, these models acquire a deep understanding of language nuances, syntax, and semantics. LLM embeddings are numerical representations derived from text, capturing the intricate contextual information inherent in sentences, paragraphs, or documents.</p>
+</section>
+<section id="the-superiority-of-llm-embeddings-in-luxury-fashion-image-search" class="level2">
+<h2 class="anchored" data-anchor-id="the-superiority-of-llm-embeddings-in-luxury-fashion-image-search">The Superiority of LLM Embeddings in Luxury Fashion Image Search</h2>
+<p>By harnessing the power of LLM embeddings, we unlock a myriad of advantages that transform the landscape of luxury fashion image search:</p>
+<ol type="1">
+<li><p>Enhanced Semantic Relevance LLM embeddings encapsulate a profound comprehension of language semantics, leading to remarkably accurate search results. In the context of luxury fashion, where precision and exquisite details matter, LLM embeddings grasp the subtle nuances and connotations associated with high-end fashion. This semantic awareness ensures that search results align with the desired level of opulence, refinement, and aesthetic appeal.</p></li>
+<li><p>Fashion-Specific Vocabulary and Concepts Luxury fashion is an industry replete with distinct terminologies and industry-specific jargon. Traditional TF/IDF search may struggle to capture the essence of these nuanced fashion terms, leading to suboptimal search outcomes. Conversely, LLM embeddings excel in comprehending fashion-specific vocabulary, recognizing brand names, fashion trends, and intricate design elements. This prowess enables users to delve into the world of luxury fashion with unparalleled accuracy.</p></li>
+<li><p>Context-Aware Search In the realm of luxury fashion, context plays a pivotal role in understanding the true essence of a product. LLM embeddings excel at capturing the contextual information present in textual descriptions or queries, leading to more refined and contextually appropriate image search results. Users can now effortlessly explore images that encapsulate the desired style, occasion, or fashion statement, ensuring a seamless and personalized luxury fashion journey.</p></li>
+<li><p>Uniting Text and Visuals The marriage of text and visuals is at the heart of luxury fashion image search. LLM embeddings act as a bridge, facilitating a seamless connection between the textual descriptions and the visual representation of fashion products. By leveraging LLM embeddings, users can effortlessly navigate the realm of luxury fashion, exploring visually captivating images that align with their refined tastes and preferences.</p></li>
+</ol>
+<p>In conclusion, the use of LLM embeddings for luxury fashion image search transcends the limitations of conventional TF/IDF search. By harnessing the semantic understanding, fashion-specific vocabulary, and contextual awareness ingrained in LLM embeddings, users can embark on a visually enchanting journey through the world of luxury fashion. Experience the epitome of elegance and style like never before, with LLM-powered image search in luxury fashion.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>search</category>
+  <category>embeddings</category>
+  <guid>https://hushh_labs.gitlab.io/gitlab-profile/posts/image_search_with_text.html</guid>
+  <pubDate>Mon, 10 Jul 2023 07:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

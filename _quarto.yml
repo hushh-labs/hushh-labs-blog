@@ -3,8 +3,10 @@ project:
   output-dir: public
 
 website:
+  title: "Hushh Labs"
   favicon: "assets/fav-icon.ico"
   google-analytics: "G-WBK4GY6RXB"
+  site-url: "https://hushh_labs.gitlab.io/gitlab-profile/"
   navbar:
     logo: "assets/logo.svg"
     logo-alt: "Hushh.ai"
@@ -13,6 +15,9 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+    right:
+      - icon: rss
+        href: index.xml
 
 format:
   html:
