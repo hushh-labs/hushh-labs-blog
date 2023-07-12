@@ -10,7 +10,7 @@ website:
   navbar:
     logo: "assets/logo.svg"
     logo-alt: "Hushh.ai"
-    logo-href: "https://hush1one.com/"
+    logo-href: "https://hushh_labs.gitlab.io/gitlab-profile/"
     left:
       - href: index.qmd
         text: Home
@@ -21,7 +21,7 @@ website:
 
 format:
   html:
-    theme: lux
+    theme: pulse
     css: styles.css
     toc: true
 
