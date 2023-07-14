@@ -1,7 +1,7 @@
 ---
 title: "Hushh Manifesto"
 description: "What does Hushh believe?  What are we working towards?"
-author: "Manish Sainani, Justin Donaldson"
+author: "Manish Sainani, Justin Donaldson, Sunaz Sharaf"
 date: "7/11/2023"
 
 categories:
