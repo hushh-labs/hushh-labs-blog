@@ -1,23 +1,26 @@
 ---
-title: "Searching images using text"
+title: "Search and Discovery for Luxury Fashion"
 description: "Using text to search images related to fashion"
 author: "Justin Donaldson"
 date: "7/10/2023"
 
 categories:
   - search
-  - embeddings
+  - embedding
+  - discovery
 ---
 
+![woman searching a neural network for her style]("images/omgjjd_a_woman_searching_through_layers_of_a_neural_network_bra_621c77d0-55f4-4be8-8b8e-712e3dd50819.png")
 
-# Leveraging LLM Embeddings for Image Search in Luxury Fashion: A Breakthrough Beyond TF/IDF!
+
+# Embedding Fashion Related Media for Style Discovery.
 In the realm of luxury fashion, image search plays a pivotal role in discovering visually stunning and high-end products. While traditional TF/IDF (Term Frequency-Inverse Document Frequency) search has been a go-to method, the recent emergence of text-generated Large Language Model (LLM) embeddings for image search has revolutionized the way we explore luxury fashion. This cutting-edge approach surpasses the limitations of TF/IDF search, empowering users to find the epitome of elegance and style effortlessly.
 
 ## Unleashing the Potential of LLM Embeddings
 Large Language Models, such as GPT-3.5, possess remarkable natural language processing capabilities. Trained on massive amounts of textual data, these models acquire a deep understanding of language nuances, syntax, and semantics. LLM embeddings are numerical representations derived from text, capturing the intricate contextual information inherent in sentences, paragraphs, or documents.
 
-## The Superiority of LLM Embeddings in Luxury Fashion Image Search
-By harnessing the power of LLM embeddings, we unlock a myriad of advantages that transform the landscape of luxury fashion image search:
+## Why Embedding Search for Stylistic Search?
+By harnessing the power of LLM embeddings, we unlock a number of advantages for searching or navigating a particular style:
 
 1. Enhanced Semantic Relevance
 LLM embeddings encapsulate a profound comprehension of language semantics, leading to remarkably accurate search results. In the context of luxury fashion, where precision and exquisite details matter, LLM embeddings grasp the subtle nuances and connotations associated with high-end fashion. This semantic awareness ensures that search results align with the desired level of opulence, refinement, and aesthetic appeal.
