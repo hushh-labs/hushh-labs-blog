@@ -1,6 +1,6 @@
 ---
 title: "Search and Discovery for Luxury Fashion"
-description: "Using text to search images related to fashion"
+description: "Search and discovery go hand in hand when finding the frontiers for personal taste"
 author: "Justin Donaldson"
 date: "7/10/2023"
 
