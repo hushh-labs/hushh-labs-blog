@@ -82,7 +82,7 @@ explore images that encapsulate the desired style, occasion, or fashion
 statement, ensuring a seamless and personalized luxury fashion journey.
 
 
-![Image of vacation shoes](images/vacation_shoe.png)
+![Image of vacation shoes](images/vacation_shoes.png)
 
 
 

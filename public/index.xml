@@ -418,7 +418,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>In the realm of luxury fashion, context plays a pivotal role in understanding the true essence of a product. LLM embeddings excel at capturing the contextual information present in the shape of a product, leading to more refined and contextually appropriate image search results. Users can now effortlessly explore images that encapsulate the desired style, occasion, or fashion statement, ensuring a seamless and personalized luxury fashion journey.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://hushh_labs.gitlab.io/gitlab-profile/posts/images/vacation_shoe.png" class="img-fluid figure-img"></p>
+<p><img src="https://hushh_labs.gitlab.io/gitlab-profile/posts/images/vacation_shoes.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Image of vacation shoes</figcaption>
 </figure>
 </div>
