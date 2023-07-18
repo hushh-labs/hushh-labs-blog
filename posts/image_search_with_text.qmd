@@ -23,9 +23,20 @@ image search has revolutionized the way we explore luxury fashion. This
 cutting-edge approach surpasses the limitations of TF/IDF search, empowering
 users to find the epitome of elegance and style effortlessly.
 
+We'll walk you through all the ways that neural network search is poised to
+supercharge the fashion retail industry. If you'd like to play around on your
+own, you can enter your own queries below, and don't forget to [tell
+us](mailto:info@hush1one.com) what you discover!
 
 
-
+```{=html}
+<iframe
+	src="https://hushh-hushh.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+></iframe>
+```
 
 
 
@@ -103,13 +114,3 @@ through the world of luxury fashion. Experience the epitome of elegance and
 style like never before, with LLM-powered image search in luxury fashion.
 
 
-Try out our fashion search engine below and tell us what you discover!
-
-```{=html}
-<iframe
-	src="https://hushh-hushh.hf.space"
-	frameborder="0"
-	width="850"
-	height="450"
-></iframe>
-```

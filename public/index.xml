@@ -384,6 +384,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <section id="embedding-fashion-related-media-for-style-discovery." class="level1">
 <h1>Embedding Fashion Related Media for Style Discovery.</h1>
 <p>In the realm of luxury fashion, image search plays a pivotal role in discovering visually stunning and high-end products. While traditional TF/IDF (Term Frequency-Inverse Document Frequency) search has been a go-to method, the recent emergence of text-generated Large Language Model (LLM) embeddings for image search has revolutionized the way we explore luxury fashion. This cutting-edge approach surpasses the limitations of TF/IDF search, empowering users to find the epitome of elegance and style effortlessly.</p>
+<p>We’ll walk you through all the ways that neural network search is poised to supercharge the fashion retail industry. If you’d like to play around on your own, you can enter your own queries below, and don’t forget to <a href="mailto:info@hush1one.com">tell us</a> what you discover!</p>
+<iframe src="https://hushh-hushh.hf.space" frameborder="0" width="850" height="450"></iframe>
 <section id="unleashing-the-potential-of-llm-embeddings" class="level2">
 <h2 class="anchored" data-anchor-id="unleashing-the-potential-of-llm-embeddings">Unleashing the Potential of LLM Embeddings</h2>
 <p>Large Language Models, such as GPT-3.5, possess remarkable natural language processing capabilities. Trained on massive amounts of textual data, these models acquire a deep understanding of language nuances, syntax, and semantics in a broad array of cultural contexts. LLM embeddings are numerical representations derived from text, capturing the intricate contextual information inherent in sentences, paragraphs, or documents.</p>
@@ -427,8 +429,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </ol>
 <p>The marriage of text and visuals is at the heart of luxury fashion image search. LLM embeddings act as a bridge, facilitating a seamless connection between the textual descriptions and the visual representation of fashion products. By leveraging LLM embeddings, users can effortlessly navigate the realm of luxury fashion, exploring visually captivating images that align with their refined tastes and preferences.</p>
 <p>In conclusion, the use of LLM embeddings for luxury fashion image search transcends the limitations of conventional TF/IDF search. By harnessing the semantic understanding, fashion-specific vocabulary, and contextual awareness ingrained in LLM embeddings, users can embark on a visually enchanting journey through the world of luxury fashion. Experience the epitome of elegance and style like never before, with LLM-powered image search in luxury fashion.</p>
-<p>Try out our fashion search engine below and tell us what you discover!</p>
-<iframe src="https://hushh-hushh.hf.space" frameborder="0" width="850" height="450"></iframe>
 
 
 </section>
