@@ -48,45 +48,6 @@
   <pubDate>Tue, 11 Jul 2023 07:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>A Survey on Language Models and Related Data Privacy</title>
-  <dc:creator>Harshvardhan, Justin Donaldson, Manish Sainani</dc:creator>
-  <link>https://hushh_labs.gitlab.io/gitlab-profile/posts/survey_on_llm_privacy.html</link>
-  <description><![CDATA[ 
-
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://hushh_labs.gitlab.io/gitlab-profile/posts/images/omgjjd_data_privacy_AI_home_secure_f87b681d-8207-46b6-adf4-4e2981b09f18.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">AI Privacy</figcaption>
-</figure>
-</div>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>This research survey paper delves into the current revolution of Language models, specifically Large Language models (LLMs) and Fine-tuned models(FTMs). It explores the accessibility of these models across various domains of work while emphasizing the importance of privacy concerns when interacting with on-cloud LLMs. The study examines the influence of pre-training data, training data, and test data on the performance and capabilities of language models. Furthermore, it provides a comprehensive analysis of the potential use cases and limitations of large language models in different natural language processing tasks. These tasks include knowledgeintensive tasks, traditional natural language understanding tasks, natural language generation tasks, emergent abilities, and specific task considerations. Given that training models often require extensive and representative datasets, which may contain sensitive information, it becomes crucial to protect user privacy. The paper discusses algorithmic techniques for learning and conducts refined analysis of privacy costs within the framework of differential privacy. It explores interrelated concepts associated with differential privacy, such as privacy loss, mechanisms of differential privacy, local and centralized differential privacy, and the applications of differential privacy in statistics, machine learning, and federated learning. By addressing the aforementioned aspects, this survey paper contributes to the understanding of language models’ revolution, their accessibility across domains, privacy concerns, and the incorporation of differential privacy to mitigate privacy risks.</p>
-</section>
-<section id="discussions-on-language-models" class="level2">
-<h2 class="anchored" data-anchor-id="discussions-on-language-models">Discussions on Language Models</h2>
-<p>Lets start from the very basics, Large Language model, which in recent times have been in treads have its roots in Natural Language processing.The subject of research known as “Natural Language Processing” (NLP) focuses on how computers can comprehend and interact with human language. It entails training computers to comprehend, decipher, and produce human language in a manner akin to how we humans speak. Language models like GPT are a significant NLP application. By analyzing a sizable amount of training data, LLMs are created to comprehend and produce writing that resembles that of humans. They develop an understanding of the structure, syntax, and meaning of words and phrases, which enables them to produce coherent and appropriately situated replies.\ To understand the abilities of large language models (LLMs), we compare them with fine-tuned models. LLMs are really big language models that are trained on lots of data without being specifically adjusted for particular tasks. On the other hand, fine-tuned models are usually smaller language models that are also trained and then further adjusted on a smaller dataset that focuses on a specific task. In simple terms, fine-tuned models are more specialized and optimized for specific tasks compared to LLMs.</p>
-<p>Now, let’s talk about some practical applications of language models. One important application is natural language understanding. LLMs are really good at understanding and making sense of human language, even when they encounter new or unfamiliar data. This makes them useful for tasks that involve understanding language in different contexts or with very little training data.</p>
-<p>Another application is natural language generation. LLMs have the ability to generate text that is coherent, relevant, and of high quality. This can be utilized in various applications where we need computers to create text, such as writing articles, generating chatbot responses, or even creating stories.</p>
-<p>Language models are also helpful in knowledge-intensive tasks. LLMs have been trained on vast amounts of data, so they store a lot of knowledge about different domains or general information about the world. This knowledge can be used to assist in tasks that require specific expertise or general understanding.</p>
-<p>Lastly, language models can improve reasoning abilities. LLMs are designed to understand patterns and relationships in language, which can be useful for decision-making and problem-solving in different situations. By utilizing the reasoning capabilities of LLMs, we can enhance our ability to make better decisions and solve complex problems.</p>
-<p>In the realm of large language models (LLMs), researchers employ different training strategies, model architectures, and use cases. To better understand them, these models can be classified into two main categories: encoder-only language models and decoder-only language models.</p>
-<p>Encoder-only language models, also known as Encoder-Decoder models or BERT-style language models, are utilized when there is readily available natural language data. These models are trained using a technique called the Masked Language Model, where the model predicts masked words in a sentence while considering the surrounding context. This training approach allows the model to develop a deeper understanding of the relationships between words and the context in which they are used. These models typically employ the Transformer architecture, a powerful deep learning model that excels at processing and comprehending natural language.</p>
-<p>On the other hand, decoder-only language models, such as GPT-style language models, are designed to understand and generate human-like text. These models analyze patterns from a large amount of training data and predict what comes next in a given sequence of words. Unlike encoder-only models, decoder-only models focus on generating text rather than understanding it in a conversational context. They can be employed for tasks like generating creative writing, answering questions, or assisting with language-related tasks. These models are trained as Autoregressive Language Models, where they generate the next word in a sequence based on the preceding words. This type of training, combined with the ability to learn from prompts and in-context information, demonstrates the superiority of autoregressive language models.</p>
-<p>Apdditionally, both encoder-only and decoder-only models benefit from few-shot and zero-shot learning. Few-shot learning enables the models to learn new things with just a few examples, while zero-shot learning allows them to learn completely new concepts without any examples at all. These approaches enable the models to perform well on tasks they haven’t been explicitly trained for, leveraging prior knowledge and transferring knowledge from related tasks.</p>
-
-
-</section>
-
- ]]></description>
-  <category>LLM</category>
-  <category>Privacy</category>
-  <guid>https://hushh_labs.gitlab.io/gitlab-profile/posts/survey_on_llm_privacy.html</guid>
-  <pubDate>Tue, 11 Jul 2023 07:00:00 GMT</pubDate>
-</item>
-<item>
   <title>Logo Analysis for Brand Affinity</title>
   <dc:creator>Justin Donaldson</dc:creator>
   <link>https://hushh_labs.gitlab.io/gitlab-profile/posts/logo_analysis.html</link>

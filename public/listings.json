@@ -3,7 +3,6 @@
     "listing": "/index.html",
     "items": [
       "/posts/manifesto.html",
-      "/posts/survey_on_llm_privacy.html",
       "/posts/logo_analysis.html",
       "/posts/image_search_with_text.html"
     ]
