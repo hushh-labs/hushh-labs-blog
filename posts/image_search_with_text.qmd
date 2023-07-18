@@ -60,14 +60,18 @@ searching or navigating a particular style:
 LLM embeddings encapsulate a profound comprehension of language semantics,
 leading to remarkably accurate search results. In the context of luxury
 fashion, where precision and exquisite details matter, LLM embeddings grasp the
-subtle nuances and connotations associated with high-end fashion. This semantic
-awareness ensures that search results align with the desired level of opulence,
-refinement, and aesthetic appeal.
+subtle nuances and connotations associated with the imagery high-end fashion.
+This visio-semantic awareness ensures that search results align with the
+desired level of opulence, refinement, and aesthetic appeal.
 
 For instance, LLM embedding search can identify items not only by color, but
 also by abstract concepts of style, such as "dress shoes".
 
 ![Image of dress shoes](images/dress_shoes.png)
+
+Keep in mind that this particular search engine does *not* include any
+terminology related to shoes or style.  The query process is entirely driven
+from image analysis alone.
 
 2. Fashion-Specific Vocabulary and Concepts
 
