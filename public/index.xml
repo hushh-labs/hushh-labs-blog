@@ -76,6 +76,39 @@
 <iframe width="780" h<iframe="" height="684" frameborder="0" src="https://observablehq.com/embed/b75d89ea5cb1eccb?cells=chart">
 <div id="quarto-navigation-envelope" class="hidden">
 <p><span class="hidden" data-render-id="quarto-int-sidebar-title">Hushh Labs</span> <span class="hidden" data-render-id="quarto-int-navbar-title">Hushh Labs</span> <span class="hidden" data-render-id="quarto-int-navbar:Home">Home</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.html">/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:About">About</span> <span class="hidden" data-render-id="quarto-int-navbar:/about.html">/about.html</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.xml">/index.xml</span></p>
+<div class="hidden" data-render-id="margin-header">
+<div class="margin-header-item">
+<span style="font-weight: 600;">Subscribe</span>
+
+<!-- Begin Mailchimp Signup Form -->
+<link href="http://cdn-images.mailchimp.com/embedcode/slim-10_7_dtp.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:170px;}
+    /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    #mc-embedded-subscribe-form{margin-left:-5px;}
+</style>
+<div id="mc_embed_signup">
+<form action="<site_url>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+
+    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8054dab5be75ddd007416b5b9_5647e13f15" tabindex="-1" value=""></div>
+        <div class="optionalParent">
+            <div class="clear foot" style="margin-top: 10px;">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                <p class="brandingLogo"></p>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+
+</div>
+</div>
 </div>
 <div id="quarto-meta-markdown" class="hidden">
 <p><span class="hidden" data-render-id="quarto-metatitle">Hushh Labs - Logo Analysis for Brand Affinity</span> <span class="hidden" data-render-id="quarto-twittercardtitle">Hushh Labs - Logo Analysis for Brand Affinity</span> <span class="hidden" data-render-id="quarto-ogcardtitle">Hushh Labs - Logo Analysis for Brand Affinity</span> <span class="hidden" data-render-id="quarto-metasitename">Hushh Labs</span> <span class="hidden" data-render-id="quarto-twittercarddesc">Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?</span> <span class="hidden" data-render-id="quarto-ogcardddesc">Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?</span></p>

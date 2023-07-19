@@ -7,6 +7,7 @@ website:
   favicon: "assets/fav-icon.ico"
   google-analytics: "G-WBK4GY6RXB"
   site-url: "https://hushh_labs.gitlab.io/gitlab-profile/"
+  margin-header: subscribe.html
   navbar:
     logo: "assets/logo.svg"
     logo-alt: "Hushh.ai"
