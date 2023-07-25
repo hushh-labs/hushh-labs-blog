@@ -3,6 +3,7 @@ title: "test post"
 description: "testing"
 author: "Justin Donaldson"
 date: "7/10/2023"
+draft: true
 
 categories:
   - test
