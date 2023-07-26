@@ -1,20 +1,21 @@
 project:
   type: website
   output-dir: docs
-  execute:
-    freeze : true
+
+execute:
+  freeze : true
 
 
 website:
   title: "Hushh Labs"
   favicon: "assets/fav-icon.ico"
   google-analytics: "G-WBK4GY6RXB"
-  site-url: "https://hushh_labs.gitlab.io/gitlab-profile/"
+  site-url: "https://hushh-labs.github.io/hushh-labs-blog/"
   margin-header: subscribe.html
   navbar:
     logo: "assets/logo.svg"
     logo-alt: "Hushh.ai"
-    logo-href: "https://hushh_labs.gitlab.io/gitlab-profile/"
+    logo-href: "https://hushh-labs.github.io/hushh-labs-blog/"
     left:
       - href: index.qmd
         text: Home

@@ -8,8 +8,8 @@ about:
       text: Linkedin
       href: https://www.linkedin.com/company/hushh-ai
     - icon: git
-      text: Gitlab
-      href: https://gitlab.com/hushh_labs
+      text: Gitub
+      href: https://github.com/hushh_labs
     - icon: huggingface
       text: HuggingFace
       href: https://huggingface.co/spaces/jdonaldson/hushh
