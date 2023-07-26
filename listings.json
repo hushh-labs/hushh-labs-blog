@@ -2,8 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/manifesto.html",
       "/posts/logo_analysis.html",
+      "/posts/manifesto.html",
       "/posts/image_search_with_text.html"
     ]
   }
