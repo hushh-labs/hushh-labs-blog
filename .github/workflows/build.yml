@@ -24,10 +24,10 @@ jobs:
           sudo dpkg -i quarto.deb
 
       - name: Build and render
-        run: quarto render . --output-dir public
+        run: quarto render . --output-dir docs
 
       - name: Publish artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: public
-          path: public
+          name: docs
+          path: docs
