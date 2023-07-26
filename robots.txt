@@ -1,1 +1,1 @@
-Sitemap: https://hushh_labs.gitlab.io/gitlab-profile/sitemap.xml
+Sitemap: https://hushh-labs.github.io/hushh-labs-blog/sitemap.xml
