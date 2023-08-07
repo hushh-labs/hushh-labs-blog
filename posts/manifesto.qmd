@@ -9,6 +9,10 @@ categories:
   - principles
 ---
 
+# New Header!
+
+Here's some more content.
+
 ![Hushh Principles](images/omgjjd_A_scientist_writing_a_set_of_core_principles_for_an_AI_07bc5c5e-e3d4-447a-80e3-8401f4767591.png)
 # Hushh - Redefining Access, Control, Intelligence, and Monetization
 
