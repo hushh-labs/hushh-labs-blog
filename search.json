@@ -39,7 +39,7 @@
     "href": "posts/unveiling-power-and-privacy.html#understanding-language-models",
     "title": "Unveiling the Power and Privacy of Language Models in Fashion",
     "section": "Understanding Language Models",
-    "text": "Understanding Language Models\n[images/omgjjd_specialists_vs._generalists_fashion_models_4e00bcac-6211-45f4-a6dd-1f9a8aa9751c.png] Language models come in two flavours: LLMs and fine-tuned models. LLMs are big models trained on diverse data without specific adjustments for a particular task. On the other hand, fine-tuned models are smaller models tailored to a specific task. Fine-tuned models are like specialists, while LLMs are more like generalists. In the fashion world, the choice between LLMs and fine-tuned models depends on the specific requirements of the task at hand."
+    "text": "Understanding Language Models\n Language models come in two flavours: LLMs and fine-tuned models. LLMs are big models trained on diverse data without specific adjustments for a particular task. On the other hand, fine-tuned models are smaller models tailored to a specific task. Fine-tuned models are like specialists, while LLMs are more like generalists. In the fashion world, the choice between LLMs and fine-tuned models depends on the specific requirements of the task at hand."
   },
   {
     "objectID": "posts/unveiling-power-and-privacy.html#practical-applications-in-fashion",

@@ -27,7 +27,7 @@
 </div>
 <section id="understanding-language-models" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-language-models">Understanding Language Models</h2>
-<p>[images/omgjjd_specialists_vs._generalists_fashion_models_4e00bcac-6211-45f4-a6dd-1f9a8aa9751c.png] Language models come in two flavours: LLMs and fine-tuned models. LLMs are big models trained on diverse data without specific adjustments for a particular task. On the other hand, fine-tuned models are smaller models tailored to a specific task. Fine-tuned models are like specialists, while LLMs are more like generalists. In the fashion world, the choice between LLMs and fine-tuned models depends on the specific requirements of the task at hand.</p>
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_specialists_vs._generalists_fashion_models_4e00bcac-6211-45f4-a6dd-1f9a8aa9751c.png" class="img-fluid" alt="Understanding Language Models"> Language models come in two flavours: LLMs and fine-tuned models. LLMs are big models trained on diverse data without specific adjustments for a particular task. On the other hand, fine-tuned models are smaller models tailored to a specific task. Fine-tuned models are like specialists, while LLMs are more like generalists. In the fashion world, the choice between LLMs and fine-tuned models depends on the specific requirements of the task at hand.</p>
 </section>
 <section id="practical-applications-in-fashion" class="level2">
 <h2 class="anchored" data-anchor-id="practical-applications-in-fashion">Practical Applications in Fashion</h2>
