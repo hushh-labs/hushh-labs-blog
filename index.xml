@@ -10,7 +10,7 @@
 <atom:link href="https://hushh-labs.github.io/hushh-labs-blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Sun, 27 Aug 2023 07:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 27 Aug 2023 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Unveiling the Power and Privacy of Language Models in Fashion</title>
   <dc:creator>Harshvardhan </dc:creator>
@@ -48,7 +48,7 @@
   <category>LLM</category>
   <category>Privacy</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/unveiling-power-and-privacy.html</guid>
-  <pubDate>Sun, 27 Aug 2023 07:00:00 GMT</pubDate>
+  <pubDate>Sun, 27 Aug 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Hushh Manifesto</title>
@@ -92,7 +92,7 @@
   <category>mission</category>
   <category>principles</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</guid>
-  <pubDate>Tue, 11 Jul 2023 07:00:00 GMT</pubDate>
+  <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Logo Analysis for Brand Affinity</title>
@@ -407,7 +407,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <category>ML</category>
   <category>vision</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/logo_analysis.html</guid>
-  <pubDate>Tue, 11 Jul 2023 07:00:00 GMT</pubDate>
+  <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Search and Discovery for Luxury Fashion</title>
@@ -482,7 +482,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <category>embedding</category>
   <category>discovery</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/image_search_with_text.html</guid>
-  <pubDate>Mon, 10 Jul 2023 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
