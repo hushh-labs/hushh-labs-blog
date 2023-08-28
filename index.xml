@@ -10,7 +10,50 @@
 <atom:link href="https://hushh-labs.github.io/hushh-labs-blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Tue, 11 Jul 2023 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 27 Aug 2023 07:00:00 GMT</lastBuildDate>
+<item>
+  <title>Unveiling the Power and Privacy of Language Models in Fashion</title>
+  <dc:creator>Harshvardhan </dc:creator>
+  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/unveiling-power-and-privacy.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_In_the_world_of_fashion_language_models_have_become_the__d94d4e64-a53f-4fe4-8765-2286673ffd8b.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">in the world of fashion</figcaption>
+</figure>
+</div>
+<p>In the world of fashion, language models have become the talk of the town. These models, known as Large Language Models (LLMs), are making waves in the field of Natural Language Processing (NLP). With their ability to understand and generate human-like language, LLMs are revolutionising the way computers comprehend and communicate with us. They have practical applications in fashion-related tasks, such as understanding fashion trends, generating creative fashion content, and improving fashion recommendations.</p>
+</section>
+<section id="understanding-language-models" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-language-models">Understanding Language Models</h2>
+<p>[images/omgjjd_specialists_vs._generalists_fashion_models_4e00bcac-6211-45f4-a6dd-1f9a8aa9751c.png] Language models come in two flavours: LLMs and fine-tuned models. LLMs are big models trained on diverse data without specific adjustments for a particular task. On the other hand, fine-tuned models are smaller models tailored to a specific task. Fine-tuned models are like specialists, while LLMs are more like generalists. In the fashion world, the choice between LLMs and fine-tuned models depends on the specific requirements of the task at hand.</p>
+</section>
+<section id="practical-applications-in-fashion" class="level2">
+<h2 class="anchored" data-anchor-id="practical-applications-in-fashion">Practical Applications in Fashion</h2>
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_Language_models_have_found_their_way_into_various_fashio_e9b79e1f-d951-4e9c-b81f-9cd2fd6d1cc5.png" class="img-fluid" alt="language models found their way into applications"> Language models have found their way into various fashion applications. They excel in natural language understanding, enabling them to comprehend fashion-related text and extract meaningful insights. Language models can also generate high-quality fashion content, such as writing articles, creating engaging social media posts, or assisting in chatbot interactions. Moreover, these models possess extensive knowledge about fashion trends and can assist in knowledge-intensive fashion tasks. Additionally, language models enhance reasoning abilities, helping in decision-making and problem-solving within the fashion industry.</p>
+</section>
+<section id="federated-learning-and-privacy" class="level2">
+<h2 class="anchored" data-anchor-id="federated-learning-and-privacy">Federated Learning and Privacy</h2>
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_To_address_privacy_concerns_federated_learning_offers_a__ca6b345e-eb53-4fb3-9bdb-c54552a5f050.png" class="img-fluid" alt="federated learning and privacy"> To address privacy concerns, federated learning offers a distributed approach where models are trained locally and aggregated to create a global model. This method allows fashion companies to utilise data from multiple sources while preserving user privacy. Different approaches, such as centralised, decentralised, and heterogeneous federated learning, provide distinct benefits and challenges. By applying techniques like differential privacy, fashion industry researchers can strike a balance between utility and privacy, ensuring that language models preserve the confidentiality of sensitive fashion-related information.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_Language_models_have_become_a_game-changer_in_the_fashio_324010e1-a0c2-43b6-bea9-1df8d11071fb.png" class="img-fluid" alt="conclusion"> Language models have become a game-changer in the fashion industry. Their ability to understand and generate human-like language opens up a world of possibilities for fashion-related tasks. With advancements in privacy techniques like differential privacy and federated learning, language models can protect the privacy of user data while providing accurate and valuable insights. As the fashion industry embraces these technologies, we can expect further advancements in fashion content creation, trend analysis, and personalised fashion recommendations.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>LLM</category>
+  <category>Privacy</category>
+  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/unveiling-power-and-privacy.html</guid>
+  <pubDate>Sun, 27 Aug 2023 07:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Hushh Manifesto</title>
   <dc:creator>Manish Sainani, Justin Donaldson, Sunaz Sharaf</dc:creator>
@@ -53,7 +96,7 @@
   <category>mission</category>
   <category>principles</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</guid>
-  <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 11 Jul 2023 07:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Logo Analysis for Brand Affinity</title>
@@ -368,7 +411,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <category>ML</category>
   <category>vision</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/logo_analysis.html</guid>
-  <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 11 Jul 2023 07:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Search and Discovery for Luxury Fashion</title>
@@ -443,7 +486,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <category>embedding</category>
   <category>discovery</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/image_search_with_text.html</guid>
-  <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>
+  <pubDate>Mon, 10 Jul 2023 07:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
