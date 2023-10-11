@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hushh-labs.github.io/hushh-labs-blog/about.html</loc>
-    <lastmod>2023-10-11T19:52:00.543Z</lastmod>
+    <lastmod>2023-10-11T22:46:41.342Z</lastmod>
   </url>
   <url>
-    <loc>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</loc>
-    <lastmod>2023-10-11T19:51:59.635Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hushh-labs.github.io/hushh-labs-blog/posts/image_search_with_text.html</loc>
-    <lastmod>2023-10-11T19:51:58.675Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hushh-labs.github.io/hushh-labs-blog/posts/unveiling-power-and-privacy.html</loc>
-    <lastmod>2023-10-11T19:51:57.775Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hushh-labs.github.io/hushh-labs-blog/index.html</loc>
-    <lastmod>2023-10-11T19:51:56.883Z</lastmod>
+    <loc>https://hushh-labs.github.io/hushh-labs-blog/posts/pycon_india_2023_trip_report.html</loc>
+    <lastmod>2023-10-11T22:46:40.418Z</lastmod>
   </url>
   <url>
     <loc>https://hushh-labs.github.io/hushh-labs-blog/posts/logo_analysis.html</loc>
-    <lastmod>2023-10-11T19:51:58.183Z</lastmod>
+    <lastmod>2023-10-11T22:46:38.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hushh-labs.github.io/hushh-labs-blog/index.html</loc>
+    <lastmod>2023-10-11T22:46:37.286Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hushh-labs.github.io/hushh-labs-blog/posts/unveiling-power-and-privacy.html</loc>
+    <lastmod>2023-10-11T22:46:38.082Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hushh-labs.github.io/hushh-labs-blog/posts/image_search_with_text.html</loc>
+    <lastmod>2023-10-11T22:46:38.954Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</loc>
+    <lastmod>2023-10-11T22:46:39.882Z</lastmod>
   </url>
   <url>
     <loc>https://hushh-labs.github.io/hushh-labs-blog/posts/pycon_trip_report.html</loc>
-    <lastmod>2023-10-11T19:52:00.191Z</lastmod>
+    <lastmod>2023-10-11T22:46:40.946Z</lastmod>
   </url>
 </urlset>
