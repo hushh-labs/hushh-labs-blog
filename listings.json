@@ -3,6 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/test.html",
+      "/posts/pycon_trip_report.html",
       "/posts/unveiling-power-and-privacy.html",
       "/posts/logo_analysis.html",
       "/posts/manifesto.html",
