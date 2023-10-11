@@ -63,27 +63,6 @@
     "text": "Why Embedding Search for Stylistic Search?\nBy harnessing the power of LLM embeddings, we unlock a number of advantages for searching or navigating a particular style:\n\nEnhanced Semantic Relevance\n\nLLM embeddings encapsulate a profound comprehension of language semantics, leading to remarkably accurate search results. In the context of luxury fashion, where precision and exquisite details matter, LLM embeddings grasp the subtle nuances and connotations associated with the imagery high-end fashion. This visio-semantic awareness ensures that search results align with the desired level of opulence, refinement, and aesthetic appeal.\nFor instance, LLM embedding search can identify items not only by color, but also by abstract concepts of style, such as “dress shoes”.\n\n\n\nImage of dress shoes\n\n\nKeep in mind that this particular search engine does not include any terminology related to shoes or style. The query process is entirely driven from image analysis alone.\n\nFashion-Specific Vocabulary and Concepts\n\nLuxury fashion is an industry replete with distinct terminologies and industry-specific jargon. Traditional TF/IDF search may struggle to capture the essence of these nuanced fashion terms, leading to suboptimal search outcomes. Conversely, LLM embeddings excel in comprehending fashion-specific vocabulary, recognizing brand names, fashion trends, and intricate design elements. This prowess enables users to delve into the world of luxury fashion with unparalleled accuracy.\n\n\n\nImage of wedge heel\n\n\n\nContext-Aware Search\n\nIn the realm of luxury fashion, context plays a pivotal role in understanding the true essence of a product. LLM embeddings excel at capturing the contextual information present in the shape of a product, leading to more refined and contextually appropriate image search results. Users can now effortlessly explore images that encapsulate the desired style, occasion, or fashion statement, ensuring a seamless and personalized luxury fashion journey.\n\n\n\nImage of vacation shoes\n\n\n\nUniting Text and Visuals\n\nThe marriage of text and visuals is at the heart of luxury fashion image search. LLM embeddings act as a bridge, facilitating a seamless connection between the textual descriptions and the visual representation of fashion products. By leveraging LLM embeddings, users can effortlessly navigate the realm of luxury fashion, exploring visually captivating images that align with their refined tastes and preferences.\nIn conclusion, the use of LLM embeddings for luxury fashion image search transcends the limitations of conventional TF/IDF search. By harnessing the semantic understanding, fashion-specific vocabulary, and contextual awareness ingrained in LLM embeddings, users can embark on a visually enchanting journey through the world of luxury fashion. Experience the epitome of elegance and style like never before, with LLM-powered image search in luxury fashion."
   },
   {
-    "objectID": "posts/test.html",
-    "href": "posts/test.html",
-    "title": "Test Post",
-    "section": "",
-    "text": "This is a simple demo * with * bullet * points\n\n\nTest"
-  },
-  {
-    "objectID": "posts/test.html#check-out-this-subheader",
-    "href": "posts/test.html#check-out-this-subheader",
-    "title": "Test Post",
-    "section": "",
-    "text": "Test"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hushh Labs",
-    "section": "",
-    "text": "Test Post\n\n\n\n\n\n\n\nFirst Time\n\n\n\n\nSimple Test Example\n\n\n\n\n\n\nOct 11, 2023\n\n\nDevesh Paragri\n\n\n\n\n\n\n  \n\n\n\n\nPycon India 2023 Trip Report\n\n\n\n\n\n\n\nconferences\n\n\ninsights\n\n\n\n\nA brief overview on the latest happenings within the global Python community\n\n\n\n\n\n\nSep 11, 2023\n\n\nDevesh Paragiri\n\n\n\n\n\n\n  \n\n\n\n\nUnveiling the Power and Privacy of Language Models in Fashion\n\n\n\n\n\n\n\nLLM\n\n\nPrivacy\n\n\n\n\nIn the world of fashion, language models have become the talk of the town. These models, known as Large Language Models (LLMs), are making waves in the field of Natural Language Processing (NLP). With their ability to understand and generate human-like language, LLMs are revolutionising the way computers comprehend and communicate with us. They have practical applications in fashion-related tasks, such as understanding fashion trends, generating creative fashion content, and improving fashion recommendations.\n\n\n\n\n\n\nAug 27, 2023\n\n\nHarshvardhan\n\n\n\n\n\n\n  \n\n\n\n\nLogo Analysis for Brand Affinity\n\n\n\n\n\n\n\nfashion\n\n\nML\n\n\nvision\n\n\n\n\nCustomers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?\n\n\n\n\n\n\nJul 11, 2023\n\n\nJustin Donaldson\n\n\n\n\n\n\n  \n\n\n\n\nHushh Manifesto\n\n\n\n\n\n\n\nmission\n\n\nprinciples\n\n\n\n\nWhat does Hushh believe? What are we working towards?\n\n\n\n\n\n\nJul 11, 2023\n\n\nManish Sainani, Justin Donaldson, Sunaz Sharaf\n\n\n\n\n\n\n  \n\n\n\n\nSearch and Discovery for Luxury Fashion\n\n\n\n\n\n\n\nsearch\n\n\nembedding\n\n\ndiscovery\n\n\n\n\nSearch and discovery go hand in hand when finding the frontiers for personal taste\n\n\n\n\n\n\nJul 10, 2023\n\n\nJustin Donaldson\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "posts/unveiling-power-and-privacy.html",
     "href": "posts/unveiling-power-and-privacy.html",
     "title": "Unveiling the Power and Privacy of Language Models in Fashion",
@@ -117,6 +96,13 @@
     "title": "Unveiling the Power and Privacy of Language Models in Fashion",
     "section": "Conclusion",
     "text": "Conclusion\n Language models have become a game-changer in the fashion industry. Their ability to understand and generate human-like language opens up a world of possibilities for fashion-related tasks. With advancements in privacy techniques like differential privacy and federated learning, language models can protect the privacy of user data while providing accurate and valuable insights. As the fashion industry embraces these technologies, we can expect further advancements in fashion content creation, trend analysis, and personalised fashion recommendations."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hushh Labs",
+    "section": "",
+    "text": "Pycon India 2023 Trip Report\n\n\n\n\n\n\n\nconferences\n\n\ninsights\n\n\n\n\nA brief overview on the latest happenings within the global Python community\n\n\n\n\n\n\nSep 11, 2023\n\n\nDevesh Paragiri\n\n\n\n\n\n\n  \n\n\n\n\nUnveiling the Power and Privacy of Language Models in Fashion\n\n\n\n\n\n\n\nLLM\n\n\nPrivacy\n\n\n\n\nIn the world of fashion, language models have become the talk of the town. These models, known as Large Language Models (LLMs), are making waves in the field of Natural Language Processing (NLP). With their ability to understand and generate human-like language, LLMs are revolutionising the way computers comprehend and communicate with us. They have practical applications in fashion-related tasks, such as understanding fashion trends, generating creative fashion content, and improving fashion recommendations.\n\n\n\n\n\n\nAug 27, 2023\n\n\nHarshvardhan\n\n\n\n\n\n\n  \n\n\n\n\nLogo Analysis for Brand Affinity\n\n\n\n\n\n\n\nfashion\n\n\nML\n\n\nvision\n\n\n\n\nCustomers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?\n\n\n\n\n\n\nJul 11, 2023\n\n\nJustin Donaldson\n\n\n\n\n\n\n  \n\n\n\n\nHushh Manifesto\n\n\n\n\n\n\n\nmission\n\n\nprinciples\n\n\n\n\nWhat does Hushh believe? What are we working towards?\n\n\n\n\n\n\nJul 11, 2023\n\n\nManish Sainani, Justin Donaldson, Sunaz Sharaf\n\n\n\n\n\n\n  \n\n\n\n\nSearch and Discovery for Luxury Fashion\n\n\n\n\n\n\n\nsearch\n\n\nembedding\n\n\ndiscovery\n\n\n\n\nSearch and discovery go hand in hand when finding the frontiers for personal taste\n\n\n\n\n\n\nJul 10, 2023\n\n\nJustin Donaldson\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/logo_analysis.html",

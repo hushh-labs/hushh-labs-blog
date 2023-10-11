@@ -10,31 +10,7 @@
 <atom:link href="https://hushh-labs.github.io/hushh-labs-blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Wed, 11 Oct 2023 00:00:00 GMT</lastBuildDate>
-<item>
-  <title>Test Post</title>
-  <dc:creator>Devesh Paragri</dc:creator>
-  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/test.html</link>
-  <description><![CDATA[ 
-
-
-
-<section id="deveshs-first-post" class="level1">
-<h1>Devesh’s First Post!</h1>
-<p>This is a simple demo * with * bullet * points</p>
-<section id="check-out-this-subheader" class="level2">
-<h2 class="anchored" data-anchor-id="check-out-this-subheader">Check out this Subheader!</h2>
-<p>Test</p>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>First Time</category>
-  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/test.html</guid>
-  <pubDate>Wed, 11 Oct 2023 00:00:00 GMT</pubDate>
-</item>
+<lastBuildDate>Mon, 11 Sep 2023 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Pycon India 2023 Trip Report</title>
   <dc:creator>Devesh Paragiri</dc:creator>
