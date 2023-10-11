@@ -10,7 +10,7 @@ categories:
 ---
 
 
-![](https://cdn-images-1.medium.com/max/2048/1*KFiyXVvH_Drpgq2DTm9Uqg.jpeg)
+![](1_KFiyXVvH_Drpgq2DTm9Uqg.webp)
 
 This year’s python conference was held at a university from 29th September to 2nd October in Hyderabad with around 1000 attendees flocking to the scene across a span of four days. The conference’s theme was mainly focused towards Generative AI relate topics and the open-source network.
 
