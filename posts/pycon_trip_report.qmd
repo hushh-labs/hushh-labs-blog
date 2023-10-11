@@ -6,7 +6,7 @@ date: "09/11/2023"
 
 categories:
   - conferences
-  - principles
+  - insights
 ---
 
 
