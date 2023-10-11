@@ -2,10 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/test.html",
       "/posts/unveiling-power-and-privacy.html",
-      "/posts/hushh-github.html",
-      "/posts/manifesto.html",
       "/posts/logo_analysis.html",
+      "/posts/manifesto.html",
       "/posts/image_search_with_text.html"
     ]
   }

@@ -10,7 +10,31 @@
 <atom:link href="https://hushh-labs.github.io/hushh-labs-blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Sun, 27 Aug 2023 07:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 11 Oct 2023 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Test Post</title>
+  <dc:creator>Devesh Paragri</dc:creator>
+  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/test.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="deveshs-first-post" class="level1">
+<h1>Devesh’s First Post!</h1>
+<p>This is a simple demo * with * bullet * points</p>
+<section id="check-out-this-subheader" class="level2">
+<h2 class="anchored" data-anchor-id="check-out-this-subheader">Check out this Subheader!</h2>
+<p>Test</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>First Time</category>
+  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/test.html</guid>
+  <pubDate>Wed, 11 Oct 2023 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Unveiling the Power and Privacy of Language Models in Fashion</title>
   <dc:creator>Harshvardhan </dc:creator>
@@ -27,19 +51,19 @@
 </div>
 <section id="understanding-language-models" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-language-models">Understanding Language Models</h2>
-<p>Language models come in two flavours: LLMs and fine-tuned models. LLMs are big models trained on diverse data without specific adjustments for a particular task. On the other hand, fine-tuned models are smaller models tailored to a specific task. Fine-tuned models are like specialists, while LLMs are more like generalists. In the fashion world, the choice between LLMs and fine-tuned models depends on the specific requirements of the task at hand. <img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_specialists_vs._generalists_fashion_models_4e00bcac-6211-45f4-a6dd-1f9a8aa9751c.png" class="img-fluid" alt="Understanding Language Models"></p>
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_specialists_vs._generalists_fashion_models_4e00bcac-6211-45f4-a6dd-1f9a8aa9751c.png" class="img-fluid" alt="Understanding Language Models"> Language models come in two flavours: LLMs and fine-tuned models. LLMs are big models trained on diverse data without specific adjustments for a particular task. On the other hand, fine-tuned models are smaller models tailored to a specific task. Fine-tuned models are like specialists, while LLMs are more like generalists. In the fashion world, the choice between LLMs and fine-tuned models depends on the specific requirements of the task at hand.</p>
 </section>
 <section id="practical-applications-in-fashion" class="level2">
 <h2 class="anchored" data-anchor-id="practical-applications-in-fashion">Practical Applications in Fashion</h2>
-<p>Language models have found their way into various fashion applications. They excel in natural language understanding, enabling them to comprehend fashion-related text and extract meaningful insights. Language models can also generate high-quality fashion content, such as writing articles, creating engaging social media posts, or assisting in chatbot interactions. Moreover, these models possess extensive knowledge about fashion trends and can assist in knowledge-intensive fashion tasks. Additionally, language models enhance reasoning abilities, helping in decision-making and problem-solving within the fashion industry. <img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_Language_models_have_found_their_way_into_various_fashio_e9b79e1f-d951-4e9c-b81f-9cd2fd6d1cc5.png" class="img-fluid" alt="language models found their way into applications"></p>
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_Language_models_have_found_their_way_into_various_fashio_e9b79e1f-d951-4e9c-b81f-9cd2fd6d1cc5.png" class="img-fluid" alt="language models found their way into applications"> Language models have found their way into various fashion applications. They excel in natural language understanding, enabling them to comprehend fashion-related text and extract meaningful insights. Language models can also generate high-quality fashion content, such as writing articles, creating engaging social media posts, or assisting in chatbot interactions. Moreover, these models possess extensive knowledge about fashion trends and can assist in knowledge-intensive fashion tasks. Additionally, language models enhance reasoning abilities, helping in decision-making and problem-solving within the fashion industry.</p>
 </section>
 <section id="federated-learning-and-privacy" class="level2">
 <h2 class="anchored" data-anchor-id="federated-learning-and-privacy">Federated Learning and Privacy</h2>
-<p>To address privacy concerns, federated learning offers a distributed approach where models are trained locally and aggregated to create a global model. This method allows fashion companies to utilise data from multiple sources while preserving user privacy. Different approaches, such as centralised, decentralised, and heterogeneous federated learning, provide distinct benefits and challenges. By applying techniques like differential privacy, fashion industry researchers can strike a balance between utility and privacy, ensuring that language models preserve the confidentiality of sensitive fashion-related information. <img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_To_address_privacy_concerns_federated_learning_offers_a__ca6b345e-eb53-4fb3-9bdb-c54552a5f050.png" class="img-fluid" alt="federated learning and privacy"></p>
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_To_address_privacy_concerns_federated_learning_offers_a__ca6b345e-eb53-4fb3-9bdb-c54552a5f050.png" class="img-fluid" alt="federated learning and privacy"> To address privacy concerns, federated learning offers a distributed approach where models are trained locally and aggregated to create a global model. This method allows fashion companies to utilise data from multiple sources while preserving user privacy. Different approaches, such as centralised, decentralised, and heterogeneous federated learning, provide distinct benefits and challenges. By applying techniques like differential privacy, fashion industry researchers can strike a balance between utility and privacy, ensuring that language models preserve the confidentiality of sensitive fashion-related information.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Language models have become a game-changer in the fashion industry. Their ability to understand and generate human-like language opens up a world of possibilities for fashion-related tasks. With advancements in privacy techniques like differential privacy and federated learning, language models can protect the privacy of user data while providing accurate and valuable insights. As the fashion industry embraces these technologies, we can expect further advancements in fashion content creation, trend analysis, and personalised fashion recommendations. <img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_Language_models_have_become_a_game-changer_in_the_fashio_324010e1-a0c2-43b6-bea9-1df8d11071fb.png" class="img-fluid" alt="conclusion"></p>
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_Language_models_have_become_a_game-changer_in_the_fashio_324010e1-a0c2-43b6-bea9-1df8d11071fb.png" class="img-fluid" alt="conclusion"> Language models have become a game-changer in the fashion industry. Their ability to understand and generate human-like language opens up a world of possibilities for fashion-related tasks. With advancements in privacy techniques like differential privacy and federated learning, language models can protect the privacy of user data while providing accurate and valuable insights. As the fashion industry embraces these technologies, we can expect further advancements in fashion content creation, trend analysis, and personalised fashion recommendations.</p>
 
 
 </section>
@@ -48,87 +72,7 @@
   <category>LLM</category>
   <category>Privacy</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/unveiling-power-and-privacy.html</guid>
-  <pubDate>Sun, 27 Aug 2023 07:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Hushh and Github</title>
-  <dc:creator>Justin Donaldson</dc:creator>
-  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/hushh-github.html</link>
-  <description><![CDATA[ 
-
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/git-logo.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Github and Hushh</figcaption>
-</figure>
-</div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ej91BYJZfxE?si=arpqlRtef6ZaZKU7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
-</iframe>
-<p>Recently, I recorded a short video on the importance of Github for our software interns. Github is hardly a secret anymore, but in software engineering we sometimes take tools and platforms like Github for granted, while in academic CS programs they’re not taught as a fundamental skill. At some point, if you want to learn software engineering, you have to pick it up. I hope I make a good case for it.</p>
-<ol type="1">
-<li><p>Version Control Simplified: GitHub provides a powerful version control system that allows developers to track changes, manage different versions of their code, and collaborate seamlessly. This eliminates the chaos of managing multiple copies of files and makes it easy to roll back to previous states if needed.</p></li>
-<li><p>Collaboration at its Best: Software development is rarely a solo endeavor. GitHub facilitates collaboration by enabling multiple developers to work on the same project simultaneously. Its branching and merging capabilities allow teams to work on different features or fixes in isolation and then combine their efforts smoothly.</p></li>
-<li><p>Transparency and Accountability: GitHub offers a transparent view of the entire development process. Every code change, issue raised, and discussion had is documented, creating a clear history of the project’s evolution. This transparency holds developers accountable for their contributions and fosters a culture of responsible coding practices.</p></li>
-<li><p>Bug Tracking and Issue Management: Bugs are an inherent part of software development, but GitHub provides tools for efficient bug tracking and issue management. Developers can report and discuss bugs, assign tasks, set priorities, and track progress—all within the platform. This streamlines the process of identifying, addressing, and resolving issues.</p></li>
-<li><p>Continuous Integration and Deployment: GitHub seamlessly integrates with various continuous integration and continuous deployment (CI/CD) tools. This enables automated testing, code review processes, and deployment pipelines, ensuring that code changes are thoroughly tested before being merged and deployed.</p></li>
-<li><p>Open Source and Community Engagement: GitHub has been a driving force behind the open-source movement. It has provided a platform for countless open-source projects to flourish, fostering collaboration among developers worldwide. This has led to the creation of innovative solutions that benefit the entire software development ecosystem.</p></li>
-<li><p>Learning and Skill Enhancement: GitHub is a treasure trove of code samples, libraries, and projects spanning various technologies and domains. Developers can explore others’ code, learn new techniques, and contribute to projects that align with their interests. This contributes to personal growth and the collective advancement of the developer community.</p></li>
-</ol>
-<p>In conclusion, GitHub’s importance in software development cannot be overstated. It has redefined the way developers collaborate, ensuring smoother workflows, greater accountability, and enhanced innovation. As the software development landscape continues to evolve, GitHub remains a cornerstone of modern coding practices, enabling developers to build better, more reliable, and more secure software.</p>
-
-
-
- ]]></description>
-  <category>git</category>
-  <category>engineering</category>
-  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/hushh-github.html</guid>
-  <pubDate>Sun, 27 Aug 2023 07:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Hushh Manifesto</title>
-  <dc:creator>Manish Sainani, Justin Donaldson, Sunaz Sharaf</dc:creator>
-  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</link>
-  <description><![CDATA[ 
-
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_A_scientist_writing_a_set_of_core_principles_for_an_AI_07bc5c5e-e3d4-447a-80e3-8401f4767591.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Hushh Principles</figcaption>
-</figure>
-</div>
-<section id="hushh---redefining-access-control-intelligence-and-monetization" class="level1">
-<h1>Hushh - Redefining Access, Control, Intelligence, and Monetization</h1>
-<p>At Hushh, we believe in building a startup that empowers individuals by redefining the principles of Access, Control, Intelligence, and Monetization. Our platform aims to revolutionize the way people interact, share, and derive value from their data, ensuring their privacy, choice, and ability to create value. This manifesto outlines the core principles that drive our mission and guide our actions, and a demonstration of documentation by github.</p>
-<section id="access" class="level2">
-<h2 class="anchored" data-anchor-id="access">Access:</h2>
-<p>We believe that access to information and resources should be inclusive, equitable, and easily attainable for everyone. Hushh aims to break down barriers and provide equal opportunities to all individuals, regardless of their background, location, or socio-economic status. Through our platform, we strive to create an ecosystem that fosters open communication, collaboration, and shared knowledge.</p>
-</section>
-<section id="control-choice" class="level2">
-<h2 class="anchored" data-anchor-id="control-choice">Control (Choice):</h2>
-<p>We recognize that individuals should have complete control over their personal data and online presence. At Hushh, we prioritize privacy and provide users with the tools to make informed decisions about the information they share and how it is used. We respect the autonomy and agency of our users, empowering them to define their own digital experiences and safeguard their personal information.</p>
-</section>
-<section id="intelligence" class="level2">
-<h2 class="anchored" data-anchor-id="intelligence">Intelligence :</h2>
-<p>We believe that intelligence is the foundation of progress and growth. At Hushh, we leverage cutting-edge technologies, such as artificial intelligence and machine learning, to provide intelligent insights and personalized experiences. Our platform understands user preferences, adapts to their needs, and continuously learns to enhance the overall user experience. We harness the power of intelligence to empower individuals and help them make better decisions in their personal and professional lives.</p>
-</section>
-<section id="monetization-value-creation-for-the-user-of-the-platform" class="level2">
-<h2 class="anchored" data-anchor-id="monetization-value-creation-for-the-user-of-the-platform">Monetization (Value Creation for the User of the Platform):</h2>
-<p>We understand the importance of value creation for our users. Hushh is committed to creating a sustainable ecosystem that enables individuals to monetize their skills, knowledge, and creations. We provide tools and opportunities for users to showcase their expertise, connect with like-minded individuals, and explore avenues for financial growth. Through our platform, users can unlock their full potential and realize the value they bring to the digital world.</p>
-<p>Together, we envision a future where access is universal, control is in the hands of individuals, intelligence is seamlessly integrated, and monetization is fair and rewarding. At Hushh, we are dedicated to building a community-driven platform that challenges existing norms, fosters innovation, and empowers individuals to thrive in the digital age. Join us on this transformative journey as we shape a world where everyone’s voice is heard, respected, and valued. Together, we can build a future that embraces the true potential of technology and human ingenuity.</p>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>mission</category>
-  <category>principles</category>
-  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</guid>
-  <pubDate>Tue, 11 Jul 2023 07:00:00 GMT</pubDate>
+  <pubDate>Sun, 27 Aug 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Logo Analysis for Brand Affinity</title>
@@ -443,7 +387,51 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <category>ML</category>
   <category>vision</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/logo_analysis.html</guid>
-  <pubDate>Tue, 11 Jul 2023 07:00:00 GMT</pubDate>
+  <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Hushh Manifesto</title>
+  <dc:creator>Manish Sainani, Justin Donaldson, Sunaz Sharaf</dc:creator>
+  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</link>
+  <description><![CDATA[ 
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_A_scientist_writing_a_set_of_core_principles_for_an_AI_07bc5c5e-e3d4-447a-80e3-8401f4767591.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Hushh Principles</figcaption>
+</figure>
+</div>
+<section id="hushh---redefining-access-control-intelligence-and-monetization" class="level1">
+<h1>Hushh - Redefining Access, Control, Intelligence, and Monetization</h1>
+<p>At Hushh, we believe in building a startup that empowers individuals by redefining the principles of Access, Control, Intelligence, and Monetization. Our platform aims to revolutionize the way people interact, share, and derive value from their data, ensuring their privacy, choice, and ability to create value. This manifesto outlines the core principles that drive our mission and guide our actions, and a demonstration of documentation by github.</p>
+<section id="access" class="level2">
+<h2 class="anchored" data-anchor-id="access">Access:</h2>
+<p>We believe that access to information and resources should be inclusive, equitable, and easily attainable for everyone. Hushh aims to break down barriers and provide equal opportunities to all individuals, regardless of their background, location, or socio-economic status. Through our platform, we strive to create an ecosystem that fosters open communication, collaboration, and shared knowledge.</p>
+</section>
+<section id="control-choice" class="level2">
+<h2 class="anchored" data-anchor-id="control-choice">Control (Choice):</h2>
+<p>We recognize that individuals should have complete control over their personal data and online presence. At Hushh, we prioritize privacy and provide users with the tools to make informed decisions about the information they share and how it is used. We respect the autonomy and agency of our users, empowering them to define their own digital experiences and safeguard their personal information.</p>
+</section>
+<section id="intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="intelligence">Intelligence :</h2>
+<p>We believe that intelligence is the foundation of progress and growth. At Hushh, we leverage cutting-edge technologies, such as artificial intelligence and machine learning, to provide intelligent insights and personalized experiences. Our platform understands user preferences, adapts to their needs, and continuously learns to enhance the overall user experience. We harness the power of intelligence to empower individuals and help them make better decisions in their personal and professional lives.</p>
+</section>
+<section id="monetization-value-creation-for-the-user-of-the-platform" class="level2">
+<h2 class="anchored" data-anchor-id="monetization-value-creation-for-the-user-of-the-platform">Monetization (Value Creation for the User of the Platform):</h2>
+<p>We understand the importance of value creation for our users. Hushh is committed to creating a sustainable ecosystem that enables individuals to monetize their skills, knowledge, and creations. We provide tools and opportunities for users to showcase their expertise, connect with like-minded individuals, and explore avenues for financial growth. Through our platform, users can unlock their full potential and realize the value they bring to the digital world.</p>
+<p>Together, we envision a future where access is universal, control is in the hands of individuals, intelligence is seamlessly integrated, and monetization is fair and rewarding. At Hushh, we are dedicated to building a community-driven platform that challenges existing norms, fosters innovation, and empowers individuals to thrive in the digital age. Join us on this transformative journey as we shape a world where everyone’s voice is heard, respected, and valued. Together, we can build a future that embraces the true potential of technology and human ingenuity.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>mission</category>
+  <category>principles</category>
+  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</guid>
+  <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Search and Discovery for Luxury Fashion</title>
@@ -518,7 +506,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <category>embedding</category>
   <category>discovery</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/image_search_with_text.html</guid>
-  <pubDate>Mon, 10 Jul 2023 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
