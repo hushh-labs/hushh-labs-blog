@@ -10,7 +10,7 @@ categories:
 ---
 
 
-![](pycon.webp)
+![](images/pycon.webp)
 
 This year’s python conference was held at a university from 29th September to 2nd October in Hyderabad with around 1000 attendees flocking to the scene across a span of four days. The conference’s theme was mainly focused towards Generative AI relate topics and the open-source network.
 
