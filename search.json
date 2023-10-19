@@ -1,45 +1,10 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hushh Labs",
     "section": "",
-    "text": "Hushh Labs\nHushh Labs is a research and development lab focused on exploring the potential in the intersection of AI and privacy. We are a team of engineers, scientists, and entrepreneurs who are passionate about creating a future where privacy is respected and AI is used to empower individuals.\nOur mission is to create products and services that enable individuals to take control of their data and use it to their advantage. We believe that privacy is a fundamental right and that AI can be used to protect it.\nWe are currently working on a number of projects that explore the potential of AI and privacy. Our goal is to create products and services that make it easier for individuals to protect their data and use it to their advantage.\nWe are always looking for talented individuals to join our team. If you are interested in learning more about our work or joining our team, please reach out to us. We look forward to hearing from you!\ninfo@hush1one.com\n\n\n\nhushh labs"
-  },
-  {
-    "objectID": "posts/manifesto.html",
-    "href": "posts/manifesto.html",
-    "title": "Hushh Manifesto",
-    "section": "",
-    "text": "Hushh Principles"
-  },
-  {
-    "objectID": "posts/manifesto.html#access",
-    "href": "posts/manifesto.html#access",
-    "title": "Hushh Manifesto",
-    "section": "Access:",
-    "text": "Access:\nWe believe that access to information and resources should be inclusive, equitable, and easily attainable for everyone. Hushh aims to break down barriers and provide equal opportunities to all individuals, regardless of their background, location, or socio-economic status. Through our platform, we strive to create an ecosystem that fosters open communication, collaboration, and shared knowledge."
-  },
-  {
-    "objectID": "posts/manifesto.html#control-choice",
-    "href": "posts/manifesto.html#control-choice",
-    "title": "Hushh Manifesto",
-    "section": "Control (Choice):",
-    "text": "Control (Choice):\nWe recognize that individuals should have complete control over their personal data and online presence. At Hushh, we prioritize privacy and provide users with the tools to make informed decisions about the information they share and how it is used. We respect the autonomy and agency of our users, empowering them to define their own digital experiences and safeguard their personal information."
-  },
-  {
-    "objectID": "posts/manifesto.html#intelligence",
-    "href": "posts/manifesto.html#intelligence",
-    "title": "Hushh Manifesto",
-    "section": "Intelligence :",
-    "text": "Intelligence :\nWe believe that intelligence is the foundation of progress and growth. At Hushh, we leverage cutting-edge technologies, such as artificial intelligence and machine learning, to provide intelligent insights and personalized experiences. Our platform understands user preferences, adapts to their needs, and continuously learns to enhance the overall user experience. We harness the power of intelligence to empower individuals and help them make better decisions in their personal and professional lives."
-  },
-  {
-    "objectID": "posts/manifesto.html#monetization-value-creation-for-the-user-of-the-platform",
-    "href": "posts/manifesto.html#monetization-value-creation-for-the-user-of-the-platform",
-    "title": "Hushh Manifesto",
-    "section": "Monetization (Value Creation for the User of the Platform):",
-    "text": "Monetization (Value Creation for the User of the Platform):\nWe understand the importance of value creation for our users. Hushh is committed to creating a sustainable ecosystem that enables individuals to monetize their skills, knowledge, and creations. We provide tools and opportunities for users to showcase their expertise, connect with like-minded individuals, and explore avenues for financial growth. Through our platform, users can unlock their full potential and realize the value they bring to the digital world.\nTogether, we envision a future where access is universal, control is in the hands of individuals, intelligence is seamlessly integrated, and monetization is fair and rewarding. At Hushh, we are dedicated to building a community-driven platform that challenges existing norms, fosters innovation, and empowers individuals to thrive in the digital age. Join us on this transformative journey as we shape a world where everyone’s voice is heard, respected, and valued. Together, we can build a future that embraces the true potential of technology and human ingenuity."
+    "text": "A Survey on Language Models and Related Data Privacy\n\n\n\n\n\n\n\nLLM\n\n\nPrivacy\n\n\n\n\nCustomers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?\n\n\n\n\n\n\nOct 19, 2023\n\n\nHarshvardhan, Justin Donaldson, Manish Sainani\n\n\n\n\n\n\n  \n\n\n\n\nPycon India 2023 Trip Report\n\n\n\n\n\n\n\nconferences\n\n\ninsights\n\n\n\n\nA brief overview on the latest happenings within the global Python community\n\n\n\n\n\n\nSep 11, 2023\n\n\nDevesh Paragiri\n\n\n\n\n\n\n  \n\n\n\n\nUnveiling the Power and Privacy of Language Models in Fashion\n\n\n\n\n\n\n\nLLM\n\n\nPrivacy\n\n\n\n\nIn the world of fashion, language models have become the talk of the town. These models, known as Large Language Models (LLMs), are making waves in the field of Natural Language Processing (NLP). With their ability to understand and generate human-like language, LLMs are revolutionising the way computers comprehend and communicate with us. They have practical applications in fashion-related tasks, such as understanding fashion trends, generating creative fashion content, and improving fashion recommendations.\n\n\n\n\n\n\nAug 27, 2023\n\n\nHarshvardhan\n\n\n\n\n\n\n  \n\n\n\n\nLogo Analysis for Brand Affinity\n\n\n\n\n\n\n\nfashion\n\n\nML\n\n\nvision\n\n\n\n\nCustomers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?\n\n\n\n\n\n\nJul 11, 2023\n\n\nJustin Donaldson\n\n\n\n\n\n\n  \n\n\n\n\nHushh Manifesto\n\n\n\n\n\n\n\nmission\n\n\nprinciples\n\n\n\n\nWhat does Hushh believe? What are we working towards?\n\n\n\n\n\n\nJul 11, 2023\n\n\nManish Sainani, Justin Donaldson, Sunaz Sharaf\n\n\n\n\n\n\n  \n\n\n\n\nSearch and Discovery for Luxury Fashion\n\n\n\n\n\n\n\nsearch\n\n\nembedding\n\n\ndiscovery\n\n\n\n\nSearch and discovery go hand in hand when finding the frontiers for personal taste\n\n\n\n\n\n\nJul 10, 2023\n\n\nJustin Donaldson\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/image_search_with_text.html",
@@ -98,13 +63,6 @@
     "text": "Conclusion\n Language models have become a game-changer in the fashion industry. Their ability to understand and generate human-like language opens up a world of possibilities for fashion-related tasks. With advancements in privacy techniques like differential privacy and federated learning, language models can protect the privacy of user data while providing accurate and valuable insights. As the fashion industry embraces these technologies, we can expect further advancements in fashion content creation, trend analysis, and personalised fashion recommendations."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hushh Labs",
-    "section": "",
-    "text": "Pycon India 2023 Trip Report\n\n\n\n\n\n\n\nconferences\n\n\ninsights\n\n\n\n\nA brief overview on the latest happenings within the global Python community\n\n\n\n\n\n\nSep 11, 2023\n\n\nDevesh Paragiri\n\n\n\n\n\n\n  \n\n\n\n\nUnveiling the Power and Privacy of Language Models in Fashion\n\n\n\n\n\n\n\nLLM\n\n\nPrivacy\n\n\n\n\nIn the world of fashion, language models have become the talk of the town. These models, known as Large Language Models (LLMs), are making waves in the field of Natural Language Processing (NLP). With their ability to understand and generate human-like language, LLMs are revolutionising the way computers comprehend and communicate with us. They have practical applications in fashion-related tasks, such as understanding fashion trends, generating creative fashion content, and improving fashion recommendations.\n\n\n\n\n\n\nAug 27, 2023\n\n\nHarshvardhan\n\n\n\n\n\n\n  \n\n\n\n\nLogo Analysis for Brand Affinity\n\n\n\n\n\n\n\nfashion\n\n\nML\n\n\nvision\n\n\n\n\nCustomers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?\n\n\n\n\n\n\nJul 11, 2023\n\n\nJustin Donaldson\n\n\n\n\n\n\n  \n\n\n\n\nHushh Manifesto\n\n\n\n\n\n\n\nmission\n\n\nprinciples\n\n\n\n\nWhat does Hushh believe? What are we working towards?\n\n\n\n\n\n\nJul 11, 2023\n\n\nManish Sainani, Justin Donaldson, Sunaz Sharaf\n\n\n\n\n\n\n  \n\n\n\n\nSearch and Discovery for Luxury Fashion\n\n\n\n\n\n\n\nsearch\n\n\nembedding\n\n\ndiscovery\n\n\n\n\nSearch and discovery go hand in hand when finding the frontiers for personal taste\n\n\n\n\n\n\nJul 10, 2023\n\n\nJustin Donaldson\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "posts/logo_analysis.html",
     "href": "posts/logo_analysis.html",
     "title": "Logo Analysis for Brand Affinity",
@@ -145,5 +103,187 @@
     "title": "Pycon India 2023 Trip Report",
     "section": "Summary",
     "text": "Summary\nOverall, the conference was an amazing experience which gave insights into various domains, what developers are working on, future of multiple technology related sectors, and the cool ways companies are solving pressing real-world problems.\nTo watch the recorded stream of keynotes click here.\nTo look at the talk proposals click here."
+  },
+  {
+    "objectID": "posts/manifesto.html",
+    "href": "posts/manifesto.html",
+    "title": "Hushh Manifesto",
+    "section": "",
+    "text": "Hushh Principles"
+  },
+  {
+    "objectID": "posts/manifesto.html#access",
+    "href": "posts/manifesto.html#access",
+    "title": "Hushh Manifesto",
+    "section": "Access:",
+    "text": "Access:\nWe believe that access to information and resources should be inclusive, equitable, and easily attainable for everyone. Hushh aims to break down barriers and provide equal opportunities to all individuals, regardless of their background, location, or socio-economic status. Through our platform, we strive to create an ecosystem that fosters open communication, collaboration, and shared knowledge."
+  },
+  {
+    "objectID": "posts/manifesto.html#control-choice",
+    "href": "posts/manifesto.html#control-choice",
+    "title": "Hushh Manifesto",
+    "section": "Control (Choice):",
+    "text": "Control (Choice):\nWe recognize that individuals should have complete control over their personal data and online presence. At Hushh, we prioritize privacy and provide users with the tools to make informed decisions about the information they share and how it is used. We respect the autonomy and agency of our users, empowering them to define their own digital experiences and safeguard their personal information."
+  },
+  {
+    "objectID": "posts/manifesto.html#intelligence",
+    "href": "posts/manifesto.html#intelligence",
+    "title": "Hushh Manifesto",
+    "section": "Intelligence :",
+    "text": "Intelligence :\nWe believe that intelligence is the foundation of progress and growth. At Hushh, we leverage cutting-edge technologies, such as artificial intelligence and machine learning, to provide intelligent insights and personalized experiences. Our platform understands user preferences, adapts to their needs, and continuously learns to enhance the overall user experience. We harness the power of intelligence to empower individuals and help them make better decisions in their personal and professional lives."
+  },
+  {
+    "objectID": "posts/manifesto.html#monetization-value-creation-for-the-user-of-the-platform",
+    "href": "posts/manifesto.html#monetization-value-creation-for-the-user-of-the-platform",
+    "title": "Hushh Manifesto",
+    "section": "Monetization (Value Creation for the User of the Platform):",
+    "text": "Monetization (Value Creation for the User of the Platform):\nWe understand the importance of value creation for our users. Hushh is committed to creating a sustainable ecosystem that enables individuals to monetize their skills, knowledge, and creations. We provide tools and opportunities for users to showcase their expertise, connect with like-minded individuals, and explore avenues for financial growth. Through our platform, users can unlock their full potential and realize the value they bring to the digital world.\nTogether, we envision a future where access is universal, control is in the hands of individuals, intelligence is seamlessly integrated, and monetization is fair and rewarding. At Hushh, we are dedicated to building a community-driven platform that challenges existing norms, fosters innovation, and empowers individuals to thrive in the digital age. Join us on this transformative journey as we shape a world where everyone’s voice is heard, respected, and valued. Together, we can build a future that embraces the true potential of technology and human ingenuity."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html",
+    "href": "posts/survey_on_llm_privacy.html",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "",
+    "text": "AI Privacy"
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#pretraining-data",
+    "href": "posts/survey_on_llm_privacy.html#pretraining-data",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Pretraining Data",
+    "text": "Pretraining Data\nThis data plays a pivotal role as it forms the foundation for language models. Pretraining involves training language models on text sources such as websites and articles. This carefully curated data ensures that language models possess a rich understanding of word knowledge, grammar, syntax, semantics, context, and the ability to generate coherent responses. The diversity of pretraining data sets Large Language Models (LLMs) apart from other models in terms of usability."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#finetuning-data",
+    "href": "posts/survey_on_llm_privacy.html#finetuning-data",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Finetuning Data",
+    "text": "Finetuning Data\nThe choice between using LLMs or fine-tuned models depends on the availability of annotated data in three scenarios:\n\nZero Annotated Data\nWhen no annotated data is available, LLMs excel in a zero-shot setting. They outperform previous methods that do not rely on annotated data. LLMs avoid catastrophic forgetting, meaning their parameters remain unchanged as they don’t undergo a parameter update process.\n\n\nFew Annotated Data\nIf only a small amount of annotated data is available, LLMs incorporate these examples directly into their input prompt, known as in-context learning. This guides LLMs effectively and enables them to understand and perform tasks. Recent studies have shown that even with just one or a few annotated examples, LLMs can achieve significant improvements and match the performance of state-of-the-art fine-tuned models in open-domain tasks. Scaling LLMs can enhance their zero/few-shot capabilities. Fine-tuned models can also be improved using few-shot learning methods, but they may be outperformed by LLMs due to their smaller scale and potential overfitting.\n\n\nAbundant Annotated Data\nWhen a substantial amount of annotated data is available, both fine-tuned models and LLMs can be considered. Fine-tuned models fit the data well in most cases, but LLMs can be preferred when specific constraints like privacy need to be addressed. The choice between fine-tuned models and LLMs depends on factors like desired performance, computational resources, and deployment constraints specific to the task at hand."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#test-data",
+    "href": "posts/survey_on_llm_privacy.html#test-data",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Test Data",
+    "text": "Test Data\nThis refers to a set of examples used to evaluate the performance and accuracy of a model or system. It helps researchers and developers understand how well their models work and identify areas for improvement before real-world use. Test data is crucial as it reveals disparities between the trained data and new data, known as domain shifts. These shifts can hinder the performance of fine-tuned models due to their specific distribution and limited generalization ability.\nNow let’s delve into the utilization of LLMs (Large Language Models) and fine-tuned models in real-world tasks. In these scenarios, we often encounter a significant challenge called “Noisy data.” This means that the input received from real-world non-experts is not always clean and well-defined. These users may have limited knowledge of how to interact with the model or may not be fluent in using text. Another challenge is the lack of task formatting, where users may not clearly express their desired predictions or may have multiple implicit intents.\nTo overcome these challenges, it is crucial for models to understand user intents and provide outputs that align with those intents. However, real-world user requests often deviate significantly from the distribution of NLP datasets designed for specific tasks. Studies have shown that LLMs are better suited to handle real-world scenarios compared to fine-tuned models. This is because LLMs have been trained on diverse datasets that cover various writing styles, languages, and domains. They also demonstrate a strong ability to generate open-domain responses, making them well-suited for these real-world scenarios.\nOn the other hand, fine-tuned models are specifically tailored to well-defined tasks and may struggle to adapt to new or unexpected user requests. They rely heavily on clear objectives and well-formed training data that specify the types of instructions the models should learn to follow. These fine-tuned models may face challenges with noisy input due to their narrower focus on specific distributions and structured data.\nIn addition to considering real-world data, there are other factors that need to be taken into account, particularly the safety and privacy of user data. Since the present LLM giants are cloud-based, user data is communicated over the internet. This can pose serious security risks, especially when processing sensitive or confidential data with cloud giants. Therefore, before considering factors like cost, latency, robustness, or bias, it is essential to prioritize user privacy and ensure appropriate safeguards are in place."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#understanding-privacy",
+    "href": "posts/survey_on_llm_privacy.html#understanding-privacy",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Understanding Privacy",
+    "text": "Understanding Privacy\nBefore we delve into privacy concerns related to language models, let’s first understand what privacy means. According to Alan Estin, privacy is about individuals, groups, or institutions having control over how, when, and to what extent their information is shared with others. In the context of language models, there are significant digital privacy concerns."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#historical-privacy-measures",
+    "href": "posts/survey_on_llm_privacy.html#historical-privacy-measures",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Historical Privacy Measures",
+    "text": "Historical Privacy Measures\nIn the past, privacy concerns were addressed through techniques like anonymity and encryption. Anonymity involves keeping personal or identifiable information separate from data to ensure that individuals’ identities are not linked to the data they generate. Encryption converts information into a coded form that can only be accessed by authorized parties. These measures aimed to protect privacy and limit access to user information."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#limitations-in-protecting-privacy",
+    "href": "posts/survey_on_llm_privacy.html#limitations-in-protecting-privacy",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Limitations in Protecting Privacy",
+    "text": "Limitations in Protecting Privacy\nHowever, these approaches are proving insufficient, especially when it comes to training machine learning models or language models. It is crucial that these models do not expose any private information from the training dataset. This has led to research on differential privacy algorithms."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#differential-privacy",
+    "href": "posts/survey_on_llm_privacy.html#differential-privacy",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Differential Privacy",
+    "text": "Differential Privacy\nDifferential privacy is a rigorous mathematical framework that can be applied to any algorithm. It has been successfully implemented by major companies in their data pipelines. In this section, we will explain the concept of differential privacy without delving into the mathematical details."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#privacy-attacks-and-privacy-loss",
+    "href": "posts/survey_on_llm_privacy.html#privacy-attacks-and-privacy-loss",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Privacy Attacks and Privacy Loss",
+    "text": "Privacy Attacks and Privacy Loss\nUnlike encryption or anonymization, differential privacy focuses on preventing privacy attacks. Privacy attacks occur when an entity or individual tries to gain access to private information by exploiting the behavior or output of a language model. Differential privacy addresses the concept of privacy leakage or privacy loss."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#key-concepts-in-differential-privacy",
+    "href": "posts/survey_on_llm_privacy.html#key-concepts-in-differential-privacy",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Key Concepts in Differential Privacy",
+    "text": "Key Concepts in Differential Privacy\n\nPrivacy Parameters: The level of privacy protection is controlled by a parameter called epsilon (\\(\\epsilon\\)). A smaller \\(\\epsilon\\) value provides stronger privacy guarantees.\nSensitivity: Sensitivity of a mechanism refers to how much the output can change when a single example is added or removed from the dataset. Sensitivity helps determine the amount of noise that needs to be added to achieve the desired privacy level.\nPrivacy Compromise: To address potential privacy compromises, (\\(\\epsilon, \\delta\\))-differential privacy is used, where \\(\\delta\\) represents the probability of privacy compromise."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#challenges-and-variations",
+    "href": "posts/survey_on_llm_privacy.html#challenges-and-variations",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Challenges and Variations",
+    "text": "Challenges and Variations\n\nPrivacy Loss Variance: Privacy loss variance means that different individuals may experience different levels of privacy loss.\nDifferential Privacy Extensions: In the field of research, there are more than 500 extensions of differential privacy available in literature, focusing on different scenarios, types of data, and attacker models.\nExternal Factors: In some cases, privacy can be compromised by external factors beyond the mechanism’s control.\nAlternative Approaches: There are alternative statistical approaches, like hypothesis testing, that can be used to interpret differential privacy."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#applying-differential-privacy-in-data-processing",
+    "href": "posts/survey_on_llm_privacy.html#applying-differential-privacy-in-data-processing",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Applying Differential Privacy in Data Processing",
+    "text": "Applying Differential Privacy in Data Processing\n\nData Preprocessing: Data preprocessing involves applying differential privacy to datasets before training the model, which helps protect sensitive information.\nOptimization Algorithm: Using differential privacy during the training process of the model’s parameters ensures privacy is maintained while learning from the data.\nLoss Function: Applying differential privacy to the result of the loss function just before updating the model’s parameters helps control privacy loss and maintain accuracy.\nFinal Trained Parameters: Differential privacy can also be applied to the final trained parameters of the model, ensuring privacy even when the model is in use."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#privacy-in-stochastic-gradient-descent",
+    "href": "posts/survey_on_llm_privacy.html#privacy-in-stochastic-gradient-descent",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Privacy in Stochastic Gradient Descent",
+    "text": "Privacy in Stochastic Gradient Descent\nIn deep learning, stochastic gradient descent (SGD) is used to train language models. It involves adding noise to the gradients during training to protect the privacy of the model parameters. This ensures that the model parameters do not reveal any private information."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#the-pate-algorithm",
+    "href": "posts/survey_on_llm_privacy.html#the-pate-algorithm",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "The PATE Algorithm",
+    "text": "The PATE Algorithm\nThe PATE algorithm takes a different approach to ensure privacy. It allows a public model to learn by combining the predictions of multiple models with added noise. This creates a public dataset with differentially private labels, which are used to train a differentially private model. This approach resembles synthetic data generation and provides a way to avoid leaking private data during data processing."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#local-differential-privacy-and-federated-learning",
+    "href": "posts/survey_on_llm_privacy.html#local-differential-privacy-and-federated-learning",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Local Differential Privacy and Federated Learning",
+    "text": "Local Differential Privacy and Federated Learning\nIn some cases, it may not be necessary to interact with a cloud server to work with a dataset. This is where “Local” differential privacy can be useful. It provides a stronger privacy guarantee for individual users by using a version of the data that doesn’t store the original sensitive information. Federated Learning is introduced to handle the variability of different input data received by the server.\n\nCentralized Federated Learning\nCentralized Federated Learning involves a central server that coordinates the participating nodes to create a global model. Privacy is maintained by only sharing local models with a trusted aggregator.\n\n\nDecentralized Federated Learning\nDecentralized Federated Learning eliminates the central server, resulting in no single point of failure. However, it presents challenges in coordinating the learning process and network performance.\n\n\nHeterogeneous Federated Learning\nHeterogeneous Federated Learning allows for flexibility without making assumptions about data, devices, collaborative schemes, or models used. It requires careful optimization and coordination."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#challenges-and-improvements-in-large-language-models-llms",
+    "href": "posts/survey_on_llm_privacy.html#challenges-and-improvements-in-large-language-models-llms",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Challenges and Improvements in Large Language Models (LLMs)",
+    "text": "Challenges and Improvements in Large Language Models (LLMs)\nLarge language models (LLMs) have made remarkable strides in natural language processing, yet addressing various shortcomings is crucial for their further advancement and practical application. Future research should focus on the following areas:\n\nAddressing Bias and Fairness\n\nBias Mitigation: LLMs can perpetuate biases from training data, resulting in unfair and discriminatory outcomes. Future research should focus on developing debiasing techniques and meticulous dataset curation to ensure fairness.\n\n\n\nEnhancing Robustness\n\nHandling Noisy Data: LLMs often struggle with noisy or out-of-distribution data, leading to erroneous or nonsensical outputs. Enhancing their robustness is imperative to handle diverse scenarios encountered in real-world applications. Researchers should explore techniques that improve model generalization and adaptability.\n\n\n\nImproving Explainability\n\nEnhancing Interpretability: The lack of explainability and interpretability makes LLMs appear as black boxes, hindering the understanding of their reasoning behind predictions. To enhance trustworthiness, methods need to be developed to make LLMs more explainable, allowing users to comprehend the decision-making process.\n\n\n\nData Efficiency\n\nData-Efficient Models: LLMs typically rely on vast amounts of training data, which restricts their usability in domains with limited labeled data. It is crucial to investigate methods that improve data efficiency, enabling LLMs to perform well even with fewer training examples."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#potential-applications-of-llms",
+    "href": "posts/survey_on_llm_privacy.html#potential-applications-of-llms",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Potential Applications of LLMs",
+    "text": "Potential Applications of LLMs\nLLMs have a wide range of potential applications in various domains. They can be utilized in the following ways:\n\nCustomer Support and Chatbots\n\nCreating intelligent bots capable of accurately understanding and responding to user queries, thereby improving customer interactions.\n\n\n\nContent Generation\n\nAutomating content generation tasks, generating high-quality articles, blog posts, and product descriptions, benefiting content creators, marketers, and businesses.\n\n\n\nLanguage Translation\n\nEnhancing language translation systems, enabling more contextually accurate translations and breaking down language barriers.\n\n\n\nImproved Search Engines\n\nEnhancing the effectiveness of search engines by better comprehending user queries and offering more relevant search results, thereby enhancing the overall search experience.\n\nIt is crucial to carefully address factors like privacy, data protection, and ethical considerations when implementing LLMs in real-life applications, ensuring the development of valuable and user-friendly solutions."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#challenges-in-upscaling-data-for-llms",
+    "href": "posts/survey_on_llm_privacy.html#challenges-in-upscaling-data-for-llms",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Challenges in Upscaling Data for LLMs",
+    "text": "Challenges in Upscaling Data for LLMs\nUpscaling data for training Language Models (LLMs) presents various challenges. Researchers should explore techniques to address the following issues:\n\nComputational Resources\n\nHandling the significant computational resources encompassing storage and processing power required to upscale data for training LLMs.\n\n\n\nData Quality and Labeling\n\nEnsuring data quality and labeling becomes more complex when upscaling data, demanding meticulous quality control and annotation procedures to maintain accuracy and consistency.\n\n\n\nTraining Time\n\nProlonging the training time for LLMs when upscaling data, potentially impacting productivity and causing delays in research and development cycles.\n\n\n\nOverfitting\n\nThe risk of overfitting the model to the training data when upscaling, resulting in poor generalization to new and unseen examples.\n\nResearchers should explore techniques like distributed training, efficient data storage and processing frameworks, and automated quality assurance processes to ensure the scalability and reliability of upscaling data."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#failure-cases-in-differential-privacy",
+    "href": "posts/survey_on_llm_privacy.html#failure-cases-in-differential-privacy",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Failure Cases in Differential Privacy",
+    "text": "Failure Cases in Differential Privacy\nWhile differential privacy is a valuable technique for safeguarding individuals’ data privacy, it may fall short in certain scenarios. Researchers should address the following failure cases:\n\nCorrelation Attacks\n\nWhen adversaries exploit correlations between multiple queries or released data points to unveil sensitive information, differential privacy mechanisms may not adequately protect against such attacks without accounting for correlations appropriately.\n\n\n\nAdversarial Use of Auxiliary Information\n\nAdversaries with access to auxiliary information can combine it with differentially private outputs to breach privacy, as differential privacy mechanisms do not safeguard against inferences made from external sources.\n\n\n\nInsider Attacks\n\nThe assumption of a trusted data curator in differential privacy leaves room for insider attacks, where privacy guarantees can be violated if the curator is malicious or colludes with attackers.\n\n\n\nRe-Identification Attacks\n\nAdversaries attempt to re-identify individuals in the dataset using background knowledge or external datasets, posing a threat to privacy. Differential privacy mechanisms may not provide sufficient protection against such attacks, especially when the dataset is sparse or contains unique identifiers.\n\nFuture research should prioritize the development of more robust differential privacy mechanisms, considering adversarial scenarios and exploring ways to incorporate additional privacy-preserving techniques."
+  },
+  {
+    "objectID": "posts/survey_on_llm_privacy.html#open-ended-questions",
+    "href": "posts/survey_on_llm_privacy.html#open-ended-questions",
+    "title": "A Survey on Language Models and Related Data Privacy",
+    "section": "Open-Ended Questions",
+    "text": "Open-Ended Questions\nHere are some open-ended questions for the reader:\n\nHow can large language models be effectively utilized in domains with limited training data, considering the trade-off between model size and performance?\nWhat potential ethical implications arise from deploying large language models in real-world applications, and how can we ensure their responsible use?\nWhat measures should be taken to mitigate biases and ensure fairness in language models, considering their impact on decision-making processes?\nHow can we strike a balance between privacy and utility in language models, given the growing concerns about data protection and the need for accurate results?\nWhat potential risks and challenges are associated with upscaling data for training language models, and how can they be mitigated to ensure efficient and reliable model performance?"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hushh Labs\nHushh Labs is a research and development lab focused on exploring the potential in the intersection of AI and privacy. We are a team of engineers, scientists, and entrepreneurs who are passionate about creating a future where privacy is respected and AI is used to empower individuals.\nOur mission is to create products and services that enable individuals to take control of their data and use it to their advantage. We believe that privacy is a fundamental right and that AI can be used to protect it.\nWe are currently working on a number of projects that explore the potential of AI and privacy. Our goal is to create products and services that make it easier for individuals to protect their data and use it to their advantage.\nWe are always looking for talented individuals to join our team. If you are interested in learning more about our work or joining our team, please reach out to us. We look forward to hearing from you!\ninfo@hush1one.com\n\n\n\nhushh labs"
   }
 ]
