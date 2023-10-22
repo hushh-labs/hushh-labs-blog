@@ -15,7 +15,7 @@ website:
   navbar:
     logo: "assets/logo.svg"
     logo-alt: "Hushh.ai"
-    logo-href: "https://hushh-labs.github.io/hushh-labs-blog/"
+    logo-href: "https://www.hushh.ai"
     left:
       - href: index.qmd
         text: Home
