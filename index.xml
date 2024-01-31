@@ -6,11 +6,100 @@
       version="2.0">
 <channel>
 <title>Hushh Labs</title>
-<link>https://hushh-labs.github.io/hushh-labs-blog/index.html</link>
+<link>https://hushh-labs.github.io/hushh-labs-blog/</link>
 <atom:link href="https://hushh-labs.github.io/hushh-labs-blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.450</generator>
-<lastBuildDate>Thu, 19 Oct 2023 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.4.549</generator>
+<lastBuildDate>Tue, 30 Jan 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>You (Probably) Don’t Need an Embedding Database</title>
+  <dc:creator>Justin Donaldson</dc:creator>
+  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/you_dont_need_a_vector_database.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_database_mainframe_on_a_set_of_scales_0aed1fa7-f060-407f-abf5-f87e61c8038f.png" class="img-fluid figure-img"></p>
+<figcaption>Vector database on a set of digital scales</figcaption>
+</figure>
+</div>
+<p>If you’ve been paying attention to the recent advances in Large Language Models (LLM), you’ve noticed that a whole new crop of startups emerged to provide search over embeddings.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/1688152025187.png" class="img-fluid figure-img"></p>
+<figcaption>Vector libraries and databases (<a href="https://blog.det.life/why-you-shouldnt-invest-in-vector-databases-c0cd3f59d23c">source</a>)</figcaption>
+</figure>
+</div>
+<p>Search over embeddings is a very different process than search over a database of documents. Embedding search uses a vector space representation of an image or document that has been created by a corresponding model, rather than an inverted index of terms and documents. Search in a vector space is typically handled with <em><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm_">nearest neighbor</a></em> search, which returns the embeddings of the closest records to the target record. This technique is much more intensive to calculate than a simple inverted index lookup, and accordingly databases need to make trade offs for precision/recall in order to provide reasonable performance over large sets of data.</p>
+<section id="embedding-databases-for-smaller-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="embedding-databases-for-smaller-datasets">Embedding Databases for Smaller Datasets</h2>
+<p>Here at Hushh we were suprised to realize that there wasn’t a good option for smaller/portable embeddings for databases. Many modeling tasks rely on smaller and more domain-specific datasets to perform domain-specific tasks. For instance, image recognition models might need to index the products of a given storefront. There may be many thousand products, but probably not the millions of products that would necessitate a standalone database. Furthermore, a standalone database would need to be running at all times, incurring a large one-time cost for any sort of embedding search functionality.</p>
+<p>If you don’t have a lot of data, and don’t want to pay the maintenance fee on hosted embedding search, using an embedding search database is costly overkill, but what are the options?</p>
+<p>Many embedding databases and models use python, so accordingly the embeddings can be exported in the <a href="https://docs.python.org/3/library/pickle.html">python pickle</a> format. However, the pickle format is <em>unsafe</em>, making it a risky bet for production systems.</p>
+<p>JSON formats can also be used for pickling data, but JSON requires all of the embedding data to be <em>decoded</em> and loaded into memory. This process can take a significant amount of time, making it costly to load/unload embedding datasets on the fly.</p>
+</section>
+<section id="the-hushh-catalog-format" class="level2">
+<h2 class="anchored" data-anchor-id="the-hushh-catalog-format">The Hushh Catalog Format</h2>
+<p>We introduce the <em><a href="https://github.com/hushh-labs/hushh-vibe-catalog">Hushh Catalog Format</a> (HCF)</em>, a file format that is optimized for speedy (and lazy) loading of embeddings from disk.</p>
+<p>To understand the performance benefits of the HCF format, we’ll use this <a href="https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-small">fashion dataset</a> comprising ~44K product images, representative of the fashion offerings of a mid-to-large size department store.</p>
+<p>We’ll also take figures and data from this <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/notebooks/Create%20Catalog.ipynb">data science notebook</a> that contains the result of the analysis.</p>
+</section>
+<section id="comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons">Comparisons</h2>
+<p>For the purposes of comparison, we’ll generate embedding vectors in three different formats:</p>
+<ul>
+<li>JSON : A popular option for web development due to it being human-readable</li>
+<li>Msgpack : A schema-less binary format that is a good option for smaller/faster serialization</li>
+<li>Hushh Catalog Format : A format with a schema designed especially for storing product information and metadata.</li>
+</ul>
+<section id="file-size" class="level3">
+<h3 class="anchored" data-anchor-id="file-size">File Size</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/file_size.png" class="img-fluid figure-img"></p>
+<figcaption>File Size Comparison</figcaption>
+</figure>
+</div>
+<p>File sizes for smaller/embedded databases can add a lot of overhead for search. In our first comparison we look at the file size from our example dataset and see that HCF is half the size of messagepack, and a less than 25% the size of a comparable json format.</p>
+<p>File size matters a lot for databases, particularly since files like messagepack and json need to be loaded fully into memory. If you have a bigger file format, your program will use more memory to store it internally, which adds overhead for resource usage and time.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/loading_time.png" class="img-fluid figure-img"></p>
+<figcaption>Loading Time Comparison</figcaption>
+</figure>
+</div>
+<p>Interestingly enough, the file size difference becomes even more pronounced when the loading time is compared. The HCF format is a whopping <em>20,000 times faster</em> at loading the embedding data than JSON, and also beats msgpack by over an order of magnitude.</p>
+<p><em>How is this possible?</em></p>
+<p>The answer is that the Hushh Catalog Format reader doesn’t read in the data all at once. Instead, it streams it in as necessary directly from disk without needing to parse the entire file. This technique of <em>lazy loading</em> enables the Hushh Catalog Format to all but eliminate a startup delay when loading embedding data.</p>
+<p><em>What was used to build the Hushh Catalog Format?</em></p>
+<p>The Hushh Catalog Format is built on top of <a href="https://flatbuffers.dev/">flatbuffers</a>. Flatbuffers is similar to <a href="https://protobuf.dev/">protobuffers</a>, except it’s designed for larger amounts of data that can be streamed lazily. Flatbuffers excel at loading densely packed numeric and textual data in a structured format.</p>
+<p>The structured format requires a schema, and here’s the current <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/schemas/hushh-catalog.fbs">schema for Hushh Catalog Format</a></p>
+<p>Using the schema, we can use flatbuffers to generate python <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/python/src/hushh/hcf/Catalog.py">runtime classes</a> that stream the file into memory, along with some <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/python/src/hushh/catalog.py">helper constructor methods</a>. There’s runtime classes for <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/swift/Sources/hushh-catalog_generated.swift">Swift</a> available as well, with more to come.</p>
+</section>
+</section>
+<section id="what-can-you-do-with-the-hushh-catalog-format" class="level2">
+<h2 class="anchored" data-anchor-id="what-can-you-do-with-the-hushh-catalog-format">What can you do with the Hushh Catalog Format?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.youtube.com/watch?v=DIVTqXQXGuA"><img src="https://img.youtube.com/vi/DIVTqXQXGuA/0.jpg" class="img-fluid figure-img" alt="Vibe Search"></a></p>
+<figcaption>Vibe Search</figcaption>
+</figure>
+</div>
+<p>We’re using the HCF format as a way of providing portable embedding indexes that are available from the phone or from a web server. Our Vibe search service will use it under the hood, making state of the art embedding search more easily available to everyone!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>fashion</category>
+  <category>ML</category>
+  <category>vision</category>
+  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/you_dont_need_a_vector_database.html</guid>
+  <pubDate>Tue, 30 Jan 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>A Survey on Language Models and Related Data Privacy</title>
   <dc:creator>Harshvardhan, Justin Donaldson, Manish Sainani</dc:creator>
@@ -19,10 +108,11 @@
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_data_privacy_AI_home_secure_f87b681d-8207-46b6-adf4-4e2981b09f18.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">AI Privacy</figcaption>
+<figcaption>AI Privacy</figcaption>
 </figure>
 </div>
 <section id="abstract" class="level1">
@@ -309,6 +399,7 @@
 
 
 
+
 <p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/pycon.webp" class="img-fluid"></p>
 <p>This year’s python conference was held at a university from 29th September to 2nd October in Hyderabad with around 1000 attendees flocking to the scene across a span of four days. The conference’s theme was mainly focused towards Generative AI relate topics and the open-source network.</p>
 <p>In this blog, I will distill the most important takeaways from the conference — latest developments, emerging fields and industries, and cool resources.</p>
@@ -363,10 +454,11 @@
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_In_the_world_of_fashion_language_models_have_become_the__d94d4e64-a53f-4fe4-8765-2286673ffd8b.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">in the world of fashion</figcaption>
+<figcaption>in the world of fashion</figcaption>
 </figure>
 </div>
 <section id="understanding-language-models" class="level2">
@@ -395,10 +487,56 @@
   <pubDate>Sun, 27 Aug 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Hushh Manifesto</title>
+  <dc:creator>Manish Sainani, Justin Donaldson, Sunaz Sharaf</dc:creator>
+  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_A_scientist_writing_a_set_of_core_principles_for_an_AI_07bc5c5e-e3d4-447a-80e3-8401f4767591.png" class="img-fluid figure-img"></p>
+<figcaption>Hushh Principles</figcaption>
+</figure>
+</div>
+<section id="hushh---redefining-access-control-intelligence-and-monetization" class="level1">
+<h1>Hushh - Redefining Access, Control, Intelligence, and Monetization</h1>
+<p>At Hushh, we believe in building a startup that empowers individuals by redefining the principles of Access, Control, Intelligence, and Monetization. Our platform aims to revolutionize the way people interact, share, and derive value from their data, ensuring their privacy, choice, and ability to create value. This manifesto outlines the core principles that drive our mission and guide our actions, and a demonstration of documentation by github.</p>
+<section id="access" class="level2">
+<h2 class="anchored" data-anchor-id="access">Access:</h2>
+<p>We believe that access to information and resources should be inclusive, equitable, and easily attainable for everyone. Hushh aims to break down barriers and provide equal opportunities to all individuals, regardless of their background, location, or socio-economic status. Through our platform, we strive to create an ecosystem that fosters open communication, collaboration, and shared knowledge.</p>
+</section>
+<section id="control-choice" class="level2">
+<h2 class="anchored" data-anchor-id="control-choice">Control (Choice):</h2>
+<p>We recognize that individuals should have complete control over their personal data and online presence. At Hushh, we prioritize privacy and provide users with the tools to make informed decisions about the information they share and how it is used. We respect the autonomy and agency of our users, empowering them to define their own digital experiences and safeguard their personal information.</p>
+</section>
+<section id="intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="intelligence">Intelligence :</h2>
+<p>We believe that intelligence is the foundation of progress and growth. At Hushh, we leverage cutting-edge technologies, such as artificial intelligence and machine learning, to provide intelligent insights and personalized experiences. Our platform understands user preferences, adapts to their needs, and continuously learns to enhance the overall user experience. We harness the power of intelligence to empower individuals and help them make better decisions in their personal and professional lives.</p>
+</section>
+<section id="monetization-value-creation-for-the-user-of-the-platform" class="level2">
+<h2 class="anchored" data-anchor-id="monetization-value-creation-for-the-user-of-the-platform">Monetization (Value Creation for the User of the Platform):</h2>
+<p>We understand the importance of value creation for our users. Hushh is committed to creating a sustainable ecosystem that enables individuals to monetize their skills, knowledge, and creations. We provide tools and opportunities for users to showcase their expertise, connect with like-minded individuals, and explore avenues for financial growth. Through our platform, users can unlock their full potential and realize the value they bring to the digital world.</p>
+<p>Together, we envision a future where access is universal, control is in the hands of individuals, intelligence is seamlessly integrated, and monetization is fair and rewarding. At Hushh, we are dedicated to building a community-driven platform that challenges existing norms, fosters innovation, and empowers individuals to thrive in the digital age. Join us on this transformative journey as we shape a world where everyone’s voice is heard, respected, and valued. Together, we can build a future that embraces the true potential of technology and human ingenuity.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>mission</category>
+  <category>principles</category>
+  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</guid>
+  <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Logo Analysis for Brand Affinity</title>
   <dc:creator>Justin Donaldson</dc:creator>
   <link>https://hushh-labs.github.io/hushh-labs-blog/posts/logo_analysis.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -407,7 +545,7 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/logos.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Logo Analysis</figcaption>
+<figcaption>Logo Analysis</figcaption>
 </figure>
 </div>
 <p>In today’s digital age, retailers are constantly seeking innovative ways to better understand their customers and build brand affinity. One powerful tool that is revolutionizing the retail industry is Hushh, a customer wallet platform that utilizes machine learning to analyze personal images and identify brand logos. By leveraging the power of computer vision and deep learning algorithms, Hushh provides retailers with valuable insights into customer preferences and behavior.</p>
@@ -544,10 +682,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -557,8 +694,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -571,6 +717,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -614,6 +879,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -639,6 +905,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -702,55 +994,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 </body>
 
-</html></iframe></section></section> ]]></description>
+</html>
+</iframe></section></section> ]]></description>
   <category>fashion</category>
   <category>ML</category>
   <category>vision</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/logo_analysis.html</guid>
-  <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Hushh Manifesto</title>
-  <dc:creator>Manish Sainani, Justin Donaldson, Sunaz Sharaf</dc:creator>
-  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</link>
-  <description><![CDATA[ 
-
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_A_scientist_writing_a_set_of_core_principles_for_an_AI_07bc5c5e-e3d4-447a-80e3-8401f4767591.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Hushh Principles</figcaption>
-</figure>
-</div>
-<section id="hushh---redefining-access-control-intelligence-and-monetization" class="level1">
-<h1>Hushh - Redefining Access, Control, Intelligence, and Monetization</h1>
-<p>At Hushh, we believe in building a startup that empowers individuals by redefining the principles of Access, Control, Intelligence, and Monetization. Our platform aims to revolutionize the way people interact, share, and derive value from their data, ensuring their privacy, choice, and ability to create value. This manifesto outlines the core principles that drive our mission and guide our actions, and a demonstration of documentation by github.</p>
-<section id="access" class="level2">
-<h2 class="anchored" data-anchor-id="access">Access:</h2>
-<p>We believe that access to information and resources should be inclusive, equitable, and easily attainable for everyone. Hushh aims to break down barriers and provide equal opportunities to all individuals, regardless of their background, location, or socio-economic status. Through our platform, we strive to create an ecosystem that fosters open communication, collaboration, and shared knowledge.</p>
-</section>
-<section id="control-choice" class="level2">
-<h2 class="anchored" data-anchor-id="control-choice">Control (Choice):</h2>
-<p>We recognize that individuals should have complete control over their personal data and online presence. At Hushh, we prioritize privacy and provide users with the tools to make informed decisions about the information they share and how it is used. We respect the autonomy and agency of our users, empowering them to define their own digital experiences and safeguard their personal information.</p>
-</section>
-<section id="intelligence" class="level2">
-<h2 class="anchored" data-anchor-id="intelligence">Intelligence :</h2>
-<p>We believe that intelligence is the foundation of progress and growth. At Hushh, we leverage cutting-edge technologies, such as artificial intelligence and machine learning, to provide intelligent insights and personalized experiences. Our platform understands user preferences, adapts to their needs, and continuously learns to enhance the overall user experience. We harness the power of intelligence to empower individuals and help them make better decisions in their personal and professional lives.</p>
-</section>
-<section id="monetization-value-creation-for-the-user-of-the-platform" class="level2">
-<h2 class="anchored" data-anchor-id="monetization-value-creation-for-the-user-of-the-platform">Monetization (Value Creation for the User of the Platform):</h2>
-<p>We understand the importance of value creation for our users. Hushh is committed to creating a sustainable ecosystem that enables individuals to monetize their skills, knowledge, and creations. We provide tools and opportunities for users to showcase their expertise, connect with like-minded individuals, and explore avenues for financial growth. Through our platform, users can unlock their full potential and realize the value they bring to the digital world.</p>
-<p>Together, we envision a future where access is universal, control is in the hands of individuals, intelligence is seamlessly integrated, and monetization is fair and rewarding. At Hushh, we are dedicated to building a community-driven platform that challenges existing norms, fosters innovation, and empowers individuals to thrive in the digital age. Join us on this transformative journey as we shape a world where everyone’s voice is heard, respected, and valued. Together, we can build a future that embraces the true potential of technology and human ingenuity.</p>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>mission</category>
-  <category>principles</category>
-  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</guid>
   <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
@@ -761,10 +1010,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_a_woman_searching_through_layers_of_a_neural_network_bra_621c77d0-55f4-4be8-8b8e-712e3dd50819.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Enhancing the search for the expression of self</figcaption>
+<figcaption>Enhancing the search for the expression of self</figcaption>
 </figure>
 </div>
 <section id="embedding-fashion-related-media-for-style-discovery." class="level1">
@@ -787,7 +1037,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/dress_shoes.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Image of dress shoes</figcaption>
+<figcaption>Image of dress shoes</figcaption>
 </figure>
 </div>
 <p>Keep in mind that this particular search engine does <em>not</em> include any terminology related to shoes or style. The query process is entirely driven from image analysis alone.</p>
@@ -798,7 +1048,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/wedge_heel.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Image of wedge heel</figcaption>
+<figcaption>Image of wedge heel</figcaption>
 </figure>
 </div>
 <ol start="3" type="1">
@@ -808,7 +1058,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/vacation_shoes.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Image of vacation shoes</figcaption>
+<figcaption>Image of vacation shoes</figcaption>
 </figure>
 </div>
 <ol start="4" type="1">

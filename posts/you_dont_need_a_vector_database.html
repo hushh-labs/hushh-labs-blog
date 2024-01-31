@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Justin Donaldson">
+<meta name="dcterms.date" content="2024-01-30">
+<meta name="description" content="Vector Databases are in vogue, but do you really need one to support your AI powered Search?">
 
-<title>Hushh Labs</title>
+<title>Hushh Labs - You (Probably) Don’t Need an Embedding Database</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./assets/fav-icon.ico" rel="icon">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/fav-icon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WBK4GY6RXB"></script>
 
 <script type="text/javascript">
@@ -108,38 +80,9 @@ gtag('js', new Date());
 gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Hushh Labs" href="index.xml" data-external="1"></head>
+<link rel="stylesheet" href="../styles.css">
+</head>
 
 <body class="nav-fixed">
 
@@ -149,7 +92,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="https://www.hushh.ai" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/logo.svg" alt="Hushh.ai" class="navbar-logo">
+    <img src="../assets/logo.svg" alt="Hushh.ai" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="https://www.hushh.ai">
     <span class="navbar-title">Hushh Labs</span>
@@ -162,17 +105,17 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -219,21 +162,55 @@ window.Quarto = {
 <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]=FNAME;ftypes[1]=merge;,fnames[0]=EMAIL;ftypes[0]=merge;,fnames[2]=LNAME;ftypes[2]=merge;,fnames[3]=ADDRESS;ftypes[3]=merge;,fnames[4]=PHONE;ftypes[4]=merge;,fnames[5]=BIRTHDAY;ftypes[5]=merge;false}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
 
 </div></div>
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="LLM">LLM <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ML">ML <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Privacy">Privacy <span class="quarto-category-count">(2)</span></div><div class="category" data-category="conferences">conferences <span class="quarto-category-count">(1)</span></div><div class="category" data-category="discovery">discovery <span class="quarto-category-count">(1)</span></div><div class="category" data-category="embedding">embedding <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fashion">fashion <span class="quarto-category-count">(2)</span></div><div class="category" data-category="insights">insights <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mission">mission <span class="quarto-category-count">(1)</span></div><div class="category" data-category="principles">principles <span class="quarto-category-count">(1)</span></div><div class="category" data-category="search">search <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vision">vision <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#embedding-databases-for-smaller-datasets" id="toc-embedding-databases-for-smaller-datasets" class="nav-link active" data-scroll-target="#embedding-databases-for-smaller-datasets">Embedding Databases for Smaller Datasets</a></li>
+  <li><a href="#the-hushh-catalog-format" id="toc-the-hushh-catalog-format" class="nav-link" data-scroll-target="#the-hushh-catalog-format">The Hushh Catalog Format</a></li>
+  <li><a href="#comparisons" id="toc-comparisons" class="nav-link" data-scroll-target="#comparisons">Comparisons</a>
+  <ul class="collapse">
+  <li><a href="#file-size" id="toc-file-size" class="nav-link" data-scroll-target="#file-size">File Size</a></li>
+  </ul></li>
+  <li><a href="#what-can-you-do-with-the-hushh-catalog-format" id="toc-what-can-you-do-with-the-hushh-catalog-format" class="nav-link" data-scroll-target="#what-can-you-do-with-the-hushh-catalog-format">What can you do with the Hushh Catalog Format?</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hushh Labs</h1>
-</div>
+<h1 class="title">You (Probably) Don’t Need an Embedding Database</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">fashion</div>
+    <div class="quarto-category">ML</div>
+    <div class="quarto-category">vision</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Vector Databases are in vogue, but do you really need one to support your AI powered Search?
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Justin Donaldson </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 30, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -243,278 +220,80 @@ window.Quarto = {
 </header>
 
 
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/omgjjd_database_mainframe_on_a_set_of_scales_0aed1fa7-f060-407f-abf5-f87e61c8038f.png" class="img-fluid figure-img"></p>
+<figcaption>Vector database on a set of digital scales</figcaption>
+</figure>
+</div>
+<p>If you’ve been paying attention to the recent advances in Large Language Models (LLM), you’ve noticed that a whole new crop of startups emerged to provide search over embeddings.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/1688152025187.png" class="img-fluid figure-img"></p>
+<figcaption>Vector libraries and databases (<a href="https://blog.det.life/why-you-shouldnt-invest-in-vector-databases-c0cd3f59d23c">source</a>)</figcaption>
+</figure>
+</div>
+<p>Search over embeddings is a very different process than search over a database of documents. Embedding search uses a vector space representation of an image or document that has been created by a corresponding model, rather than an inverted index of terms and documents. Search in a vector space is typically handled with <em><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm_">nearest neighbor</a></em> search, which returns the embeddings of the closest records to the target record. This technique is much more intensive to calculate than a simple inverted index lookup, and accordingly databases need to make trade offs for precision/recall in order to provide reasonable performance over large sets of data.</p>
+<section id="embedding-databases-for-smaller-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="embedding-databases-for-smaller-datasets">Embedding Databases for Smaller Datasets</h2>
+<p>Here at Hushh we were suprised to realize that there wasn’t a good option for smaller/portable embeddings for databases. Many modeling tasks rely on smaller and more domain-specific datasets to perform domain-specific tasks. For instance, image recognition models might need to index the products of a given storefront. There may be many thousand products, but probably not the millions of products that would necessitate a standalone database. Furthermore, a standalone database would need to be running at all times, incurring a large one-time cost for any sort of embedding search functionality.</p>
+<p>If you don’t have a lot of data, and don’t want to pay the maintenance fee on hosted embedding search, using an embedding search database is costly overkill, but what are the options?</p>
+<p>Many embedding databases and models use python, so accordingly the embeddings can be exported in the <a href="https://docs.python.org/3/library/pickle.html">python pickle</a> format. However, the pickle format is <em>unsafe</em>, making it a risky bet for production systems.</p>
+<p>JSON formats can also be used for pickling data, but JSON requires all of the embedding data to be <em>decoded</em> and loaded into memory. This process can take a significant amount of time, making it costly to load/unload embedding datasets on the fly.</p>
+</section>
+<section id="the-hushh-catalog-format" class="level2">
+<h2 class="anchored" data-anchor-id="the-hushh-catalog-format">The Hushh Catalog Format</h2>
+<p>We introduce the <em><a href="https://github.com/hushh-labs/hushh-vibe-catalog">Hushh Catalog Format</a> (HCF)</em>, a file format that is optimized for speedy (and lazy) loading of embeddings from disk.</p>
+<p>To understand the performance benefits of the HCF format, we’ll use this <a href="https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-small">fashion dataset</a> comprising ~44K product images, representative of the fashion offerings of a mid-to-large size department store.</p>
+<p>We’ll also take figures and data from this <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/notebooks/Create%20Catalog.ipynb">data science notebook</a> that contains the result of the analysis.</p>
+</section>
+<section id="comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons">Comparisons</h2>
+<p>For the purposes of comparison, we’ll generate embedding vectors in three different formats:</p>
+<ul>
+<li>JSON : A popular option for web development due to it being human-readable</li>
+<li>Msgpack : A schema-less binary format that is a good option for smaller/faster serialization</li>
+<li>Hushh Catalog Format : A format with a schema designed especially for storing product information and metadata.</li>
+</ul>
+<section id="file-size" class="level3">
+<h3 class="anchored" data-anchor-id="file-size">File Size</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/file_size.png" class="img-fluid figure-img"></p>
+<figcaption>File Size Comparison</figcaption>
+</figure>
+</div>
+<p>File sizes for smaller/embedded databases can add a lot of overhead for search. In our first comparison we look at the file size from our example dataset and see that HCF is half the size of messagepack, and a less than 25% the size of a comparable json format.</p>
+<p>File size matters a lot for databases, particularly since files like messagepack and json need to be loaded fully into memory. If you have a bigger file format, your program will use more memory to store it internally, which adds overhead for resource usage and time.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/loading_time.png" class="img-fluid figure-img"></p>
+<figcaption>Loading Time Comparison</figcaption>
+</figure>
+</div>
+<p>Interestingly enough, the file size difference becomes even more pronounced when the loading time is compared. The HCF format is a whopping <em>20,000 times faster</em> at loading the embedding data than JSON, and also beats msgpack by over an order of magnitude.</p>
+<p><em>How is this possible?</em></p>
+<p>The answer is that the Hushh Catalog Format reader doesn’t read in the data all at once. Instead, it streams it in as necessary directly from disk without needing to parse the entire file. This technique of <em>lazy loading</em> enables the Hushh Catalog Format to all but eliminate a startup delay when loading embedding data.</p>
+<p><em>What was used to build the Hushh Catalog Format?</em></p>
+<p>The Hushh Catalog Format is built on top of <a href="https://flatbuffers.dev/">flatbuffers</a>. Flatbuffers is similar to <a href="https://protobuf.dev/">protobuffers</a>, except it’s designed for larger amounts of data that can be streamed lazily. Flatbuffers excel at loading densely packed numeric and textual data in a structured format.</p>
+<p>The structured format requires a schema, and here’s the current <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/schemas/hushh-catalog.fbs">schema for Hushh Catalog Format</a></p>
+<p>Using the schema, we can use flatbuffers to generate python <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/python/src/hushh/hcf/Catalog.py">runtime classes</a> that stream the file into memory, along with some <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/python/src/hushh/catalog.py">helper constructor methods</a>. There’s runtime classes for <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/swift/Sources/hushh-catalog_generated.swift">Swift</a> available as well, with more to come.</p>
+</section>
+</section>
+<section id="what-can-you-do-with-the-hushh-catalog-format" class="level2">
+<h2 class="anchored" data-anchor-id="what-can-you-do-with-the-hushh-catalog-format">What can you do with the Hushh Catalog Format?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.youtube.com/watch?v=DIVTqXQXGuA"><img src="https://img.youtube.com/vi/DIVTqXQXGuA/0.jpg" class="img-fluid figure-img" alt="Vibe Search"></a></p>
+<figcaption>Vibe Search</figcaption>
+</figure>
+</div>
+<p>We’re using the HCF format as a way of providing portable embedding indexes that are available from the phone or from a web server. Our Vibe search service will use it under the hood, making state of the art embedding search more easily available to everyone!</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="fashion,ML,vision" data-listing-date-sort="1706572800000" data-listing-file-modified-sort="1706673876828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="770">
-<div class="thumbnail">
-<p><a href="./posts/you_dont_need_a_vector_database.html" class="no-external"></a></p><a href="./posts/you_dont_need_a_vector_database.html" class="no-external">
-<p class="card-img-top"><img src="posts/images/omgjjd_database_mainframe_on_a_set_of_scales_0aed1fa7-f060-407f-abf5-f87e61c8038f.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/you_dont_need_a_vector_database.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/you_dont_need_a_vector_database.html" class="no-external">You (Probably) Don’t Need an Embedding Database</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/you_dont_need_a_vector_database.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('fashion'); return false;">
-fashion
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ML'); return false;">
-ML
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('vision'); return false;">
-vision
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/you_dont_need_a_vector_database.html" class="no-external">Vector Databases are in vogue, but do you really need one to support your AI powered Search?</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/you_dont_need_a_vector_database.html" class="no-external">
-<div class="listing-date">
-Jan 30, 2024
-</div>
-<div class="listing-author">
-Justin Donaldson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="LLM,Privacy" data-listing-date-sort="1697673600000" data-listing-file-modified-sort="1706673876828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3688">
-<div class="thumbnail">
-<p><a href="./posts/survey_on_llm_privacy.html" class="no-external"></a></p><a href="./posts/survey_on_llm_privacy.html" class="no-external">
-<p class="card-img-top"><img src="posts/images/omgjjd_data_privacy_AI_home_secure_f87b681d-8207-46b6-adf4-4e2981b09f18.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/survey_on_llm_privacy.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/survey_on_llm_privacy.html" class="no-external">A Survey on Language Models and Related Data Privacy</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/survey_on_llm_privacy.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLM'); return false;">
-LLM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Privacy'); return false;">
-Privacy
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/survey_on_llm_privacy.html" class="no-external">Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/survey_on_llm_privacy.html" class="no-external">
-<div class="listing-date">
-Oct 19, 2023
-</div>
-<div class="listing-author">
-Harshvardhan, Justin Donaldson, Manish Sainani
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="conferences,insights" data-listing-date-sort="1694390400000" data-listing-file-modified-sort="1706673876828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="966">
-<div class="thumbnail">
-<p><a href="./posts/pycon_trip_report.html" class="no-external"></a></p><a href="./posts/pycon_trip_report.html" class="no-external">
-<p class="card-img-top"><img src="posts/images/pycon.webp"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/pycon_trip_report.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pycon_trip_report.html" class="no-external">Pycon India 2023 Trip Report</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pycon_trip_report.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('conferences'); return false;">
-conferences
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('insights'); return false;">
-insights
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/pycon_trip_report.html" class="no-external">A brief overview on the latest happenings within the global Python community</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/pycon_trip_report.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2023
-</div>
-<div class="listing-author">
-Devesh Paragiri
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="LLM,Privacy" data-listing-date-sort="1693094400000" data-listing-file-modified-sort="1706673876828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="326">
-<div class="thumbnail">
-<p><a href="./posts/unveiling-power-and-privacy.html" class="no-external"></a></p><a href="./posts/unveiling-power-and-privacy.html" class="no-external">
-<p class="card-img-top"><img src="posts/images/omgjjd_In_the_world_of_fashion_language_models_have_become_the__d94d4e64-a53f-4fe4-8765-2286673ffd8b.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/unveiling-power-and-privacy.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/unveiling-power-and-privacy.html" class="no-external">Unveiling the Power and Privacy of Language Models in Fashion</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/unveiling-power-and-privacy.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLM'); return false;">
-LLM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Privacy'); return false;">
-Privacy
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/unveiling-power-and-privacy.html" class="no-external">In the world of fashion, language models have become the talk of the town. These models, known as Large Language Models (LLMs), are making waves in the field of Natural Language Processing (NLP). With their ability to understand and generate human-like language, LLMs are revolutionising the way computers comprehend and communicate with us. They have practical applications in fashion-related tasks, such as understanding fashion trends, generating creative fashion content, and improving fashion recommendations.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/unveiling-power-and-privacy.html" class="no-external">
-<div class="listing-date">
-Aug 27, 2023
-</div>
-<div class="listing-author">
-Harshvardhan
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="mission,principles" data-listing-date-sort="1689033600000" data-listing-file-modified-sort="1706673876828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="384">
-<div class="thumbnail">
-<p><a href="./posts/manifesto.html" class="no-external"></a></p><a href="./posts/manifesto.html" class="no-external">
-<p class="card-img-top"><img src="posts/images/omgjjd_A_scientist_writing_a_set_of_core_principles_for_an_AI_07bc5c5e-e3d4-447a-80e3-8401f4767591.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/manifesto.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/manifesto.html" class="no-external">Hushh Manifesto</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/manifesto.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('mission'); return false;">
-mission
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('principles'); return false;">
-principles
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/manifesto.html" class="no-external">What does Hushh believe? What are we working towards?</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/manifesto.html" class="no-external">
-<div class="listing-date">
-Jul 11, 2023
-</div>
-<div class="listing-author">
-Manish Sainani, Justin Donaldson, Sunaz Sharaf
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="fashion,ML,vision" data-listing-date-sort="1689033600000" data-listing-file-modified-sort="1706673876828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="255">
-<div class="thumbnail">
-<p><a href="./posts/logo_analysis.html" class="no-external"></a></p><a href="./posts/logo_analysis.html" class="no-external">
-<p class="card-img-top"><img src="posts/images/logos.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/logo_analysis.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/logo_analysis.html" class="no-external">Logo Analysis for Brand Affinity</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/logo_analysis.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('fashion'); return false;">
-fashion
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ML'); return false;">
-ML
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('vision'); return false;">
-vision
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/logo_analysis.html" class="no-external">Customers regularly express preferences for brands based on their attire. How can retail adapt and learn without compromising privacy?</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/logo_analysis.html" class="no-external">
-<div class="listing-date">
-Jul 11, 2023
-</div>
-<div class="listing-author">
-Justin Donaldson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="search,embedding,discovery" data-listing-date-sort="1688947200000" data-listing-file-modified-sort="1706673876780" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="547">
-<div class="thumbnail">
-<p><a href="./posts/image_search_with_text.html" class="no-external"></a></p><a href="./posts/image_search_with_text.html" class="no-external">
-<p class="card-img-top"><img src="posts/images/omgjjd_a_woman_searching_through_layers_of_a_neural_network_bra_621c77d0-55f4-4be8-8b8e-712e3dd50819.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/image_search_with_text.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/image_search_with_text.html" class="no-external">Search and Discovery for Luxury Fashion</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/image_search_with_text.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('search'); return false;">
-search
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('embedding'); return false;">
-embedding
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('discovery'); return false;">
-discovery
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/image_search_with_text.html" class="no-external">Search and discovery go hand in hand when finding the frontiers for personal taste</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/image_search_with_text.html" class="no-external">
-<div class="listing-date">
-Jul 10, 2023
-</div>
-<div class="listing-author">
-Justin Donaldson
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
