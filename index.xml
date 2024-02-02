@@ -76,8 +76,7 @@
 <p><em>How is this possible?</em></p>
 <p>The answer is that the Hushh Catalog Format reader doesn’t read in the data all at once. Instead, it streams it in as necessary directly from disk without needing to parse the entire file. This technique of <em>lazy loading</em> enables the Hushh Catalog Format to all but eliminate a startup delay when loading embedding data.</p>
 <p><em>What was used to build the Hushh Catalog Format?</em></p>
-<p>The Hushh Catalog Format is built on top of <a href="https://flatbuffers.dev/">flatbuffers</a>. Flatbuffers is similar to <a href="https://protobuf.dev/">protobuffers</a>, except it’s designed for larger amounts of data that can be streamed lazily. Flatbuffers excel at loading densely packed numeric and textual data in a structured format.</p>
-<p>The structured format requires a schema, and here’s the current <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/schemas/hushh-catalog.fbs">schema for Hushh Catalog Format</a></p>
+<p>The Hushh Catalog Format is built on top of <a href="https://flatbuffers.dev/">flatbuffers</a>. Flatbuffers is similar to <a href="https://protobuf.dev/">protobuffers</a>, except it’s designed for larger amounts of data that can be streamed lazily. Flatbuffers excel at loading densely packed numeric and textual data in a structured format. The structured format requires a schema, and here’s the current <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/schemas/hushh-catalog.fbs">schema for Hushh Catalog Format</a></p>
 <p>Using the schema, we can use flatbuffers to generate python <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/python/src/hushh/hcf/Catalog.py">runtime classes</a> that stream the file into memory, along with some <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/python/src/hushh/catalog.py">helper constructor methods</a>. There’s runtime classes for <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/swift/Sources/hushh-catalog_generated.swift">Swift</a> available as well, with more to come.</p>
 </section>
 </section>
@@ -95,9 +94,9 @@
 </section>
 
  ]]></description>
-  <category>fashion</category>
-  <category>ML</category>
-  <category>vision</category>
+  <category>embedding</category>
+  <category>search</category>
+  <category>open source</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/you_dont_need_a_vector_database.html</guid>
   <pubDate>Tue, 30 Jan 2024 00:00:00 GMT</pubDate>
 </item>
