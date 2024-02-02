@@ -129,9 +129,17 @@ Using the schema, we can use flatbuffers to generate python [runtime
 classes](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/python/src/hushh/hcf/Catalog.py)
 that stream the file into memory, along with some [helper constructor
 methods](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/python/src/hushh/catalog.py).
-There's runtime classes for [Swift](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/swift/Sources/hushh-catalog_generated.swift) available as well, with more to come.
+There's runtime classes for
+[Swift](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/swift/Sources/hushh-catalog_generated.swift)
+available as well, with more to come.
 
 ## What can you do with the Hushh Catalog Format?
+
+For now, the format is geared towards providing catalog search services.
+Accordingly, information pertaining to products are supported.  As we expand
+the scope of the format, we will enable more fine-tuned schemas for a growing
+number of open source personal data formats.
+
 
 [![Vibe Search](https://img.youtube.com/vi/DIVTqXQXGuA/0.jpg)](https://www.youtube.com/watch?v=DIVTqXQXGuA)
 
