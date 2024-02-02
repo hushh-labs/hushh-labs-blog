@@ -167,7 +167,7 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#embedding-databases-for-smaller-datasets" id="toc-embedding-databases-for-smaller-datasets" class="nav-link active" data-scroll-target="#embedding-databases-for-smaller-datasets">Embedding Databases for Smaller Datasets</a></li>
-  <li><a href="#the-hushh-catalog-format" id="toc-the-hushh-catalog-format" class="nav-link" data-scroll-target="#the-hushh-catalog-format">The Hushh Catalog Format</a></li>
+  <li><a href="#introducing-the-hushh-catalog-format" id="toc-introducing-the-hushh-catalog-format" class="nav-link" data-scroll-target="#introducing-the-hushh-catalog-format">Introducing The Hushh Catalog Format</a></li>
   <li><a href="#comparisons" id="toc-comparisons" class="nav-link" data-scroll-target="#comparisons">Comparisons</a>
   <ul class="collapse">
   <li><a href="#file-size" id="toc-file-size" class="nav-link" data-scroll-target="#file-size">File Size</a></li>
@@ -236,13 +236,14 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 <p>Search over embeddings is a very different process than search over a database of documents. Embedding search uses a vector space representation of an image or document that has been created by a corresponding model, rather than an inverted index of terms and documents. Search in a vector space is typically handled with <em><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm_">nearest neighbor</a></em> search, which returns the embeddings of the closest records to the target record. This technique is much more intensive to calculate than a simple inverted index lookup, and accordingly databases need to make trade offs for precision/recall in order to provide reasonable performance over large sets of data.</p>
 <section id="embedding-databases-for-smaller-datasets" class="level2">
 <h2 class="anchored" data-anchor-id="embedding-databases-for-smaller-datasets">Embedding Databases for Smaller Datasets</h2>
-<p>Here at Hushh we were suprised to realize that there wasn’t a good option for smaller/portable embeddings for databases. Many modeling tasks rely on smaller and more domain-specific datasets to perform domain-specific tasks. For instance, image recognition models might need to index the products of a given storefront. There may be many thousand products, but probably not the millions of products that would necessitate a standalone database. Furthermore, a standalone database would need to be running at all times, incurring a large one-time cost for any sort of embedding search functionality.</p>
-<p>If you don’t have a lot of data, and don’t want to pay the maintenance fee on hosted embedding search, using an embedding search database is costly overkill, but what are the options?</p>
-<p>Many embedding databases and models use python, so accordingly the embeddings can be exported in the <a href="https://docs.python.org/3/library/pickle.html">python pickle</a> format. However, the pickle format is <em>unsafe</em>, making it a risky bet for production systems.</p>
+<p>Here at Hushh we were suprised to realize that there wasn’t a good option for smaller/portable embeddings for databases. Many modeling tasks rely on smaller and more domain-specific datasets to perform domain-specific tasks. For instance, image recognition models might need to index the products of a given storefront. There may be many thousand products, but often not the millions of products that would necessitate a standalone database. Furthermore, a standalone database would need to be running at all times, incurring a large one-time cost for any sort of embedding search functionality.</p>
+<p>If one doesn’t have a lot of data, and doesn’t want to pay the maintenance fee on hosted embedding search, using an embedding search database is costly overkill, but what are the options?</p>
+<p>Many embedding databases and models use python, so accordingly, the embeddings can be exported in the <a href="https://docs.python.org/3/library/pickle.html">python pickle</a> format. However, the pickle format is <em>unsafe</em>, making it a risky bet for production systems.</p>
 <p>JSON formats can also be used for pickling data, but JSON requires all of the embedding data to be <em>decoded</em> and loaded into memory. This process can take a significant amount of time, making it costly to load/unload embedding datasets on the fly.</p>
+<p><a href="https://msgpack.org/index.html">Messagepack</a> is another solid option, optimized for speed and portability. Originally, this was the format that we were likely to use. However, in the back of our minds we wondered, can we make it even faster?</p>
 </section>
-<section id="the-hushh-catalog-format" class="level2">
-<h2 class="anchored" data-anchor-id="the-hushh-catalog-format">The Hushh Catalog Format</h2>
+<section id="introducing-the-hushh-catalog-format" class="level2">
+<h2 class="anchored" data-anchor-id="introducing-the-hushh-catalog-format">Introducing The Hushh Catalog Format</h2>
 <p>We introduce the <em><a href="https://github.com/hushh-labs/hushh-vibe-catalog">Hushh Catalog Format</a> (HCF)</em>, a file format that is optimized for speedy (and lazy) loading of embeddings from disk.</p>
 <p>To understand the performance benefits of the HCF format, we’ll use this <a href="https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-small">fashion dataset</a> comprising ~44K product images, representative of the fashion offerings of a mid-to-large size department store.</p>
 <p>We’ll also take figures and data from this <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/notebooks/Create%20Catalog.ipynb">data science notebook</a> that contains the result of the analysis.</p>
