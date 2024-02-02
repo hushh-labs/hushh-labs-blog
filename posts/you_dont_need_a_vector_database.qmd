@@ -5,9 +5,9 @@ author: "Justin Donaldson"
 date: "1/30/2024"
 
 categories:
-  - fashion
-  - ML
-  - vision
+  - embedding
+  - search
+  - open source
 ---
 
 
@@ -121,10 +121,8 @@ The Hushh Catalog Format is built on top of
 [flatbuffers](https://flatbuffers.dev/).  Flatbuffers is similar to
 [protobuffers](https://protobuf.dev/), except it's designed for larger amounts
 of data that can be streamed lazily.  Flatbuffers excel at loading densely
-packed numeric and textual data in a structured format.
-
-The structured format requires a schema, and here's the current [schema for
-Hushh Catalog
+packed numeric and textual data in a structured format. The structured format
+requires a schema, and here's the current [schema for Hushh Catalog
 Format](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/schemas/hushh-catalog.fbs)
 
 Using the schema, we can use flatbuffers to generate python [runtime
