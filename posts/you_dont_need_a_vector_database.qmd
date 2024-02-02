@@ -37,16 +37,16 @@ Here at Hushh we were suprised to realize that there wasn't a good option for
 smaller/portable embeddings for databases.  Many modeling tasks rely on smaller
 and more domain-specific datasets to perform domain-specific tasks. For
 instance, image recognition models might need to index the products of a given
-storefront. There may be many thousand products, but probably not the millions
-of products that would necessitate a standalone database.  Furthermore, a
+storefront. There may be many thousand products, but often not the millions of
+products that would necessitate a standalone database.  Furthermore, a
 standalone database would need to be running at all times, incurring a large
 one-time cost for any sort of embedding search functionality.
 
-If you don't have a lot of data, and don't want to pay the maintenance fee on
+If one doesn't have a lot of data, and doesn't want to pay the maintenance fee on
 hosted embedding search, using an embedding search database is costly overkill,
 but what are the options?
 
-Many embedding databases and models use python, so accordingly the embeddings
+Many embedding databases and models use python, so accordingly, the embeddings
 can be exported in the [python
 pickle](https://docs.python.org/3/library/pickle.html) format.  However, the
 pickle format is *unsafe*, making it a risky bet for production systems.
@@ -56,7 +56,12 @@ embedding data to be *decoded* and loaded into memory.  This process can take a
 significant amount of time, making it costly to load/unload embedding datasets
 on the fly.
 
-## The Hushh Catalog Format
+[Messagepack](https://msgpack.org/index.html) is another solid option,
+optimized for speed and portability.  Originally, this was the format that we
+were likely to use.  However, in the back of our minds we wondered, can we make
+it even faster?
+
+## Introducing The Hushh Catalog Format
 
 We introduce the *[Hushh Catalog Format](https://github.com/hushh-labs/hushh-vibe-catalog) (HCF)*,
 a file format that is optimized for speedy (and lazy) loading of embeddings from disk.
