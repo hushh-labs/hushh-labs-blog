@@ -95,7 +95,7 @@
     "href": "posts/you_dont_need_a_vector_database.html#what-can-you-do-with-the-hushh-catalog-format",
     "title": "You (Probably) Don’t Need an Embedding Database",
     "section": "What can you do with the Hushh Catalog Format?",
-    "text": "What can you do with the Hushh Catalog Format?\n\n\n\nVibe Search\n\n\nWe’re using the HCF format as a way of providing portable embedding indexes that are available from the phone or from a web server. Our Vibe search service will use it under the hood, making state of the art embedding search more easily available to everyone!"
+    "text": "What can you do with the Hushh Catalog Format?\nFor now, the format is geared towards providing catalog search services. Accordingly, information pertaining to products are supported. As we expand the scope of the format, we will enable more fine-tuned schemas for a growing number of open source personal data formats.\n\n\n\nVibe Search\n\n\nWe’re using the HCF format as a way of providing portable embedding indexes that are available from the phone or from a web server. Our Vibe search service will use it under the hood, making state of the art embedding search more easily available to everyone!"
   },
   {
     "objectID": "index.html",

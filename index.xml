@@ -82,6 +82,7 @@
 </section>
 <section id="what-can-you-do-with-the-hushh-catalog-format" class="level2">
 <h2 class="anchored" data-anchor-id="what-can-you-do-with-the-hushh-catalog-format">What can you do with the Hushh Catalog Format?</h2>
+<p>For now, the format is geared towards providing catalog search services. Accordingly, information pertaining to products are supported. As we expand the scope of the format, we will enable more fine-tuned schemas for a growing number of open source personal data formats.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://www.youtube.com/watch?v=DIVTqXQXGuA"><img src="https://img.youtube.com/vi/DIVTqXQXGuA/0.jpg" class="img-fluid figure-img" alt="Vibe Search"></a></p>
