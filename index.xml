@@ -9,7 +9,7 @@
 <link>https://hushh-labs.github.io/hushh-labs-blog/</link>
 <atom:link href="https://hushh-labs.github.io/hushh-labs-blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.549</generator>
+<generator>quarto-1.4.550</generator>
 <lastBuildDate>Tue, 30 Jan 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>You (Probably) Don’t Need an Embedding Database</title>
@@ -90,6 +90,10 @@
 </figure>
 </div>
 <p>We’re using the HCF format as a way of providing portable embedding indexes that are available from the phone or from a web server. Our Vibe search service will use it under the hood, making state of the art embedding search more easily available to everyone!</p>
+</section>
+<section id="related-reading" class="level2">
+<h2 class="anchored" data-anchor-id="related-reading">Related Reading</h2>
+<p>If you’re interested in optimized file protocols specifically for machine learning artifacts, check this <a href="https://vickiboykis.com/2024/02/28/gguf-the-long-way-around/">overview of GGUF by Vicki Boykis</a>.</p>
 
 
 </section>
