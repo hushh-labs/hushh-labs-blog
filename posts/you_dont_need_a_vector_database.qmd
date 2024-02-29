@@ -148,3 +148,7 @@ that are available from the phone or from a web server.  Our Vibe search
 service will use it under the hood, making state of the art embedding search
 more easily available to everyone!
 
+## Related Reading
+
+If you're interested in optimized file protocols specifically for machine learning artifacts, check this [overview of GGUF by Vicki Boykis](https://vickiboykis.com/2024/02/28/gguf-the-long-way-around/).
+
