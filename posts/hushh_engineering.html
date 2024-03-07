@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Devesh Paragiri">
-<meta name="dcterms.date" content="2023-09-11">
-<meta name="description" content="A brief overview on the latest happenings within the global Python community">
+<meta name="author" content="Justin Donaldson">
+<meta name="dcterms.date" content="2024-03-07">
+<meta name="description" content="Maintaining trusted deployments at Hushh are paramount. Here we dive into our best practices on one of our open source libraries">
 
-<title>Hushh Labs - Pycon India 2023 Trip Report</title>
+<title>Hushh Labs - Trusted Python Engineering at Hushh</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,13 +166,17 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#key-highlights" id="toc-key-highlights" class="nav-link active" data-scroll-target="#key-highlights">Key highlights</a>
+  <li><a href="#trusted-python-engineering-at-hushh" id="toc-trusted-python-engineering-at-hushh" class="nav-link active" data-scroll-target="#trusted-python-engineering-at-hushh">Trusted Python Engineering at Hushh</a>
   <ul class="collapse">
-  <li><a href="#open-source-and-getting-into-tech" id="toc-open-source-and-getting-into-tech" class="nav-link" data-scroll-target="#open-source-and-getting-into-tech">Open-source and getting into tech</a></li>
-  <li><a href="#all-about-frameworks" id="toc-all-about-frameworks" class="nav-link" data-scroll-target="#all-about-frameworks">All about frameworks</a></li>
-  <li><a href="#python-gen-a.i" id="toc-python-gen-a.i" class="nav-link" data-scroll-target="#python-gen-a.i">Python 🤝 Gen A.I</a></li>
+  <li><a href="#stable-aiml-libraries-with-conda" id="toc-stable-aiml-libraries-with-conda" class="nav-link" data-scroll-target="#stable-aiml-libraries-with-conda">Stable AI/ML libraries with Conda</a></li>
+  <li><a href="#easy-environment-switching-with-direnv" id="toc-easy-environment-switching-with-direnv" class="nav-link" data-scroll-target="#easy-environment-switching-with-direnv">Easy environment switching with direnv</a></li>
+  <li><a href="#configuring-python-libraries-poetry-vs.-modern-pep-standards" id="toc-configuring-python-libraries-poetry-vs.-modern-pep-standards" class="nav-link" data-scroll-target="#configuring-python-libraries-poetry-vs.-modern-pep-standards">Configuring Python Libraries Poetry vs.&nbsp;Modern PEP standards</a></li>
+  <li><a href="#pip-compile-and-dependabot" id="toc-pip-compile-and-dependabot" class="nav-link" data-scroll-target="#pip-compile-and-dependabot">pip-compile and dependabot</a></li>
+  <li><a href="#testing-python-libraries" id="toc-testing-python-libraries" class="nav-link" data-scroll-target="#testing-python-libraries">Testing Python Libraries</a></li>
+  <li><a href="#good-old-makefiles" id="toc-good-old-makefiles" class="nav-link" data-scroll-target="#good-old-makefiles">Good old Makefiles</a></li>
+  <li><a href="#pypi-and-trusted-deployments" id="toc-pypi-and-trusted-deployments" class="nav-link" data-scroll-target="#pypi-and-trusted-deployments">Pypi and Trusted Deployments</a></li>
+  <li><a href="#cicd-with-github-actions" id="toc-cicd-with-github-actions" class="nav-link" data-scroll-target="#cicd-with-github-actions">CICD with Github Actions</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -181,16 +185,17 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Pycon India 2023 Trip Report</h1>
+<h1 class="title">Trusted Python Engineering at Hushh</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">conferences</div>
-    <div class="quarto-category">insights</div>
+    <div class="quarto-category">python</div>
+    <div class="quarto-category">engineering</div>
+    <div class="quarto-category">open source</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    A brief overview on the latest happenings within the global Python community
+    Maintaining trusted deployments at Hushh are paramount. Here we dive into our best practices on one of our open source libraries
   </div>
 </div>
 
@@ -200,14 +205,14 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Devesh Paragiri </p>
+             <p>Justin Donaldson </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 11, 2023</p>
+      <p class="date">March 7, 2024</p>
     </div>
   </div>
   
@@ -219,44 +224,56 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 </header>
 
 
-<p><img src="images/pycon.webp" class="img-fluid"></p>
-<p>This year’s python conference was held at a university from 29th September to 2nd October in Hyderabad with around 1000 attendees flocking to the scene across a span of four days. The conference’s theme was mainly focused towards Generative AI relate topics and the open-source network.</p>
-<p>In this blog, I will distill the most important takeaways from the conference — latest developments, emerging fields and industries, and cool resources.</p>
-<section id="key-highlights" class="level2">
-<h2 class="anchored" data-anchor-id="key-highlights">Key highlights</h2>
-<p><em>Keynotes, talks, and workshops</em></p>
-<p>The keynote speakers for the conference were <a href="https://www.linkedin.com/in/jessica0greene/">Jessica Greene</a>, <a href="https://www.linkedin.com/in/marcelotryle/">Marcelo Trylesinski</a>, <a href="https://www.linkedin.com/in/rushabhmehta1/">Rushabh Mehta</a>, <a href="https://www.linkedin.com/in/marcelotryle/">Cheuk Ting Ho</a>, and <a href="https://www.linkedin.com/in/shaileshk/">Shailesh Kumar</a>. The keynotes were mostly about getting involved with open-source projects, transitioning into tech, and web frameworks.</p>
-<section id="open-source-and-getting-into-tech" class="level3">
-<h3 class="anchored" data-anchor-id="open-source-and-getting-into-tech">Open-source and getting into tech</h3>
-<p><a href="https://www.linkedin.com/in/jessica0greene/">Jessica Greene’s</a> keynote highlighted her journey of getting into the tech industry and the pivotal role the open-source community played in keeping her motivated throughout her transition. In addition to this transition (from a very different educational background), she highlighted the extra challenges she faced solely because she was a woman — lack of representation, biased narratives, and a heightened feeling of the imposter syndrome.</p>
-<p>Her talk was very inspiring and provided constructive ways to overcoming these challenges — joining a (preferably women-led) tech community. Jessica, personally, found her ground with the <a href="https://berlin.pyladies.com/">PyLadies Berlin</a> community and recently joined the <a href="https://www.python.org/psf-landing/">Python Software Foundation</a> to help support the global community. If you are a woman in tech or aspiring to be one, I highly recommend these <a href="https://careerfoundry.com/en/blog/career-change/resources-empower-women-in-tech/">resources</a>.</p>
-<p>On a similar note, Cheuk Ting Ho’s talk focused on how one can get started with contributing to open-source libraries, the benefits, as well as overcoming some of the challenges one might face. She is also a part of the Python Software Foundation and advocates heavily for diversity among the board members to accurately represent the larger Python global community.</p>
-<p><strong><em>TL;DR: Benefits of open-source community, PyLadies for women getting into tech, contribution benefits, open-source security (digital signing), raising issues and solving bugs.</em></strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/omgjjd_man_coding_at_laptop._purple_and_red._secure._17ac0cdb-8822-4e07-be28-bfb0d073d73f.png" class="img-fluid figure-img"></p>
+<figcaption>Trusted Python Engineering at Hushh</figcaption>
+</figure>
+</div>
+<section id="trusted-python-engineering-at-hushh" class="level1">
+<h1>Trusted Python Engineering at Hushh</h1>
+<p>Hushh utilizes cutting edge open source AI and ML libraries, and most AI startups will claim the same. However, Hushh’s emphasis on trust and security means that we also have to make these capabilities stable and safe. We will walk through some of the techniques we use to develop and deploy software, using our open source <a href="https://hushh-labs.github.io/hushh-labs-blog/posts/you_dont_need_a_vector_database.html">hushh catalog format</a> as an example.</p>
+<section id="stable-aiml-libraries-with-conda" class="level2">
+<h2 class="anchored" data-anchor-id="stable-aiml-libraries-with-conda">Stable AI/ML libraries with Conda</h2>
+<p>Many state of the art AI libraries are available in Python. However, Python is not typically used to write the core logic of these libraries. Instead, Python is simply a convenient wrapper around a series of low level C libraries that handle the tensor operations that constitute a neural network routine.</p>
+<p>Adding to this complexity is the fact that many neural network libraries are not up to date with the latest Python version. For instance, the popular Pytorch library only recently supported Python 3.12, despite the version being available in <a href="https://peps.python.org/pep-0693/">October of last year</a>.</p>
+<p>At Hushh we rely heavily on the work of <a href="https://www.anaconda.com/">Anaconda</a>, including the open source <a href="https://conda-forge.org/">conda forge</a> packages. The Conda community maintains stable python distributions for AI/ML libraries, ensuring we have the most up to date and secure python environment possible for our services. For our open source projects we will provide an <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/environment.yml">environment.yml</a> file that specifies how to set up the conda environment. The environment can typically be installed and activated with:</p>
+<pre><code>$&gt; conda env create -f environment.yml
+$&gt; conda activate hushh-vibe-catalog</code></pre>
 </section>
-<section id="all-about-frameworks" class="level3">
-<h3 class="anchored" data-anchor-id="all-about-frameworks">All about frameworks</h3>
-<p><a href="https://www.linkedin.com/in/marcelotryle/">Marcelo Trylesinski</a> gave an insightful keynote about the FastAPI framework and its benefits when compared to other frameworks (Flask, Django).</p>
-<p>FastAPI is the way to go if your focus is to get started quickly and handle <strong>high volume requests </strong>(has async support). FastAPI has amazing integration with popular libraries for DB access and support for handling authentication. If you are currently working with Flask based applications, it would be a good idea to shift to FastAPI for faster response times (ASGI server capabilities).</p>
-<p>The other cool framework for you to check out is <a href="https://frappeframework.com/">Frappe</a>. It’s a low-code framework customized for developing business applications. It is an <strong>integrated</strong> framework which makes it very easy to connect with payment gateways, SMS providers, cloud services, and other popular third-party tools. <a href="https://www.linkedin.com/in/rushabhmehta1/">Rushabh Mehta</a> (founder and CEO of Frappe), in his keynote gave a comprehensive list of applications <strong>(ERP based) </strong>that could be made with Frappe. He has created <a href="https://erpnext.com/">ERPNext</a>, a free and open-source cloud ERP software which works best for accounting, inventory management, supply chain management, retail, human resources, and more.</p>
-<p><strong><em>TL;DR: FastAPI is better for high volume — low latency, good integration choices; Frappe for low-code approach, tailored for ERP based use cases.</em></strong></p>
+<section id="easy-environment-switching-with-direnv" class="level2">
+<h2 class="anchored" data-anchor-id="easy-environment-switching-with-direnv">Easy environment switching with direnv</h2>
+<p>At Hushh, we have many different projects and Conda environments going at once. The projects may require different versions of libraries, or require other specific configuration. This can be a source of confusion when switching between them for development work. Luckily, a tool called <a href="https://direnv.net/">direnv</a> exists that enables us to switch between project environments as easily as switching between working directories.</p>
+<p>To enable this functionality, direnv will refer to an .envrc file in the root of the working directory. You can see one of these in the HCF library <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.envrc">here</a></p>
+<pre><code>eval "$(conda shell.zsh hook)"
+conda activate hushh-vibe-catalog</code></pre>
+<p>When we enter the directory, we execute a simple conda shell.zsh hook to load the conda commands, and then we activate the HCF conda environment. When we exit the directory, the environment is unloaded.</p>
 </section>
-<section id="python-gen-a.i" class="level3">
-<h3 class="anchored" data-anchor-id="python-gen-a.i">Python 🤝 Gen A.I</h3>
-<p>With Python’s versatility and large network of libraries, it is the perfect choice for ML/AI based applications. With generative AI taking the internet by storm, it was no surprise to come across multiple talks, workshops and networking sessions that addressed the topic.</p>
-<p>One such <a href="https://docs.google.com/presentation/d/153cGX9dHrm5DD_PYmeIq7CAX-AtVoqoq/edit#slide=id.p17">workshop</a> gave great insight on building robust Retrieval Augmented Generation (RAG) systems. The current market for inference on documents with the help of LLMs is growing rapidly with multiple companies making use of these applications. The basics for building a good RAG system is quality extraction of data from documents, fine-tuning the hyper parameters, and using the right embeddings model.</p>
-<p>Some <strong>key questions</strong> for you to consider before building a RAG system include the type of task you want it to perform (summarization, document comparison, semantic search, recency filtering, masking PII information, etc.), what type of benchmarks you need it to pass, and how you are going to check for quality/accuracy of the response.</p>
-<p>In most cases, we would have to make use of query routers, either to make two retrieval calls for document comparison, or routing the retrieval call between a SQL DB and a vector DB based on the nature of query and type of data to be retrieved (structured/unstructured). We can make use of frameworks such as LangChain or LLaMAIndex for developing quick PoCs. Check out <a href="https://community.openai.com/t/llamaindex-vs-langchain-which-one-should-be-used/163139">this resource</a> if you are unsure on which framework to use. If you want to know more about efficient scaling of these systems, check out <a href="https://docs.google.com/presentation/d/1xmXqStTH7ORoz7tZ0JG6u23wI8C5GGxSG1khe_cDbsc/edit#slide=id.g25a96073e3f_0_1070">this resource</a> (Cross encoders, re-rankers, fast text search, improving reliability, etc).</p>
-<p>The other major aspect which garnered considerable attention is that of cost and the future of generative AI. Various keynote speakers who work in the industry highlighted the pitfalls of currently available and mainstream LLMs — sub optimally trained, blackbox nature, security concerns. People seemed to have a broad opinion that LLMs with 100B+ parameters would rarely be useful in real-world applications since the tasks are relatively well-defined and discrete (Example: Most companies don’t want their LLMs to write poems about John Cena and also be able to analyze their financial statements). The future of generative AI seems to be moving towards smaller parameter LLMs with a keen focus on high quality data and compute optimization to enable on-device capabilities for maximum outreach.</p>
-<p><strong><em>TL;DR: Building and refining Retrieval Augmented Generation (RAG) systems; Future of gen AI — smaller parameter LLMs with focus on high-quality data and compute optimization.</em></strong></p>
+<section id="configuring-python-libraries-poetry-vs.-modern-pep-standards" class="level2">
+<h2 class="anchored" data-anchor-id="configuring-python-libraries-poetry-vs.-modern-pep-standards">Configuring Python Libraries Poetry vs.&nbsp;Modern PEP standards</h2>
+<p>Within the Python ecosystem, there’s a host of frameworks that make it “easy” to do a number of different automated tasks. Tools like <a href="https://python-poetry.org/">poetry</a> make it easy to configure and publish libraries.</p>
+<p>In the past, we’ve experimented with these frameworks and found that they’re truly an improvement over the antiquated and cludgy Python configuration systems that are offered out of the box. <em>However</em>, Python has modernized significantly in the past year or two, including supporting the new <a href="https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/">pyproject.toml</a> that greatly simplifies the specification of libraries, dependencies, and environments.</p>
+<p>At this point, it’s clear to us that Python is a constantly evolving standard, and that frameworks that try to remove rough edges can quickly become technical debt as Python includes those features through more universally-accepted PEP standards.</p>
+<p>So, our recommendation is to stick with basic vanilla Python-standards for packaging these days, and just try to keep your versions up to date :)</p>
 </section>
+<section id="pip-compile-and-dependabot" class="level2">
+<h2 class="anchored" data-anchor-id="pip-compile-and-dependabot">pip-compile and dependabot</h2>
+<p>One feature that Vanilla Python lacks currently is a way to show</p>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>Overall, the conference was an amazing experience which gave insights into various domains, what developers are working on, future of multiple technology related sectors, and the cool ways companies are solving pressing real-world problems.</p>
-<p><em>To watch the recorded stream of keynotes click <a href="https://www.youtube.com/watch?v=EtglvudUZZI">here</a>.</em></p>
-<p><em>To look at the talk proposals click <a href="https://in.pycon.org/cfp/pycon-india-2023/proposals/">here</a>.</em></p>
+<section id="testing-python-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="testing-python-libraries">Testing Python Libraries</h2>
+</section>
+<section id="good-old-makefiles" class="level2">
+<h2 class="anchored" data-anchor-id="good-old-makefiles">Good old Makefiles</h2>
+</section>
+<section id="pypi-and-trusted-deployments" class="level2">
+<h2 class="anchored" data-anchor-id="pypi-and-trusted-deployments">Pypi and Trusted Deployments</h2>
+</section>
+<section id="cicd-with-github-actions" class="level2">
+<h2 class="anchored" data-anchor-id="cicd-with-github-actions">CICD with Github Actions</h2>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
