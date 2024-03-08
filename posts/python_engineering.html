@@ -369,6 +369,7 @@ conda activate hushh-vibe-catalog</code></pre>
 <span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> ./dist/*.whl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The configuration defines two different jobs: <code>test</code>, and <code>release</code>. The test job has a few steps that checks out the code, and sets up a python environment. The release job is interesting for two reasons. Firstly, it depends on the test phase, which means that the library has to pass tests before the release job runs. Secondly, it has the following line:</p>
 <pre><code>if: github.event_name == 'push' &amp;&amp; contains(github.ref, 'refs/tags/v')</code></pre>
+<p>This conditional statement means that the job only runs if the commit has a tag associated with it prefixed by “v”</p>
 </section>
 <section id="tagged-versioned-and-released" class="level2">
 <h2 class="anchored" data-anchor-id="tagged-versioned-and-released">Tagged, Versioned, and Released</h2>
