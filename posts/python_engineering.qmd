@@ -59,8 +59,9 @@ between them for development work. Luckily, a tool called
 [direnv](https://direnv.net/) exists that enables us to switch between project
 environments as easily as switching between working directories.
 
-To enable this functionality, direnv will refer to an .envrc file in the root of the working directory.
-You can see one of these in the HCF library [here](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.envrc)
+To enable this functionality, direnv will refer to an .envrc file in the root
+of the working directory. You can see one of these in the Vibe Catalog library
+[here](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.envrc)
 
 ```
 eval "$(conda shell.zsh hook)"
@@ -68,8 +69,8 @@ conda activate hushh-vibe-catalog
 ```
 
 When we enter the directory, we execute a simple conda shell.zsh hook to load
-the conda commands, and then we activate the HCF conda environment.  When we
-exit the directory, the environment is unloaded.
+the conda commands, and then we activate the Vibe Catalog conda environment.
+When we exit the directory, the environment is unloaded.
 
 ## Configuring Python Libraries Poetry vs. Modern PEP standards
 
@@ -296,6 +297,21 @@ nice to organize and run development jobs the same way on a local machine as
 they are run in CICD.  There's a number of different varieties of Make out there,
 but Python really is just fine with vanilla `make`.
 
+
+For instance, we use a special version of pytest that invokes [code
+coverage](https://en.wikipedia.org/wiki/Code_coverage) testing.  The specific
+command looks like:
+
+```
+$> pytest --cov=python/src python/test
+```
+
+That can be difficult to remember to enter correctly, so we create a simple
+Makefile entry for it and can simply enter:
+
+```
+$> make test
+````
 
 ## Conclusion
 
