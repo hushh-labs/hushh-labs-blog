@@ -217,6 +217,9 @@ job runs. Secondly, it has the following line:
 if: github.event_name == 'push' && contains(github.ref, 'refs/tags/v')
 ```
 
+This conditional statement means that the job only runs if the commit has a tag
+associated with it prefixed by "v"
+
 ## Tagged, Versioned, and Released
 
 The release job in the CICD config has a *conditional* command that causes it
