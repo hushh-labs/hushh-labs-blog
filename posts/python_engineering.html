@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -171,11 +205,12 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
   <li><a href="#stable-aiml-libraries-with-conda" id="toc-stable-aiml-libraries-with-conda" class="nav-link" data-scroll-target="#stable-aiml-libraries-with-conda">Stable AI/ML libraries with Conda</a></li>
   <li><a href="#easy-environment-switching-with-direnv" id="toc-easy-environment-switching-with-direnv" class="nav-link" data-scroll-target="#easy-environment-switching-with-direnv">Easy environment switching with direnv</a></li>
   <li><a href="#configuring-python-libraries-poetry-vs.-modern-pep-standards" id="toc-configuring-python-libraries-poetry-vs.-modern-pep-standards" class="nav-link" data-scroll-target="#configuring-python-libraries-poetry-vs.-modern-pep-standards">Configuring Python Libraries Poetry vs.&nbsp;Modern PEP standards</a></li>
-  <li><a href="#pip-compile-and-dependabot" id="toc-pip-compile-and-dependabot" class="nav-link" data-scroll-target="#pip-compile-and-dependabot">pip-compile and dependabot</a></li>
-  <li><a href="#testing-python-libraries" id="toc-testing-python-libraries" class="nav-link" data-scroll-target="#testing-python-libraries">Testing Python Libraries</a></li>
-  <li><a href="#good-old-makefiles" id="toc-good-old-makefiles" class="nav-link" data-scroll-target="#good-old-makefiles">Good old Makefiles</a></li>
+  <li><a href="#handling-security-vulnerabilities-with-pip-compile-and-dependabot" id="toc-handling-security-vulnerabilities-with-pip-compile-and-dependabot" class="nav-link" data-scroll-target="#handling-security-vulnerabilities-with-pip-compile-and-dependabot">Handling Security Vulnerabilities with pip-compile and dependabot</a></li>
+  <li><a href="#testing-and-building-python-libraries" id="toc-testing-and-building-python-libraries" class="nav-link" data-scroll-target="#testing-and-building-python-libraries">Testing And Building Python Libraries</a></li>
+  <li><a href="#tagged-versioned-and-released" id="toc-tagged-versioned-and-released" class="nav-link" data-scroll-target="#tagged-versioned-and-released">Tagged, Versioned, and Released</a></li>
   <li><a href="#pypi-and-trusted-deployments" id="toc-pypi-and-trusted-deployments" class="nav-link" data-scroll-target="#pypi-and-trusted-deployments">Pypi and Trusted Deployments</a></li>
-  <li><a href="#cicd-with-github-actions" id="toc-cicd-with-github-actions" class="nav-link" data-scroll-target="#cicd-with-github-actions">CICD with Github Actions</a></li>
+  <li><a href="#the-case-for-good-makefiles" id="toc-the-case-for-good-makefiles" class="nav-link" data-scroll-target="#the-case-for-good-makefiles">The Case for Good Makefiles</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -256,21 +291,116 @@ conda activate hushh-vibe-catalog</code></pre>
 <p>At this point, it’s clear to us that Python is a constantly evolving standard, and that frameworks that try to remove rough edges can quickly become technical debt as Python includes those features through more universally-accepted PEP standards.</p>
 <p>So, our recommendation is to stick with basic vanilla Python-standards for packaging these days, and just try to keep your versions up to date :)</p>
 </section>
-<section id="pip-compile-and-dependabot" class="level2">
-<h2 class="anchored" data-anchor-id="pip-compile-and-dependabot">pip-compile and dependabot</h2>
-<p>One feature that Vanilla Python lacks currently is a way to show</p>
+<section id="handling-security-vulnerabilities-with-pip-compile-and-dependabot" class="level2">
+<h2 class="anchored" data-anchor-id="handling-security-vulnerabilities-with-pip-compile-and-dependabot">Handling Security Vulnerabilities with pip-compile and dependabot</h2>
+<p>One feature that Vanilla Python lacks currently is a way to easily track dependencies. As projects get more complicated, they tend to acquire different dependencies. The more dependencies a project gathers, the more likely it is that a security vulnerability will crop up, threatening the security of the overall system.</p>
+<p>Typically, Python dependencies are listed in a “requirements.txt” file, which list the library and version depdencies used in the service. You can see the requirements file <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/requirements.txt">here</a>.</p>
+<p>The requirements file for hushh not only includes the full dependency list for the project, but also includes notes on which libraries depend on eachother. If a library has a security problem, it’s much easier to understand and track how this problem is spread within a given library, as well as across each project that your organization maintains.</p>
+<p>Providing a requirements file enables Github’s dependabot infrastructure to monitor potential security issues with any of the listed libraries. Dependabot can even create PRs that recommend updates for your libraries that are easy to test. Github makes it easy to set this up for each project, provide you follow the <a href="https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file">instructions</a>.</p>
+<p>Luckily, setting dependabot up for Python is pretty straightforward. The Hushh Vibe Catalog library has a very <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.github/dependabot.yml">simple one</a></p>
+<p>Generating the requirements.txt file with the dependency graph is possible with a utility called pip-compile, which is available through <a href="https://pypi.org/project/pip-tools/">pip-tools</a></p>
+<p>In order to generate the file, we just simply run:</p>
+<pre><code>$&gt; pip-compile .</code></pre>
 </section>
-<section id="testing-python-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="testing-python-libraries">Testing Python Libraries</h2>
+<section id="testing-and-building-python-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="testing-and-building-python-libraries">Testing And Building Python Libraries</h2>
+<p>We’re testing checkins using Github’s builtin CICD system, called <a href="https://docs.github.com/en/actions">Github Actions</a>. This is turned on through some configuration that defines a workflow for builds and tests. You can see the Hushh Vibe Catalog’s CICD configuration <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.github/workflows/main.yml">here</a></p>
+<p>The configuration there is short, bu somewhat complex. Here’s the current version:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Build</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">push</span><span class="kw">,</span><span class="at"> pull_request</span><span class="kw">,</span><span class="at"> release</span><span class="kw">]</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">permissions</span><span class="kw">:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> write</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id-token</span><span class="kw">:</span><span class="at"> write</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">test</span><span class="kw">:</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Test wheels on ${{ matrix.os }}</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ${{ matrix.os }}</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">        # os: [ubuntu-20.04, windows-2019, macOS-11]</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">os</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">ubuntu</span><span class="fl">-20.04</span><span class="kw">]</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">fetch-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">0</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v3</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'3.11'</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name </span><span class="kw">:</span><span class="at"> Run Tests</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="fu">        run </span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>          pip install ".[ci]"</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>          make test</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">release</span><span class="kw">:</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Create Github/Pypi Release</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">needs</span><span class="kw">:</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> test</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">if</span><span class="kw">:</span><span class="at"> github.event_name == 'push' &amp;&amp; contains(github.ref, 'refs/tags/v')</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4.1.1</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v5.0.0</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'3.11'</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name </span><span class="kw">:</span><span class="at"> Build library wheel</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run </span><span class="kw">:</span><span class="at"> pip wheel --no-deps -w dist .</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Publish to Github Releases</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> softprops/action-gh-release@v1</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Publish to Pypi</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>          pip install twine</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>          twine upload ./dist/* --verbose</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">TWINE_USERNAME</span><span class="kw">:</span><span class="at"> ${{ secrets.TWINE_USERNAME }}</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">TWINE_PASSWORD</span><span class="kw">:</span><span class="at"> ${{ secrets.TWINE_PASSWORD }}</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v3</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> ./dist/*.whl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The configuration defines two different jobs: <code>test</code>, and <code>release</code>. The test job has a few steps that checks out the code, and sets up a python environment. The release job is interesting for two reasons. Firstly, it depends on the test phase, which means that the library has to pass tests before the release job runs. Secondly, it has the following line:</p>
+<pre><code>if: github.event_name == 'push' &amp;&amp; contains(github.ref, 'refs/tags/v')</code></pre>
 </section>
-<section id="good-old-makefiles" class="level2">
-<h2 class="anchored" data-anchor-id="good-old-makefiles">Good old Makefiles</h2>
+<section id="tagged-versioned-and-released" class="level2">
+<h2 class="anchored" data-anchor-id="tagged-versioned-and-released">Tagged, Versioned, and Released</h2>
+<p>The release job in the CICD config has a <em>conditional</em> command that causes it to only trigger when the github event is a push that contains a git tag (and the git tag should start with the letter “v”)</p>
+<p>Git tags are special markers for commits. They can mean any number of things, but one common use is to have them refer to checkpoints that correspond with releases. Having a tag against a version is a particularly good way of ensuring that a given release wheel can be rebuilt and reproduced identically. So, rather than upload the release using Github’s web interface, we’re using Github’s CICD system to build the release for us from a tag. All we need to do is make a tag like “v1.2.3”, and it will generate the corresponding version.</p>
+<p>Version numbers are also a critical part of the release process. Hushh Vibe Catalog uses a <a href="https://semver.org/">semantic versioning</a>(semver) format for its version format, following a major/minor/patch number sequence. Minor and patch changes shouldn’t break compatibility, while major version numbers do.</p>
+<p>It can be an annoyance to update versions appropriately across all the parts of the library package that need to be updated (e.g.&nbsp;in the code, the documentation, the configuration, etc.). Hushh Vibe Catalog uses <a href="https://pypi.org/project/bump2version/">bump2version</a>. This utility keeps track of the current version in a config file (like <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.bumpversion.cfg">this one</a>). One can enter in a command like <code>bumpversion major</code> or <code>bumpversion patch</code> to increment the major/patch version of the library. When bump2version updates the version in the config, it also creates a commit that corresponds to the version change, like <a href="https://github.com/hushh-labs/hushh-vibe-catalog/commit/886596831c755728ee1fd1a5026acbe91f6928d6">this one</a> It will also create a tag for the new version number.</p>
+<p>With the tag, commit, and version number all specified, all we need to do is:</p>
+<pre><code>git push --tags</code></pre>
+<p>And the version tag will pass into the CICD system, get picked up by the release job, and build and publish the new version for us.</p>
 </section>
 <section id="pypi-and-trusted-deployments" class="level2">
 <h2 class="anchored" data-anchor-id="pypi-and-trusted-deployments">Pypi and Trusted Deployments</h2>
+<p>Currently, the library is published to Pypi using a <a href="https://pypi.org/project/twine/">twine</a> command.</p>
+<pre><code>      - name: Publish to Pypi
+        run: |
+          pip install twine
+          twine upload ./dist/* --verbose
+        env:
+          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+</code></pre>
+<p>The twine command uses Github secrets to populate Pypi/Twine API token information into the username/password environment variables. These are used by twine to authenticate with the Pypi server and upload the Python wheel files. By using secrets for our API tokens, we ensure they’re never accidentally included in any code that we upload to Github, and keep the library safe from leaked credentials.</p>
 </section>
-<section id="cicd-with-github-actions" class="level2">
-<h2 class="anchored" data-anchor-id="cicd-with-github-actions">CICD with Github Actions</h2>
+<section id="the-case-for-good-makefiles" class="level2">
+<h2 class="anchored" data-anchor-id="the-case-for-good-makefiles">The Case for Good Makefiles</h2>
+<p>The Hushh Vibe Catalog uses a <a href="https://en.wikipedia.org/wiki/Make_(software)">Make</a> to handle a lot of additional functionality useful during development. The <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/Makefile">Makefile</a> lists some common routines for creating, cleaning, and testing the package. Make is a common tool that’s readily available in most CICD contexts, and its nice to organize and run development jobs the same way on a local machine as they are run in CICD. There’s a number of different varieties of Make out there, but Python really is just fine with vanilla <code>make</code>.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Trusted Python development involves a number of steps that don’t fit neatly in “one size fits all” solution frameworks. We have listed here what we consider our “best in breed” approaches towards supporting rapid development with straightforward tools while adhering to best-practice Python PEP standards, combined with best-practice trust and security protocols. There’s a number of hoops to jump through for Python development, but luckily none of them are terribly difficult on their own.</p>
+<p>If you have an interest in trusted Python development, or have questions/comments about any of the tools/techniques that we’ve described here, we’d love to <a href="https://discord.gg/t2kq6yju">talk to you on Discord!</a>.</p>
 
 
 </section>

@@ -14,7 +14,7 @@
 <item>
   <title>Trusted Python Engineering at Hushh</title>
   <dc:creator>Justin Donaldson</dc:creator>
-  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/hushh_engineering.html</link>
+  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/python_engineering.html</link>
   <description><![CDATA[ 
 
 
@@ -52,21 +52,492 @@ conda activate hushh-vibe-catalog</code></pre>
 <p>At this point, it’s clear to us that Python is a constantly evolving standard, and that frameworks that try to remove rough edges can quickly become technical debt as Python includes those features through more universally-accepted PEP standards.</p>
 <p>So, our recommendation is to stick with basic vanilla Python-standards for packaging these days, and just try to keep your versions up to date :)</p>
 </section>
-<section id="pip-compile-and-dependabot" class="level2">
-<h2 class="anchored" data-anchor-id="pip-compile-and-dependabot">pip-compile and dependabot</h2>
-<p>One feature that Vanilla Python lacks currently is a way to show</p>
+<section id="handling-security-vulnerabilities-with-pip-compile-and-dependabot" class="level2">
+<h2 class="anchored" data-anchor-id="handling-security-vulnerabilities-with-pip-compile-and-dependabot">Handling Security Vulnerabilities with pip-compile and dependabot</h2>
+<p>One feature that Vanilla Python lacks currently is a way to easily track dependencies. As projects get more complicated, they tend to acquire different dependencies. The more dependencies a project gathers, the more likely it is that a security vulnerability will crop up, threatening the security of the overall system.</p>
+<p>Typically, Python dependencies are listed in a “requirements.txt” file, which list the library and version depdencies used in the service. You can see the requirements file <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/requirements.txt">here</a>.</p>
+<p>The requirements file for hushh not only includes the full dependency list for the project, but also includes notes on which libraries depend on eachother. If a library has a security problem, it’s much easier to understand and track how this problem is spread within a given library, as well as across each project that your organization maintains.</p>
+<p>Providing a requirements file enables Github’s dependabot infrastructure to monitor potential security issues with any of the listed libraries. Dependabot can even create PRs that recommend updates for your libraries that are easy to test. Github makes it easy to set this up for each project, provide you follow the <a href="https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file">instructions</a>.</p>
+<p>Luckily, setting dependabot up for Python is pretty straightforward. The Hushh Vibe Catalog library has a very <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.github/dependabot.yml">simple one</a></p>
+<p>Generating the requirements.txt file with the dependency graph is possible with a utility called pip-compile, which is available through <a href="https://pypi.org/project/pip-tools/">pip-tools</a></p>
+<p>In order to generate the file, we just simply run:</p>
+<pre><code>$&gt; pip-compile .</code></pre>
 </section>
-<section id="testing-python-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="testing-python-libraries">Testing Python Libraries</h2>
+<section id="testing-and-building-python-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="testing-and-building-python-libraries">Testing And Building Python Libraries</h2>
+<p>We’re testing checkins using Github’s builtin CICD system, called <a href="https://docs.github.com/en/actions">Github Actions</a>. This is turned on through some configuration that defines a workflow for builds and tests. You can see the Hushh Vibe Catalog’s CICD configuration <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.github/workflows/main.yml">here</a></p>
+<p>The configuration there is short, bu somewhat complex. Here’s the current version:</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Build</span></span>
+<span id="cb4-2"></span>
+<span id="cb4-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">on</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">push</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> pull_request</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> release</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb4-4"></span>
+<span id="cb4-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">permissions</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-6"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">contents</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> write</span></span>
+<span id="cb4-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">id-token</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> write</span></span>
+<span id="cb4-8"></span>
+<span id="cb4-9"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">jobs</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">test</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-11"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Test wheels on ${{ matrix.os }}</span></span>
+<span id="cb4-12"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runs-on</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ${{ matrix.os }}</span></span>
+<span id="cb4-13"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">strategy</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-14"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">matrix</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        # os: [ubuntu-20.04, windows-2019, macOS-11]</span></span>
+<span id="cb4-16"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">os</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ubuntu</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-20.04</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb4-17"></span>
+<span id="cb4-18"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">steps</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-19"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> actions/checkout@v4</span></span>
+<span id="cb4-20"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-21"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fetch-depth</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb4-22"></span>
+<span id="cb4-23"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> actions/setup-python@v3</span></span>
+<span id="cb4-24"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-25"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">python-version</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'3.11'</span></span>
+<span id="cb4-26"></span>
+<span id="cb4-27"></span>
+<span id="cb4-28"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Run Tests</span></span>
+<span id="cb4-29"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">        run </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb4-30">          pip install ".[ci]"</span>
+<span id="cb4-31">          make test</span>
+<span id="cb4-32"></span>
+<span id="cb4-33"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">release</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-34"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Create Github/Pypi Release</span></span>
+<span id="cb4-35"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">needs</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-36"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> test</span></span>
+<span id="cb4-37"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">if</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> github.event_name == 'push' &amp;&amp; contains(github.ref, 'refs/tags/v')</span></span>
+<span id="cb4-38"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runs-on</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ubuntu-latest</span></span>
+<span id="cb4-39"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">steps</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-40"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> actions/checkout@v4.1.1</span></span>
+<span id="cb4-41"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> actions/setup-python@v5.0.0</span></span>
+<span id="cb4-42"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-43"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">python-version</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'3.11'</span></span>
+<span id="cb4-44"></span>
+<span id="cb4-45"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Build library wheel</span></span>
+<span id="cb4-46"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">run </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> pip wheel --no-deps -w dist .</span></span>
+<span id="cb4-47"></span>
+<span id="cb4-48"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Publish to Github Releases</span></span>
+<span id="cb4-49"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> softprops/action-gh-release@v1</span></span>
+<span id="cb4-50"></span>
+<span id="cb4-51"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Publish to Pypi</span></span>
+<span id="cb4-52"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">        run</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb4-53">          pip install twine</span>
+<span id="cb4-54">          twine upload ./dist/* --verbose</span>
+<span id="cb4-55"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">env</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-56"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">TWINE_USERNAME</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ${{ secrets.TWINE_USERNAME }}</span></span>
+<span id="cb4-57"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">TWINE_PASSWORD</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ${{ secrets.TWINE_PASSWORD }}</span></span>
+<span id="cb4-58"></span>
+<span id="cb4-59"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> actions/upload-artifact@v3</span></span>
+<span id="cb4-60"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb4-61"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">path</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ./dist/*.whl</span></span></code></pre></div>
+<p>The configuration defines two different jobs: <code>test</code>, and <code>release</code>. The test job has a few steps that checks out the code, and sets up a python environment. The release job is interesting for two reasons. Firstly, it depends on the test phase, which means that the library has to pass tests before the release job runs. Secondly, it has the following line:</p>
+<pre><code>if: github.event_name == 'push' &amp;&amp; contains(github.ref, 'refs/tags/v')</code></pre>
 </section>
-<section id="good-old-makefiles" class="level2">
-<h2 class="anchored" data-anchor-id="good-old-makefiles">Good old Makefiles</h2>
+<section id="tagged-versioned-and-released" class="level2">
+<h2 class="anchored" data-anchor-id="tagged-versioned-and-released">Tagged, Versioned, and Released</h2>
+<p>The release job in the CICD config has a <em>conditional</em> command that causes it to only trigger when the github event is a push that contains a git tag (and the git tag should start with the letter “v”)</p>
+<p>Git tags are special markers for commits. They can mean any number of things, but one common use is to have them refer to checkpoints that correspond with releases. Having a tag against a version is a particularly good way of ensuring that a given release wheel can be rebuilt and reproduced identically. So, rather than upload the release using Github’s web interface, we’re using Github’s CICD system to build the release for us from a tag. All we need to do is make a tag like “v1.2.3”, and it will generate the corresponding version.</p>
+<p>Version numbers are also a critical part of the release process. Hushh Vibe Catalog uses a <a href="https://semver.org/">semantic versioning</a>(semver) format for its version format, following a major/minor/patch number sequence. Minor and patch changes shouldn’t break compatibility, while major version numbers do.</p>
+<p>It can be an annoyance to update versions appropriately across all the parts of the library package that need to be updated (e.g.&nbsp;in the code, the documentation, the configuration, etc.). Hushh Vibe Catalog uses <a href="https://pypi.org/project/bump2version/">bump2version</a>. This utility keeps track of the current version in a config file (like <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.bumpversion.cfg">this one</a>). One can enter in a command like <code>bumpversion major</code> or <code>bumpversion patch</code> to increment the major/patch version of the library. When bump2version updates the version in the config, it also creates a commit that corresponds to the version change, like <a href="https://github.com/hushh-labs/hushh-vibe-catalog/commit/886596831c755728ee1fd1a5026acbe91f6928d6">this one</a> It will also create a tag for the new version number.</p>
+<p>With the tag, commit, and version number all specified, all we need to do is:</p>
+<pre><code>git push --tags</code></pre>
+<p>And the version tag will pass into the CICD system, get picked up by the release job, and build and publish the new version for us.</p>
 </section>
 <section id="pypi-and-trusted-deployments" class="level2">
 <h2 class="anchored" data-anchor-id="pypi-and-trusted-deployments">Pypi and Trusted Deployments</h2>
+<p>Currently, the library is published to Pypi using a <a href="https://pypi.org/project/twine/">twine</a> command.</p>
+<pre><code>      - name: Publish to Pypi
+        run: |
+          pip install twine
+          twine upload ./dist/* --verbose
+        env:
+          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+</code></pre>
+<p>The twine command uses Github secrets to populate Pypi/Twine API token information into the username/password environment variables. These are used by twine to authenticate with the Pypi server and upload the Python wheel files. By using secrets for our API tokens, we ensure they’re never accidentally included in any code that we upload to Github, and keep the library safe from leaked credentials.</p>
 </section>
-<section id="cicd-with-github-actions" class="level2">
-<h2 class="anchored" data-anchor-id="cicd-with-github-actions">CICD with Github Actions</h2>
+<section id="the-case-for-good-makefiles" class="level2">
+<h2 class="anchored" data-anchor-id="the-case-for-good-makefiles">The Case for Good Makefiles</h2>
+<p>The Hushh Vibe Catalog uses a <a href="https://en.wikipedia.org/wiki/Make_(software)">Make</a> to handle a lot of additional functionality useful during development. The <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/Makefile">Makefile</a> lists some common routines for creating, cleaning, and testing the package. Make is a common tool that’s readily available in most CICD contexts, and its nice to organize and run development jobs the same way on a local machine as they are run in CICD. There’s a number of different varieties of Make out there, but Python really is just fine with vanilla <code>make</code>.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Trusted Python development involves a number of steps that don’t fit neatly in “one size fits all” solution frameworks. We have listed here what we consider our “best in breed” approaches towards supporting rapid development with straightforward tools while adhering to best-practice Python PEP standards, combined with best-practice trust and security protocols. There’s a number of hoops to jump through for Python development, but luckily none of them are terribly difficult on their own.</p>
+<p>If you have an interest in trusted Python development, or have questions/comments about any of the tools/techniques that we’ve described here, we’d love to <a href="https://discord.gg/t2kq6yju">talk to you on Discord!</a>.</p>
 
 
 </section>
@@ -76,7 +547,7 @@ conda activate hushh-vibe-catalog</code></pre>
   <category>python</category>
   <category>engineering</category>
   <category>open source</category>
-  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/hushh_engineering.html</guid>
+  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/python_engineering.html</guid>
   <pubDate>Thu, 07 Mar 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
