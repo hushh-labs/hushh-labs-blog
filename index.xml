@@ -40,10 +40,10 @@ $&gt; conda activate hushh-vibe-catalog</code></pre>
 <section id="easy-environment-switching-with-direnv" class="level2">
 <h2 class="anchored" data-anchor-id="easy-environment-switching-with-direnv">Easy environment switching with direnv</h2>
 <p>At Hushh, we have many different projects and Conda environments going at once. The projects may require different versions of libraries, or require other specific configuration. This can be a source of confusion when switching between them for development work. Luckily, a tool called <a href="https://direnv.net/">direnv</a> exists that enables us to switch between project environments as easily as switching between working directories.</p>
-<p>To enable this functionality, direnv will refer to an .envrc file in the root of the working directory. You can see one of these in the HCF library <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.envrc">here</a></p>
+<p>To enable this functionality, direnv will refer to an .envrc file in the root of the working directory. You can see one of these in the Vibe Catalog library <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.envrc">here</a></p>
 <pre><code>eval "$(conda shell.zsh hook)"
 conda activate hushh-vibe-catalog</code></pre>
-<p>When we enter the directory, we execute a simple conda shell.zsh hook to load the conda commands, and then we activate the HCF conda environment. When we exit the directory, the environment is unloaded.</p>
+<p>When we enter the directory, we execute a simple conda shell.zsh hook to load the conda commands, and then we activate the Vibe Catalog conda environment. When we exit the directory, the environment is unloaded.</p>
 </section>
 <section id="configuring-python-libraries-poetry-vs.-modern-pep-standards" class="level2">
 <h2 class="anchored" data-anchor-id="configuring-python-libraries-poetry-vs.-modern-pep-standards">Configuring Python Libraries Poetry vs.&nbsp;Modern PEP standards</h2>
@@ -533,6 +533,10 @@ font-style: inherit;"> ./dist/*.whl</span></span></code></pre></div>
 <section id="the-case-for-good-makefiles" class="level2">
 <h2 class="anchored" data-anchor-id="the-case-for-good-makefiles">The Case for Good Makefiles</h2>
 <p>The Hushh Vibe Catalog uses a <a href="https://en.wikipedia.org/wiki/Make_(software)">Make</a> to handle a lot of additional functionality useful during development. The <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/Makefile">Makefile</a> lists some common routines for creating, cleaning, and testing the package. Make is a common tool that’s readily available in most CICD contexts, and its nice to organize and run development jobs the same way on a local machine as they are run in CICD. There’s a number of different varieties of Make out there, but Python really is just fine with vanilla <code>make</code>.</p>
+<p>For instance, we use a special version of pytest that invokes <a href="https://en.wikipedia.org/wiki/Code_coverage">code coverage</a> testing. The specific command looks like:</p>
+<pre><code>$&gt; pytest --cov=python/src python/test</code></pre>
+<p>That can be difficult to remember to enter correctly, so we create a simple Makefile entry for it and can simply enter:</p>
+<pre><code>$&gt; make test</code></pre>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
