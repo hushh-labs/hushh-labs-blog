@@ -138,7 +138,7 @@ conda activate hushh-vibe-catalog</code></pre>
 <section id="testing-and-building-python-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="testing-and-building-python-libraries">Testing And Building Python Libraries</h2>
 <p>We’re testing checkins using Github’s builtin CICD system, called <a href="https://docs.github.com/en/actions">Github Actions</a>. This is turned on through some configuration that defines a workflow for builds and tests. You can see the Hushh Vibe Catalog’s CICD configuration <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.github/workflows/main.yml">here</a></p>
-<p>The configuration there is short, bu somewhat complex. Here’s the current version:</p>
+<p>The configuration there is short, but somewhat complex. Here’s the current version:</p>
 <div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
@@ -591,7 +591,7 @@ font-style: inherit;"> ./dist/*.whl</span></span></code></pre></div>
 <p>And the version tag will pass into the CICD system, get picked up by the release job, and build and publish the new version for us.</p>
 </section>
 <section id="pypi-and-trusted-deployments" class="level2">
-<h2 class="anchored" data-anchor-id="pypi-and-trusted-deployments">Pypi and Trusted Deployments</h2>
+<h2 class="anchored" data-anchor-id="pypi-and-trusted-deployments">PyPi and Trusted Deployments</h2>
 <div class="cell" data-fig-width="6.5" data-layout-align="default">
 <div class="cell-output-display">
 <div>

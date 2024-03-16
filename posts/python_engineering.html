@@ -215,7 +215,7 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
   <ul class="collapse">
   <li><a href="#testing-and-building-python-libraries" id="toc-testing-and-building-python-libraries" class="nav-link" data-scroll-target="#testing-and-building-python-libraries">Testing And Building Python Libraries</a></li>
   <li><a href="#tagged-versioned-and-released" id="toc-tagged-versioned-and-released" class="nav-link" data-scroll-target="#tagged-versioned-and-released">Tagged, Versioned, and Released</a></li>
-  <li><a href="#pypi-and-trusted-deployments" id="toc-pypi-and-trusted-deployments" class="nav-link" data-scroll-target="#pypi-and-trusted-deployments">Pypi and Trusted Deployments</a></li>
+  <li><a href="#pypi-and-trusted-deployments" id="toc-pypi-and-trusted-deployments" class="nav-link" data-scroll-target="#pypi-and-trusted-deployments">PyPi and Trusted Deployments</a></li>
   <li><a href="#handling-security-vulnerabilities-with-pip-compile-and-dependabot" id="toc-handling-security-vulnerabilities-with-pip-compile-and-dependabot" class="nav-link" data-scroll-target="#handling-security-vulnerabilities-with-pip-compile-and-dependabot">Handling Security Vulnerabilities with pip-compile and dependabot</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
@@ -384,7 +384,7 @@ conda activate hushh-vibe-catalog</code></pre>
 <section id="testing-and-building-python-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="testing-and-building-python-libraries">Testing And Building Python Libraries</h2>
 <p>We’re testing checkins using Github’s builtin CICD system, called <a href="https://docs.github.com/en/actions">Github Actions</a>. This is turned on through some configuration that defines a workflow for builds and tests. You can see the Hushh Vibe Catalog’s CICD configuration <a href="https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.github/workflows/main.yml">here</a></p>
-<p>The configuration there is short, bu somewhat complex. Here’s the current version:</p>
+<p>The configuration there is short, but somewhat complex. Here’s the current version:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Build</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">push</span><span class="kw">,</span><span class="at"> pull_request</span><span class="kw">,</span><span class="at"> release</span><span class="kw">]</span></span>
@@ -461,7 +461,7 @@ conda activate hushh-vibe-catalog</code></pre>
 <p>And the version tag will pass into the CICD system, get picked up by the release job, and build and publish the new version for us.</p>
 </section>
 <section id="pypi-and-trusted-deployments" class="level2">
-<h2 class="anchored" data-anchor-id="pypi-and-trusted-deployments">Pypi and Trusted Deployments</h2>
+<h2 class="anchored" data-anchor-id="pypi-and-trusted-deployments">PyPi and Trusted Deployments</h2>
 <div class="cell" data-fig-width="6.5" data-layout-align="default">
 <div class="cell-output-display">
 <div>
