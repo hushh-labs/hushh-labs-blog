@@ -13,15 +13,51 @@ categories:
 
 ![Trusted Python Engineering at Hushh](images/omgjjd_man_coding_at_laptop._purple_and_red._secure._17ac0cdb-8822-4e07-be28-bfb0d073d73f.png)
 
-# Trusted Python Engineering at Hushh
-
 Hushh utilizes cutting edge open source AI and ML libraries, and most AI
-startups will claim the same.  However, Hushh's emphasis on trust and security
-means that we also have to make these capabilities stable and safe.  We will
-walk through some of the techniques we use to develop and deploy software,
-using our open source [hushh catalog
+startups out there will claim the same.  However, Hushh's emphasis on trust and
+security means that we also have to make these capabilities stable and safe.
+We will walk through some of the techniques we use to develop and deploy
+software, using our open source [hushh catalog
 format](https://hushh-labs.github.io/hushh-labs-blog/posts/you_dont_need_a_vector_database.html)
 as an example.
+
+This post winds up being a long sequence of steps. You can follow along with the basic steps:
+
+* Local Development : Settings and configuration for personal machines
+* CICD : Workflows and artifact configuration for testing and building
+* PyPi : Configuration for secure publishing
+
+
+
+```{mermaid}
+%%| fig-width: 6.5
+flowchart LR
+    subgraph Local
+        A("development")
+    end
+
+    A --> B
+
+    subgraph CICD
+        B(build) --> C
+        C(test) --> D
+        D(deployment)
+    end
+
+    D --> E
+
+    subgraph PyPI
+        E(hosting)
+    end
+
+    classDef highlight fill:#eeddff,stroke:#999,stroke-width:2px
+    class Local highlight
+```
+
+We'll go from left to right and start with local development.
+
+# Local Development
+
 
 ## Stable AI/ML libraries with Conda
 
@@ -50,7 +86,7 @@ $> conda activate hushh-vibe-catalog
 ```
 
 
-## Easy environment switching with direnv
+## Environment Management with direnv
 
 At Hushh, we have many different projects and Conda environments going at once.
 The projects may require different versions of libraries, or require other
@@ -72,7 +108,7 @@ When we enter the directory, we execute a simple conda shell.zsh hook to load
 the conda commands, and then we activate the Vibe Catalog conda environment.
 When we exit the directory, the environment is unloaded.
 
-## Configuring Python Libraries Poetry vs. Modern PEP standards
+## PEP vs. Poetry
 
 Within the Python ecosystem, there's a host of frameworks that make it "easy"
 to do a number of different automated tasks.  Tools like
@@ -92,43 +128,63 @@ debt as Python includes those features through more universally-accepted PEP sta
 So, our recommendation is to stick with basic vanilla Python-standards for
 packaging these days, and just try to keep your versions up to date :)
 
+## The Case for Good Makefiles
 
-## Handling Security Vulnerabilities  with pip-compile and dependabot
-
-One feature that Vanilla Python lacks currently is a way to easily track
-dependencies. As projects get more complicated, they tend to acquire different
-dependencies.  The more dependencies a project gathers, the more likely it is
-that a security vulnerability will crop up, threatening the security of the overall system.
-
-Typically, Python dependencies are listed in a "requirements.txt" file, which
-list the library and version depdencies used in the service.  You can see the requirements file
-[here](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/requirements.txt).
-
-The requirements file for hushh not only includes the full dependency list for the project,
-but also includes notes on which libraries depend on eachother.  If a library has a security problem,
-it's much easier to understand and track how this problem is spread within a given library, as well
-as across each project that your organization maintains.
-
-Providing a requirements file enables Github's dependabot infrastructure to
-monitor potential security issues with any of the listed libraries.  Dependabot
-can even create PRs that recommend updates for your libraries that are easy to
-test.  Github makes it easy to set this up for each project, provide you follow
-the
-[instructions](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).
-
-Luckily, setting dependabot up for Python is pretty straightforward. The Hushh
-Vibe Catalog library has a very [simple
-one](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.github/dependabot.yml)
+The Hushh Vibe Catalog uses a
+[Make](https://en.wikipedia.org/wiki/Make_(software)) to handle a lot of
+additional functionality useful during development.  The
+[Makefile](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/Makefile)
+lists some common routines for creating, cleaning, and testing the package.
+Make is a common tool that's readily available in most CICD contexts, and its
+nice to organize and run development jobs the same way on a local machine as
+they are run in CICD.  There's a number of different varieties of Make out there,
+but Python really is just fine with vanilla `make`.
 
 
-Generating the requirements.txt file with the dependency graph is possible with
-a utility called pip-compile, which is available through
-[pip-tools](https://pypi.org/project/pip-tools/)
-
-In order to generate the file, we just simply run:
+For instance, we use a special version of pytest that invokes [code
+coverage](https://en.wikipedia.org/wiki/Code_coverage) testing.  The specific
+command looks like:
 
 ```
-$> pip-compile .
+$> pytest --cov=python/src python/test
+```
+
+That can be difficult to remember to enter correctly, so we create a simple
+Makefile entry for it and can simply enter:
+
+```
+$> make test
+```
+
+That command should always run the basic integration tests that can be expected
+to finish in a minute or two.
+
+
+# Content Integration/Content Deployment
+
+```{mermaid}
+%%| fig-width: 6.5
+flowchart LR
+    subgraph Local
+        A("development")
+    end
+
+    A --> B
+
+    subgraph CICD
+        B(build) --> C
+        C(test) --> D
+        D(deployment)
+    end
+
+    D --> E
+
+    subgraph PyPI
+        E(hosting)
+    end
+
+    classDef highlight fill:#eeddff,stroke:#999,stroke-width:2px
+    class CICD highlight
 ```
 
 ## Testing And Building Python Libraries
@@ -258,12 +314,37 @@ With the tag, commit, and version number all specified, all we need to do is:
 
 ```
 git push --tags
-````
+```
 
 And the version tag will pass into the CICD system, get picked up by the
 release job, and build and publish the new version for us.
 
 ## Pypi and Trusted Deployments
+
+```{mermaid}
+%%| fig-width: 6.5
+flowchart LR
+    subgraph Local
+        A("development")
+    end
+
+    A --> B
+
+    subgraph CICD
+        B(build) --> C
+        C(test) --> D
+        D(deployment)
+    end
+
+    D --> E
+
+    subgraph PyPi
+        E(hosting)
+    end
+
+    classDef highlight fill:#eeddff,stroke:#999,stroke-width:2px
+    class PyPi highlight
+```
 
 Currently, the library is published to Pypi using a
 [twine](https://pypi.org/project/twine/) command.
@@ -288,33 +369,44 @@ accidentally included in any code that we upload to Github, and keep the
 library safe from leaked credentials.
 
 
-## The Case for Good Makefiles
+## Handling Security Vulnerabilities  with pip-compile and dependabot
 
-The Hushh Vibe Catalog uses a
-[Make](https://en.wikipedia.org/wiki/Make_(software)) to handle a lot of
-additional functionality useful during development.  The
-[Makefile](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/Makefile)
-lists some common routines for creating, cleaning, and testing the package.
-Make is a common tool that's readily available in most CICD contexts, and its
-nice to organize and run development jobs the same way on a local machine as
-they are run in CICD.  There's a number of different varieties of Make out there,
-but Python really is just fine with vanilla `make`.
+One feature that Vanilla Python lacks currently is a way to easily track
+dependencies. As projects get more complicated, they tend to acquire different
+dependencies.  The more dependencies a project gathers, the more likely it is
+that a security vulnerability will crop up, threatening the security of the overall system.
+
+Typically, Python dependencies are listed in a "requirements.txt" file, which
+list the library and version depdencies used in the service.  You can see the requirements file
+[here](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/requirements.txt).
+
+The requirements file for hushh not only includes the full dependency list for the project,
+but also includes notes on which libraries depend on eachother.  If a library has a security problem,
+it's much easier to understand and track how this problem is spread within a given library, as well
+as across each project that your organization maintains.
+
+Providing a requirements file enables Github's dependabot infrastructure to
+monitor potential security issues with any of the listed libraries.  Dependabot
+can even create PRs that recommend updates for your libraries that are easy to
+test.  Github makes it easy to set this up for each project, provide you follow
+the
+[instructions](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).
+
+Luckily, setting dependabot up for Python is pretty straightforward. The Hushh
+Vibe Catalog library has a very [simple
+one](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.github/dependabot.yml)
 
 
-For instance, we use a special version of pytest that invokes [code
-coverage](https://en.wikipedia.org/wiki/Code_coverage) testing.  The specific
-command looks like:
+Generating the requirements.txt file with the dependency graph is possible with
+a utility called pip-compile, which is available through
+[pip-tools](https://pypi.org/project/pip-tools/)
+
+In order to generate the file, we just simply run:
 
 ```
-$> pytest --cov=python/src python/test
+$> pip-compile .
 ```
 
-That can be difficult to remember to enter correctly, so we create a simple
-Makefile entry for it and can simply enter:
-
-```
-$> make test
-````
 
 ## Conclusion
 

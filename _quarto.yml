@@ -29,5 +29,7 @@ format:
     theme: pulse
     css: styles.css
     toc: true
+    mermaid:
+      theme: neutral
 
 
