@@ -195,7 +195,7 @@ configuration that defines a workflow for builds and tests.  You can see the
 Hushh Vibe Catalog's CICD configuration
 [here](https://github.com/hushh-labs/hushh-vibe-catalog/blob/main/.github/workflows/main.yml)
 
-The configuration there is short, bu somewhat complex.  Here's the current version:
+The configuration there is short, but somewhat complex.  Here's the current version:
 
 ```yml
 name: Build
@@ -319,7 +319,7 @@ git push --tags
 And the version tag will pass into the CICD system, get picked up by the
 release job, and build and publish the new version for us.
 
-## Pypi and Trusted Deployments
+## PyPi and Trusted Deployments
 
 ```{mermaid}
 %%| fig-width: 6.5
