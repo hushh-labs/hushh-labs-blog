@@ -38,7 +38,7 @@ how it is used. We respect the autonomy and agency of our users, empowering
 them to define their own digital experiences and safeguard their personal
 information.
 
-## Intelligence :
+## Intelligence:
 
 We believe that intelligence is the foundation of progress and growth. At
 Hushh, we leverage cutting-edge technologies, such as artificial intelligence
