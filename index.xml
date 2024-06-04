@@ -9,7 +9,7 @@
 <link>https://hushh-labs.github.io/hushh-labs-blog/</link>
 <atom:link href="https://hushh-labs.github.io/hushh-labs-blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.554</generator>
+<generator>quarto-1.4.555</generator>
 <lastBuildDate>Thu, 07 Mar 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Trusted Python Engineering at Hushh</title>
@@ -1143,6 +1143,51 @@ font-style: inherit;"> ./dist/*.whl</span></span></code></pre></div>
   <pubDate>Sun, 27 Aug 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Hushh Manifesto</title>
+  <dc:creator>Manish Sainani, Justin Donaldson, Sunaz Sharaf</dc:creator>
+  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_A_scientist_writing_a_set_of_core_principles_for_an_AI_07bc5c5e-e3d4-447a-80e3-8401f4767591.png" class="img-fluid figure-img"></p>
+<figcaption>Hushh Principles</figcaption>
+</figure>
+</div>
+<section id="hushh---redefining-access-control-intelligence-and-monetization" class="level1">
+<h1>Hushh - Redefining Access, Control, Intelligence, and Monetization</h1>
+<p>At Hushh, we believe in building a startup that empowers individuals by redefining the principles of Access, Control, Intelligence, and Monetization. Our platform aims to revolutionize the way people interact, share, and derive value from their data, ensuring their privacy, choice, and ability to create value. This manifesto outlines the core principles that drive our mission and guide our actions, and a demonstration of documentation by github.</p>
+<section id="access" class="level2">
+<h2 class="anchored" data-anchor-id="access">Access:</h2>
+<p>We believe that access to information and resources should be inclusive, equitable, and easily attainable for everyone. Hushh aims to break down barriers and provide equal opportunities to all individuals, regardless of their background, location, or socio-economic status. Through our platform, we strive to create an ecosystem that fosters open communication, collaboration, and shared knowledge.</p>
+</section>
+<section id="control-choice" class="level2">
+<h2 class="anchored" data-anchor-id="control-choice">Control (Choice):</h2>
+<p>We recognize that individuals should have complete control over their personal data and online presence. At Hushh, we prioritize privacy and provide users with the tools to make informed decisions about the information they share and how it is used. We respect the autonomy and agency of our users, empowering them to define their own digital experiences and safeguard their personal information.</p>
+</section>
+<section id="intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="intelligence">Intelligence:</h2>
+<p>We believe that intelligence is the foundation of progress and growth. At Hushh, we leverage cutting-edge technologies, such as artificial intelligence and machine learning, to provide intelligent insights and personalized experiences. Our platform understands user preferences, adapts to their needs, and continuously learns to enhance the overall user experience. We harness the power of intelligence to empower individuals and help them make better decisions in their personal and professional lives.</p>
+</section>
+<section id="monetization-value-creation-for-the-user-of-the-platform" class="level2">
+<h2 class="anchored" data-anchor-id="monetization-value-creation-for-the-user-of-the-platform">Monetization (Value Creation for the User of the Platform):</h2>
+<p>We understand the importance of value creation for our users. Hushh is committed to creating a sustainable ecosystem that enables individuals to monetize their skills, knowledge, and creations. We provide tools and opportunities for users to showcase their expertise, connect with like-minded individuals, and explore avenues for financial growth. Through our platform, users can unlock their full potential and realize the value they bring to the digital world.</p>
+<p>Together, we envision a future where access is universal, control is in the hands of individuals, intelligence is seamlessly integrated, and monetization is fair and rewarding. At Hushh, we are dedicated to building a community-driven platform that challenges existing norms, fosters innovation, and empowers individuals to thrive in the digital age. Join us on this transformative journey as we shape a world where everyone’s voice is heard, respected, and valued. Together, we can build a future that embraces the true potential of technology and human ingenuity.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>mission</category>
+  <category>principles</category>
+  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</guid>
+  <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Logo Analysis for Brand Affinity</title>
   <dc:creator>Justin Donaldson</dc:creator>
   <link>https://hushh-labs.github.io/hushh-labs-blog/posts/logo_analysis.html</link>
@@ -1633,51 +1678,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <category>ML</category>
   <category>vision</category>
   <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/logo_analysis.html</guid>
-  <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Hushh Manifesto</title>
-  <dc:creator>Manish Sainani, Justin Donaldson, Sunaz Sharaf</dc:creator>
-  <link>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_A_scientist_writing_a_set_of_core_principles_for_an_AI_07bc5c5e-e3d4-447a-80e3-8401f4767591.png" class="img-fluid figure-img"></p>
-<figcaption>Hushh Principles</figcaption>
-</figure>
-</div>
-<section id="hushh---redefining-access-control-intelligence-and-monetization" class="level1">
-<h1>Hushh - Redefining Access, Control, Intelligence, and Monetization</h1>
-<p>At Hushh, we believe in building a startup that empowers individuals by redefining the principles of Access, Control, Intelligence, and Monetization. Our platform aims to revolutionize the way people interact, share, and derive value from their data, ensuring their privacy, choice, and ability to create value. This manifesto outlines the core principles that drive our mission and guide our actions, and a demonstration of documentation by github.</p>
-<section id="access" class="level2">
-<h2 class="anchored" data-anchor-id="access">Access:</h2>
-<p>We believe that access to information and resources should be inclusive, equitable, and easily attainable for everyone. Hushh aims to break down barriers and provide equal opportunities to all individuals, regardless of their background, location, or socio-economic status. Through our platform, we strive to create an ecosystem that fosters open communication, collaboration, and shared knowledge.</p>
-</section>
-<section id="control-choice" class="level2">
-<h2 class="anchored" data-anchor-id="control-choice">Control (Choice):</h2>
-<p>We recognize that individuals should have complete control over their personal data and online presence. At Hushh, we prioritize privacy and provide users with the tools to make informed decisions about the information they share and how it is used. We respect the autonomy and agency of our users, empowering them to define their own digital experiences and safeguard their personal information.</p>
-</section>
-<section id="intelligence" class="level2">
-<h2 class="anchored" data-anchor-id="intelligence">Intelligence:</h2>
-<p>We believe that intelligence is the foundation of progress and growth. At Hushh, we leverage cutting-edge technologies, such as artificial intelligence and machine learning, to provide intelligent insights and personalized experiences. Our platform understands user preferences, adapts to their needs, and continuously learns to enhance the overall user experience. We harness the power of intelligence to empower individuals and help them make better decisions in their personal and professional lives.</p>
-</section>
-<section id="monetization-value-creation-for-the-user-of-the-platform" class="level2">
-<h2 class="anchored" data-anchor-id="monetization-value-creation-for-the-user-of-the-platform">Monetization (Value Creation for the User of the Platform):</h2>
-<p>We understand the importance of value creation for our users. Hushh is committed to creating a sustainable ecosystem that enables individuals to monetize their skills, knowledge, and creations. We provide tools and opportunities for users to showcase their expertise, connect with like-minded individuals, and explore avenues for financial growth. Through our platform, users can unlock their full potential and realize the value they bring to the digital world.</p>
-<p>Together, we envision a future where access is universal, control is in the hands of individuals, intelligence is seamlessly integrated, and monetization is fair and rewarding. At Hushh, we are dedicated to building a community-driven platform that challenges existing norms, fosters innovation, and empowers individuals to thrive in the digital age. Join us on this transformative journey as we shape a world where everyone’s voice is heard, respected, and valued. Together, we can build a future that embraces the true potential of technology and human ingenuity.</p>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>mission</category>
-  <category>principles</category>
-  <guid>https://hushh-labs.github.io/hushh-labs-blog/posts/manifesto.html</guid>
   <pubDate>Tue, 11 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
