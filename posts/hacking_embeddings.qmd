@@ -43,7 +43,7 @@ example of a projection layer. Here, the input layer takes values from the
 model's last layer, and the output layer projects these into a specific vector
 space.
 
-![Basic Model Architecture](images/336118525-c8dbb2ca-838a-4b45-9d3a-08e76a4885cd.png)
+![Example Model Architecture](images/336118525-c8dbb2ca-838a-4b45-9d3a-08e76a4885cd.png)
 
 To illustrate, consider five input neurons and an output neuron. The
 information each input neuron carries to the output neuron is proportional to
@@ -68,12 +68,13 @@ OT3, we can drop OT1.
 
 ![Comparing Node Weights](images/336118689-52187653-1eda-4c57-ac04-d89fc0d43fae.png)
 
-### Dropping Score Mechanism
+### Neural Association Thresholding
 
-To automate this process, we define a dropping score. Initially, the drop score
-for a target output feature is the sum of common input features between the
-target and every other output feature. As we drop features, we adjust the
-scores to ensure minimal information loss.
+To automate this process, we define a score for neural association between
+nodes in two layers. Initially, the threshold for a target output feature is
+the sum of common input features between the target and every other output
+feature. As we drop features, we adjust the scores to ensure minimal
+information loss.
 
 ## Implementation with OpenCLIP
 
@@ -113,11 +114,11 @@ for i in range(len(model_state_dict["visual.proj"].T)):
    high_weight.append(max_index)
 ```
 
-### Creating Heatmap and Dropping Score
+### Creating Heatmap and Neural Association Score
 
 Now we will create a heatmap of intersections, where `heat_map[i,j]` will give
 us the intersection between the \(i\)th and \(j\)th output features. Using this
-heatmap, we will assign an initial dropping score. The dropping score of the
+heatmap, we will assign an initial threshold. The dropping score of the
 \(i\)th feature is the sum of all intersections (common input features) with
 other output features. The intersection with itself can be skipped as it is not
 needed.
