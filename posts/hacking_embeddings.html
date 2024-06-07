@@ -206,14 +206,14 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
   <ul class="collapse">
   <li><a href="#assumption-one-equal-information-distribution" id="toc-assumption-one-equal-information-distribution" class="nav-link" data-scroll-target="#assumption-one-equal-information-distribution">Assumption One: Equal Information Distribution</a></li>
   <li><a href="#simplified-example" id="toc-simplified-example" class="nav-link" data-scroll-target="#simplified-example">Simplified Example</a></li>
-  <li><a href="#dropping-score-mechanism" id="toc-dropping-score-mechanism" class="nav-link" data-scroll-target="#dropping-score-mechanism">Dropping Score Mechanism</a></li>
+  <li><a href="#neural-association-thresholding" id="toc-neural-association-thresholding" class="nav-link" data-scroll-target="#neural-association-thresholding">Neural Association Thresholding</a></li>
   </ul></li>
   <li><a href="#implementation-with-openclip" id="toc-implementation-with-openclip" class="nav-link" data-scroll-target="#implementation-with-openclip">Implementation with OpenCLIP</a>
   <ul class="collapse">
   <li><a href="#importing-the-model-and-state-dictionary" id="toc-importing-the-model-and-state-dictionary" class="nav-link" data-scroll-target="#importing-the-model-and-state-dictionary">Importing the Model and State Dictionary</a></li>
   <li><a href="#setting-parameters" id="toc-setting-parameters" class="nav-link" data-scroll-target="#setting-parameters">Setting Parameters</a></li>
   <li><a href="#finding-top-k-weights" id="toc-finding-top-k-weights" class="nav-link" data-scroll-target="#finding-top-k-weights">Finding Top-K weights</a></li>
-  <li><a href="#creating-heatmap-and-dropping-score" id="toc-creating-heatmap-and-dropping-score" class="nav-link" data-scroll-target="#creating-heatmap-and-dropping-score">Creating Heatmap and Dropping Score</a></li>
+  <li><a href="#creating-heatmap-and-neural-association-score" id="toc-creating-heatmap-and-neural-association-score" class="nav-link" data-scroll-target="#creating-heatmap-and-neural-association-score">Creating Heatmap and Neural Association Score</a></li>
   <li><a href="#dropping-features" id="toc-dropping-features" class="nav-link" data-scroll-target="#dropping-features">Dropping Features</a></li>
   <li><a href="#selecting-final-features" id="toc-selecting-final-features" class="nav-link" data-scroll-target="#selecting-final-features">Selecting Final Features</a></li>
   </ul></li>
@@ -287,7 +287,7 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/336118525-c8dbb2ca-838a-4b45-9d3a-08e76a4885cd.png" class="img-fluid figure-img"></p>
-<figcaption>Basic Model Architecture</figcaption>
+<figcaption>Example Model Architecture</figcaption>
 </figure>
 </div>
 <p>To illustrate, consider five input neurons and an output neuron. The information each input neuron carries to the output neuron is proportional to the weight between them.</p>
@@ -311,9 +311,9 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 </figure>
 </div>
 </section>
-<section id="dropping-score-mechanism" class="level3">
-<h3 class="anchored" data-anchor-id="dropping-score-mechanism">Dropping Score Mechanism</h3>
-<p>To automate this process, we define a dropping score. Initially, the drop score for a target output feature is the sum of common input features between the target and every other output feature. As we drop features, we adjust the scores to ensure minimal information loss.</p>
+<section id="neural-association-thresholding" class="level3">
+<h3 class="anchored" data-anchor-id="neural-association-thresholding">Neural Association Thresholding</h3>
+<p>To automate this process, we define a score for neural association between nodes in two layers. Initially, the threshold for a target output feature is the sum of common input features between the target and every other output feature. As we drop features, we adjust the scores to ensure minimal information loss.</p>
 </section>
 </section>
 <section id="implementation-with-openclip" class="level2">
@@ -345,9 +345,9 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>   max_index <span class="op">=</span> np.argsort(np.<span class="bu">abs</span>(weights))[:top_k_weights]</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>   high_weight.append(max_index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="creating-heatmap-and-dropping-score" class="level3">
-<h3 class="anchored" data-anchor-id="creating-heatmap-and-dropping-score">Creating Heatmap and Dropping Score</h3>
-<p>Now we will create a heatmap of intersections, where <code>heat_map[i,j]</code> will give us the intersection between the (i)th and (j)th output features. Using this heatmap, we will assign an initial dropping score. The dropping score of the (i)th feature is the sum of all intersections (common input features) with other output features. The intersection with itself can be skipped as it is not needed.</p>
+<section id="creating-heatmap-and-neural-association-score" class="level3">
+<h3 class="anchored" data-anchor-id="creating-heatmap-and-neural-association-score">Creating Heatmap and Neural Association Score</h3>
+<p>Now we will create a heatmap of intersections, where <code>heat_map[i,j]</code> will give us the intersection between the (i)th and (j)th output features. Using this heatmap, we will assign an initial threshold. The dropping score of the (i)th feature is the sum of all intersections (common input features) with other output features. The intersection with itself can be skipped as it is not needed.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap of intersections between output features</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>heat_map <span class="op">=</span> []</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> high_weight:</span>
