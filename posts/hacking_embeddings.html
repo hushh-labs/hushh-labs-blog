@@ -8,7 +8,7 @@
 
 <meta name="author" content="Rohan Sidankar">
 <meta name="dcterms.date" content="2024-06-04">
-<meta name="description" content="A brief over of model embeddings, and how we are tweaking them for better performance.">
+<meta name="description" content="A brief overview of model embeddings, and how we are tweaking them for better performance.">
 
 <title>Hushh Labs - Hacking Embeddings</title>
 <style>
@@ -200,7 +200,7 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#unlocking-the-power-of-semantic-search-optimizing-search-with-dimensionality-reduction-using-feature-selsction" id="toc-unlocking-the-power-of-semantic-search-optimizing-search-with-dimensionality-reduction-using-feature-selsction" class="nav-link active" data-scroll-target="#unlocking-the-power-of-semantic-search-optimizing-search-with-dimensionality-reduction-using-feature-selsction">Unlocking the Power of Semantic Search: Optimizing search with Dimensionality Reduction using Feature Selsction</a>
+  <li><a href="#unlocking-the-power-of-semantic-search-optimizing-search-with-dimensionality-reduction-using-feature-selection" id="toc-unlocking-the-power-of-semantic-search-optimizing-search-with-dimensionality-reduction-using-feature-selection" class="nav-link active" data-scroll-target="#unlocking-the-power-of-semantic-search-optimizing-search-with-dimensionality-reduction-using-feature-selection">Unlocking the Power of Semantic Search: Optimizing Search with Dimensionality Reduction using Feature Selection</a>
   <ul class="collapse">
   <li><a href="#understanding-the-method" id="toc-understanding-the-method" class="nav-link" data-scroll-target="#understanding-the-method">Understanding the Method</a>
   <ul class="collapse">
@@ -210,18 +210,18 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
   </ul></li>
   <li><a href="#implementation-with-openclip" id="toc-implementation-with-openclip" class="nav-link" data-scroll-target="#implementation-with-openclip">Implementation with OpenCLIP</a>
   <ul class="collapse">
-  <li><a href="#importing-the-model-and-state-dictionary" id="toc-importing-the-model-and-state-dictionary" class="nav-link" data-scroll-target="#importing-the-model-and-state-dictionary">Importing the Model and State Dictionary:</a></li>
-  <li><a href="#setting-parameters" id="toc-setting-parameters" class="nav-link" data-scroll-target="#setting-parameters">Setting Parameters:</a></li>
-  <li><a href="#finding-top-k-weights" id="toc-finding-top-k-weights" class="nav-link" data-scroll-target="#finding-top-k-weights">Finding Top-K weights:</a></li>
-  <li><a href="#creating-heatmap-and-dropping-score" id="toc-creating-heatmap-and-dropping-score" class="nav-link" data-scroll-target="#creating-heatmap-and-dropping-score">Creating Heatmap and Dropping Score:</a></li>
-  <li><a href="#dropping-features" id="toc-dropping-features" class="nav-link" data-scroll-target="#dropping-features">Dropping Features:</a></li>
+  <li><a href="#importing-the-model-and-state-dictionary" id="toc-importing-the-model-and-state-dictionary" class="nav-link" data-scroll-target="#importing-the-model-and-state-dictionary">Importing the Model and State Dictionary</a></li>
+  <li><a href="#setting-parameters" id="toc-setting-parameters" class="nav-link" data-scroll-target="#setting-parameters">Setting Parameters</a></li>
+  <li><a href="#finding-top-k-weights" id="toc-finding-top-k-weights" class="nav-link" data-scroll-target="#finding-top-k-weights">Finding Top-K weights</a></li>
+  <li><a href="#creating-heatmap-and-dropping-score" id="toc-creating-heatmap-and-dropping-score" class="nav-link" data-scroll-target="#creating-heatmap-and-dropping-score">Creating Heatmap and Dropping Score</a></li>
+  <li><a href="#dropping-features" id="toc-dropping-features" class="nav-link" data-scroll-target="#dropping-features">Dropping Features</a></li>
   <li><a href="#selecting-final-features" id="toc-selecting-final-features" class="nav-link" data-scroll-target="#selecting-final-features">Selecting Final Features</a></li>
   </ul></li>
   <li><a href="#results-and-performance" id="toc-results-and-performance" class="nav-link" data-scroll-target="#results-and-performance">Results and Performance</a>
   <ul class="collapse">
   <li><a href="#zeroshot-classification" id="toc-zeroshot-classification" class="nav-link" data-scroll-target="#zeroshot-classification">Zeroshot Classification</a></li>
   <li><a href="#zeroshot-retrieval" id="toc-zeroshot-retrieval" class="nav-link" data-scroll-target="#zeroshot-retrieval">Zeroshot Retrieval</a></li>
-  <li><a href="#conclusion-anf-future-improvements" id="toc-conclusion-anf-future-improvements" class="nav-link" data-scroll-target="#conclusion-anf-future-improvements">Conclusion anf future Improvements:</a></li>
+  <li><a href="#conclusion-and-future-improvements" id="toc-conclusion-and-future-improvements" class="nav-link" data-scroll-target="#conclusion-and-future-improvements">Conclusion and Future Improvements</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -241,7 +241,7 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 
 <div>
   <div class="description">
-    A brief over of model embeddings, and how we are tweaking them for better performance.
+    A brief overview of model embeddings, and how we are tweaking them for better performance.
   </div>
 </div>
 
@@ -276,25 +276,25 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 <figcaption>hacking embeddings</figcaption>
 </figure>
 </div>
-<section id="unlocking-the-power-of-semantic-search-optimizing-search-with-dimensionality-reduction-using-feature-selsction" class="level1">
-<h1>Unlocking the Power of Semantic Search: Optimizing search with Dimensionality Reduction using Feature Selsction</h1>
-<p>Semantic search is transforming how we find information, delving deeper into the meaning behind our queries. Unlike traditional text search, semantic search leverages high-dimensional representations created by transformer models, capturing nuanced meanings of texts or images. However, these abstract and complex vectors come at a cost, being resource-intensive and challenging to interpret.</p>
+<section id="unlocking-the-power-of-semantic-search-optimizing-search-with-dimensionality-reduction-using-feature-selection" class="level1">
+<h1>Unlocking the Power of Semantic Search: Optimizing Search with Dimensionality Reduction using Feature Selection</h1>
+<p>Semantic search is transforming how we find information, diving deeper into the meaning behind our queries. Unlike traditional text search, semantic search leverages high-dimensional representations created by transformer models, capturing the nuanced meanings of texts or images. However, these abstract and complex vectors come at a cost, being resource-intensive and challenging to interpret.</p>
 <p>While fine-tuning models for specific tasks can help, we often find ourselves with more dimensions than necessary. Enter dimensionality reduction—a technique that can improve the search process by reducing the number of dimensions, making it faster without sacrificing essential information.</p>
-<p>In this blog, we’ll delve into a feature selection technique for models having linear projection layer using the Clip Example to reduce the dimensionality of vectors generated by transformer models. This method identifies important features based on the weights of the projection layer.</p>
+<p>In this blog, we’ll delve into a feature selection technique for models with a linear projection layer using the CLIP example to reduce the dimensionality of vectors generated by transformer models. This method identifies important features based on the weights of the projection layer.</p>
 <section id="understanding-the-method" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-method">Understanding the Method</h2>
 <p>Our approach focuses on retaining unique information fed through the linear projection layer while dropping features (final features after the projection layer) with redundant information. Let’s break down how this works using an example of a projection layer. Here, the input layer takes values from the model’s last layer, and the output layer projects these into a specific vector space.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/336118525-c8dbb2ca-838a-4b45-9d3a-08e76a4885cd.png" class="img-fluid figure-img"></p>
-<figcaption>Image1</figcaption>
+<figcaption>Basic Model Architecture</figcaption>
 </figure>
 </div>
 <p>To illustrate, consider five input neurons and an output neuron. The information each input neuron carries to the output neuron is proportional to the weight between them.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/336118626-ff7ae77c-b3a1-41b4-883d-57d0d0dcda87.png" class="img-fluid figure-img"></p>
-<figcaption>Image2</figcaption>
+<figcaption>Example Model Weights</figcaption>
 </figure>
 </div>
 <section id="assumption-one-equal-information-distribution" class="level3">
@@ -303,11 +303,11 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 </section>
 <section id="simplified-example" class="level3">
 <h3 class="anchored" data-anchor-id="simplified-example">Simplified Example</h3>
-<p>Imagine marking the highest two weights for three output neurons to decide which neuron to drop. If output neuron 1 (OT1) receives most information from input neurons 4 and 5, and output neuron 2 (OT2) also heavily relies on input neuron 1,4, while output neuron 3 (OT3) relies on input neurons 2 and 5, we can infer redundancy. Since OT1’s information is already captured by OT2 and OT3, we can drop OT1.</p>
+<p>Imagine marking the highest two weights for three output neurons to decide which neuron to drop. If output neuron 1 (OT1) receives most information from input neurons 4 and 5, and output neuron 2 (OT2) also heavily relies on input neurons 1 and 4, while output neuron 3 (OT3) relies on input neurons 2 and 5, we can infer redundancy. Since OT1’s information is already captured by OT2 and OT3, we can drop OT1.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/336118689-52187653-1eda-4c57-ac04-d89fc0d43fae.png" class="img-fluid figure-img"></p>
-<figcaption>Image3</figcaption>
+<figcaption>Comparing Node Weights</figcaption>
 </figure>
 </div>
 </section>
@@ -320,24 +320,24 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="implementation-with-openclip">Implementation with OpenCLIP</h2>
 <p>Let’s implement this technique using the OpenCLIP framework, focusing on the visual projection layer and considering the same final features from the text projection layers.</p>
 <section id="importing-the-model-and-state-dictionary" class="level3">
-<h3 class="anchored" data-anchor-id="importing-the-model-and-state-dictionary">Importing the Model and State Dictionary:</h3>
+<h3 class="anchored" data-anchor-id="importing-the-model-and-state-dictionary">Importing the Model and State Dictionary</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> open_clip</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>model, _, preprocess <span class="op">=</span> open_clip.create_model_and_transforms(<span class="st">'ViT-B-32'</span>, pretrained<span class="op">=</span><span class="st">'laion2b_s34b_b79k'</span>,cache_dir<span class="op">=</span><span class="st">"directory Address to store the model"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>model, _, preprocess <span class="op">=</span> open_clip.create_model_and_transforms(<span class="st">'ViT-B-32'</span>, pretrained<span class="op">=</span><span class="st">'laion2b_s34b_b79k'</span>, cache_dir<span class="op">=</span><span class="st">"directory Address to store the model"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>model_state_dict <span class="op">=</span> model.state_dict()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="setting-parameters" class="level3">
-<h3 class="anchored" data-anchor-id="setting-parameters">Setting Parameters:</h3>
+<h3 class="anchored" data-anchor-id="setting-parameters">Setting Parameters</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Consider top k (by weights) input features for calculating shared information</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>top_k_weights <span class="op">=</span> <span class="dv">512</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we are considering all input features, which means we will be considering every dimension for calculation how many output features shares any input feature</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>drop_number <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of feature we want to drop</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of features we want to drop</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="finding-top-k-weights" class="level3">
-<h3 class="anchored" data-anchor-id="finding-top-k-weights">Finding Top-K weights:</h3>
+<h3 class="anchored" data-anchor-id="finding-top-k-weights">Finding Top-K weights</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find top-k weight input neurons for each output feature</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>high_weight <span class="op">=</span> []</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(model_state_dict[<span class="st">"visual.proj"</span>].T)):</span>
@@ -346,7 +346,7 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>   high_weight.append(max_index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="creating-heatmap-and-dropping-score" class="level3">
-<h3 class="anchored" data-anchor-id="creating-heatmap-and-dropping-score">Creating Heatmap and Dropping Score:</h3>
+<h3 class="anchored" data-anchor-id="creating-heatmap-and-dropping-score">Creating Heatmap and Dropping Score</h3>
 <p>Now we will create a heatmap of intersections, where <code>heat_map[i,j]</code> will give us the intersection between the (i)th and (j)th output features. Using this heatmap, we will assign an initial dropping score. The dropping score of the (i)th feature is the sum of all intersections (common input features) with other output features. The intersection with itself can be skipped as it is not needed.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap of intersections between output features</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>heat_map <span class="op">=</span> []</span>
@@ -366,15 +366,15 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>   dropping_score.append(<span class="bu">sum</span>(i))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="dropping-features" class="level3">
-<h3 class="anchored" data-anchor-id="dropping-features">Dropping Features:</h3>
+<h3 class="anchored" data-anchor-id="dropping-features">Dropping Features</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>drop_index <span class="op">=</span> []</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># loop over the number of features we want to drop</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> drops <span class="kw">in</span> <span class="bu">range</span>(drop_number):</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># drop the feature with maximum dropping score</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>   drop_index.append(np.argmax(dropping_score))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> dropping_score[drop_index[<span class="op">-</span><span class="dv">1</span>]]<span class="op">!=</span><span class="dv">0</span>: <span class="co"># Check if max drop_score is not zero, if zero then dont reduce features</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> dropping_score[drop_index[<span class="op">-</span><span class="dv">1</span>]] <span class="op">!=</span> <span class="dv">0</span>: <span class="co"># Check if max drop_score is not zero, if zero then don't reduce features</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>       <span class="co"># reduce the dropping score for other features by the number of intersection between the actual feature and the dropped feature</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>       dropping_score <span class="op">=</span> [a_i<span class="op">-</span>b_i <span class="cf">for</span> a_i,b_i <span class="kw">in</span> <span class="bu">zip</span>(dropping_score,heat_map[drop_index[<span class="op">-</span><span class="dv">1</span>]])]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>       dropping_score <span class="op">=</span> [a_i <span class="op">-</span> b_i <span class="cf">for</span> a_i, b_i <span class="kw">in</span> <span class="bu">zip</span>(dropping_score, heat_map[drop_index[<span class="op">-</span><span class="dv">1</span>]])]</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>       dropping_score[drop_index[<span class="op">-</span><span class="dv">1</span>]] <span class="op">=</span> <span class="op">-</span><span class="dv">1000</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>       <span class="co"># Assign -1000 (high negative value) for dropped feature</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>   <span class="cf">else</span>:</span>
@@ -382,14 +382,14 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 </section>
 <section id="selecting-final-features" class="level3">
 <h3 class="anchored" data-anchor-id="selecting-final-features">Selecting Final Features</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In final index consider only the feature having final positive dropping score, there by dropping -1000 scored dropped feature</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>final_index <span class="op">=</span> [i <span class="cf">for</span> i,values <span class="kw">in</span> <span class="bu">enumerate</span>(dropping_score) <span class="cf">if</span> values<span class="op">&gt;</span><span class="dv">0</span>]</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Final index are the index of features that we will be the final selected features after dropping features</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In final index consider only the features having final positive dropping score, thereby dropping -1000 scored dropped features</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>final_index <span class="op">=</span> [i <span class="cf">for</span> i, values <span class="kw">in</span> <span class="bu">enumerate</span>(dropping_score) <span class="cf">if</span> values <span class="op">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Final index are the indices of features that will be the final selected features after dropping features</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="results-and-performance" class="level2">
 <h2 class="anchored" data-anchor-id="results-and-performance">Results and Performance</h2>
-<p>We tested the ViT-B-32 Clip model in both original and reduced formats across various datasets, thanks to LAION AI’s Clip Benchmark repository.</p>
+<p>We tested the ViT-B-32 CLIP model in both original and reduced formats across various datasets, thanks to LAION AI’s CLIP Benchmark repository.</p>
 <section id="zeroshot-classification" class="level3">
 <h3 class="anchored" data-anchor-id="zeroshot-classification">Zeroshot Classification</h3>
 <table class="caption-top table">
@@ -510,11 +510,11 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 </tbody>
 </table>
 </section>
-<section id="conclusion-anf-future-improvements" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion-anf-future-improvements">Conclusion anf future Improvements:</h3>
+<section id="conclusion-and-future-improvements" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion-and-future-improvements">Conclusion and Future Improvements</h3>
 <p>There are many different techniques for feature reduction and feature selection. The above method performs feature selection by considering the final weights of the linear projection layer. It uses these weights as an indication of how information provided as input to the projection layer is shared across the output features. Using this information, it attempts to eliminate features whose information can be preserved by retaining other sets of features.</p>
 <p>Here, we assume two things: 1. There is an equal distribution of information across the input neurons of the projection layer. 2. All output neurons connected to an input neuron contain information from the input neuron in varying proportions.</p>
-<p>The model has been benchmarked accordingly. From observations, the model performs better than the actual model when it focuses only on major details. Further testing can be conducted by dropping different numbers of features and comparing the results.</p>
+<p>The model has been benchmarked accordingly. From observations, the model performs better than the original model when it focuses only on major details. Further testing can be conducted by dropping different numbers of features and comparing the results.</p>
 <p>There are additional improvements that can be made. For example, instead of just considering the intersection between input features for two output features, we can also consider the proportion of input information shared between two output features by comparing their weights. This would give us a metric to assess shared information and determine whether or not to drop a feature based on it.</p>
 
 
