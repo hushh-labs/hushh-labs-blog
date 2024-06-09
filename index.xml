@@ -23,7 +23,7 @@
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://hushh-labs.github.io/hushh-labs-blog/posts/images/omgjjd_children_searching_through_neural_network_embedding_for__46c878b5-9a5a-486f-a218-f0dc48fb7c91.png" class="img-fluid figure-img"></p>
-<figcaption>hacking embeddings</figcaption>
+<figcaption>Hacking Embeddings</figcaption>
 </figure>
 </div>
 <section id="unlocking-the-power-of-semantic-search-optimizing-search-with-dimensionality-reduction-using-feature-selection" class="level1">
@@ -225,7 +225,7 @@ font-style: inherit;"># take sum of all the intersection with others for ith fea
 background-color: null;
 font-style: inherit;">sum</span>(i))</span></code></pre></div>
 </div>
-<p>The following is a subset of the vector associations, showing the heatmap of only the first 20 rows and columns of the heatmap.</p>
+<p>The following is a subset of the vector associations, showing the heatmap of only the first 20 rows and columns of the heatmap. As typical of correlation scores, the diagonals reflect an identity score, which will always be perfect (e.g.&nbsp;512)</p>
 <div id="26569a43-93ef-4a97-af55-42d0ffc7163c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
 background-color: null;
