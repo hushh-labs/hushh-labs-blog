@@ -2,7 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/hacking_embeddings.html",
+      "/posts/optimizing_search.html",
       "/posts/python_engineering.html",
       "/posts/you_dont_need_a_vector_database.html",
       "/posts/survey_on_llm_privacy.html",
