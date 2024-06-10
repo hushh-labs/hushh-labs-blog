@@ -1162,7 +1162,11 @@ gtag('config', 'G-WBK4GY6RXB', { 'anonymize_ip': true});
 <section id="conclusion-and-future-improvements" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion-and-future-improvements">Conclusion and Future Improvements</h3>
 <p>There are many different techniques for feature reduction and feature selection. The above method performs feature selection by considering the final weights of the linear projection layer. It uses these weights as an indication of how information provided as input to the projection layer is shared across the output features. Using this information, it attempts to eliminate features whose information can be preserved by retaining other sets of features.</p>
-<p>Here, we assume two things: 1. There is an equal distribution of information across the input neurons of the projection layer. 2. All output neurons connected to an input neuron contain information from the input neuron in varying proportions.</p>
+<p>Here, we assume two things:</p>
+<ol type="1">
+<li>There is an equal distribution of information across the input neurons of the projection layer.</li>
+<li>All output neurons connected to an input neuron contain information from the input neuron in varying proportions.</li>
+</ol>
 <p>The model has been benchmarked accordingly. From observations, the model performs better than the original model when it focuses only on major details. Further testing can be conducted by dropping different numbers of features and comparing the results.</p>
 <p>There are additional improvements that can be made. For example, instead of just considering the intersection between input features for two output features, we can also consider the proportion of input information shared between two output features by comparing their weights. This would give us a metric to assess shared information and determine whether or not to drop a feature based on it.</p>
 
