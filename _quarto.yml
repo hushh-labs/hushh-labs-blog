@@ -33,3 +33,5 @@ format:
       theme: neutral
 
 
+resources:
+  - CNAME
